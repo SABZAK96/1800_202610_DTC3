@@ -66,7 +66,7 @@ elmo-hikes/
 
 
 ## Contributors
-- **Saba** - BCIT CST Student and I'm struggling with git right now! Fun fact: I hate git!
+- **Saba** - BCIT CST Student and I'm struggling with git right now! Not so Funny fact: I hate git!
 
 
 ---
