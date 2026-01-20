@@ -67,6 +67,8 @@ elmo-hikes/
 
 ## Contributors
 - **Alex** - BCIT CST Student with a passion for art and design. Fun fact: I have a pet dog named Jupiter.
+- **Saba** - BCIT CST Student and I'm struggling with git right now! Fun fact: I hate git!
+
 ---
 
 
