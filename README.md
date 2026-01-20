@@ -1,13 +1,12 @@
 # Elmo Hikes
 
-
 ## Overview
+
 Elmo Hikes is a client-side JavaScript web application that helps users discover and explore hiking trails. The app displays a curated list of hike trails, each with details such as name, location, difficulty, and an image. Users can browse the list and mark their favorite trails for easy access later.
 
 Developed for the COMP 1800 course, this project applies User-Centred Design practices and agile project management, and demonstrates integration with Firebase backend services for storing user favorites.
 
 ---
-
 
 ## Features
 
@@ -18,7 +17,6 @@ Developed for the COMP 1800 course, this project applies User-Centred Design pra
 
 ---
 
-
 ## Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript
@@ -27,7 +25,6 @@ Developed for the COMP 1800 course, this project applies User-Centred Design pra
 - **Database**: Firestore
 
 ---
-
 
 ## Usage
 
@@ -46,7 +43,6 @@ Once the application is running:
 
 ---
 
-
 ## Project Structure
 
 ```
@@ -64,13 +60,13 @@ elmo-hikes/
 
 ---
 
-
 ## Contributors
-- **Saba** - BCIT CST Student and I'm struggling with git right now! Not so Funny fact: I hate git!
 
+- **Sacha Clements** - BCIT CST Student who loves github so so so so so soooo much.
+- **Saba** - BCIT CST Student and I'm struggling with git right now! Fun fact: I hate git!
+- **Alex** - BCIT CST Student with a passion for art and design. Fun fact: I have a pet dog named Jupiter.
 
 ---
-
 
 ## Acknowledgments
 
@@ -80,8 +76,8 @@ elmo-hikes/
 
 ---
 
-
 ## Limitations and Future Work
+
 ### Limitations
 
 - Limited trail details (e.g., no live trail conditions).
@@ -94,7 +90,6 @@ elmo-hikes/
 - Create a dark mode for better usability in low-light conditions.
 
 ---
-
 
 ## License
 
