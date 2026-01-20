@@ -64,6 +64,7 @@ elmo-hikes/
 
 - **Sacha Clements** - BCIT CST Student who loves github so so so so so soooo much.
 - **Saba** - BCIT CST Student and I'm struggling with git right now! Fun fact: I hate git!
+- **Alex** - BCIT CST Student with a passion for art and design. Fun fact: I have a pet dog named Jupiter.
 
 ---
 
