@@ -9,8 +9,12 @@
  
  .nav-link {
     padding-left: 3px;
-    padding-right:px;
-     display: flex;  
+    padding-right:3px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;  
+     
+     
 }
 
 
@@ -31,14 +35,18 @@
     justify-content: space-evenly;
     align-items: center;    
 }
+ .nav-item {
+    color: rgb(68, 86, 41);
 
+}
  .nav-link > span {
     display: inline-block;
-    color: rgb(68, 86, 41);
+    
 }
 .nav-link >span :hover {
     color: rgb(30, 43, 12);
 
 }
+
 
     
