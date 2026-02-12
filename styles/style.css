@@ -1,17 +1,19 @@
- .rounded-box {
-  width: 100%;
-  background-color: rgb(206, 230, 171);
-  border-radius: 25px 25px 0 0;
-  height: auto;
-  padding-bottom: 6px;
-  padding-top: 6px;
+
+
+.rounded-box {
+    width: 100%;
+    background-color: rgb(206, 230, 171);
+    border-radius: 25px 25px 0 0;
+    height: auto;
+    padding-bottom: 6px;
+    padding-top: 6px;
 }
- 
- .nav-link {
+
+.nav-link {
     padding-left: 3px;
     padding-right:3px;
-     display: flex; 
-     flex-direction: column;
+    display: flex; 
+    flex-direction: column;
     align-items: center;
     justify-content: center; 
 }
@@ -25,7 +27,7 @@
     
     width: 100%;
     margin:auto;
-   
+    
 }
 .navbar-nav { 
     display: flex;
@@ -35,7 +37,7 @@
     align-items: center;    
 }
 
- .nav-link > span {
+.nav-link > span {
     display: inline-block;
     color: rgb(68, 86, 41);
 }
@@ -55,17 +57,22 @@
   }
 
 @media (min-width: 992px){
+      #footer{
+        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-left: 10px;
+    }
    
      #welcome{
         bottom:10px;
     }
   
     .navbar{
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height: auto;
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height: auto;
     }
      .rounded-box {
   width: 100%;
@@ -82,7 +89,7 @@
     width:60%;
 }
 .visib {
-  display:inline-block;
+    display:inline-block;
   margin:0;
   width: fit-content;
   font-size: 20px;
@@ -90,62 +97,70 @@
   
 }
 
- .navbar > div.container-fluid {
+.navbar > div.container-fluid {
         
-        display: flex ;
+    display: flex ;
         flex-wrap: nowrap;
         justify-content: flex-start;
     
-    
-    
-}
-.navbar-nav{
+    }
+    .navbar-nav{
         display: flex ;
         flex-direction: row ;
         gap: 40px; 
         margin-left: 50px ;
-    
-}
-#navbarNav {
-    display: flex ;
-    flex-basis: auto;
-    justify-content: space-between; 
-    align-items: center;
         
-}
-.navbar-brand {
-    padding-right: 30px;
-    padding-left: 30px;
-    
-    color: rgb(68, 86, 41);
-}
-    #sbar {
-    display: flex;
-    gap: 10px;
-    margin-left: auto;
-    padding-right: 20px; 
-    flex-shrink: 0;
     }
-    
+    #navbarNav {
+        display: flex ;
+        flex-basis: auto;
+        justify-content: space-between; 
+        align-items: center;
+        
+    }
+    .navbar-brand {
+        padding-right: 30px;
+        padding-left: 30px;
+        
+        color: rgb(68, 86, 41);
+    }
+    #sbar {
+        display: flex;
+        gap: 10px;
+        margin-left: auto;
+        padding-right: 20px; 
+        flex-shrink: 0;
+    }
+
     #sbar input {
-    width: 200px; 
-    border: 1px solid rgb(68, 86, 41);
-    border-radius: 20px;
+        width: 200px; 
+        border: 1px solid rgb(68, 86, 41);
+        border-radius: 20px;
        
     }
     
     #sbar button {
-    border: 1px solid rgb(68, 86, 41);
-    color: rgb(68, 86, 41);
-    border-radius: 15px;
+        border: 1px solid rgb(68, 86, 41);
+        color: rgb(68, 86, 41);
+        border-radius: 15px;
     padding: 5px 15px;
     }
-    
+
     #sbar button:hover {
         background-color: rgb(68, 86, 41);
         color: white;
     }
 
+}
+
+
+#footer{
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    background-color:rgb(185, 202, 159);
+    color: rgb(68, 86, 41);
+    width:100%;
 }
 
 @media (max-width: 991px) {
@@ -159,8 +174,10 @@
   #sbar {
     display: none;
   }
-  
-
+   #footer{
+        padding-bottom: 100px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
 }
 
-    
