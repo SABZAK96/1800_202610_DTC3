@@ -1,4 +1,5 @@
 
+
 .rounded-box {
     width: 100%;
     background-color: rgb(206, 230, 171);
@@ -48,12 +49,24 @@
     float:left;
 }
 
-@media (min-width: 991px){
-    #footer{
+  #Loginbtn{
+    margin-top: 10px;
+    background-color: rgb(206, 230, 171);
+    color: rgb(68, 86, 41);
+    border-color: rgb(206, 230, 171);
+  }
+
+@media (min-width: 992px){
+      #footer{
         padding-bottom: 20px;
         padding-top: 10px;
         padding-left: 10px;
     }
+   
+     #welcome{
+        bottom:10px;
+    }
+  
     .navbar{
         position: fixed;
         top:0;
@@ -68,6 +81,7 @@
   height: fit-content;
   padding-bottom: 2px;
   padding-top: 2px;
+  
 }
 .navbar-nav {
     align-items: start;
@@ -150,13 +164,17 @@
 }
 
 @media (max-width: 991px) {
-    .visib {
-        display: none;
+  
+      #welcome{
+        bottom:45px;
     }
-    #sbar {
-        display: none;
-    }   
-    #footer{
+  .visib {
+    display: none;
+  }
+  #sbar {
+    display: none;
+  }
+   #footer{
         padding-bottom: 100px;
         padding-left: 10px;
         padding-top: 10px;
