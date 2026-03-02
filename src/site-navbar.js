@@ -10,7 +10,7 @@ class SiteNavbar extends HTMLElement {
 
     renderNavbar() {
         this.innerHTML = `
-         <nav>
+        <nav>
         <!--Desktop-->
         <!--Outer Container-->
         <div class="hidden md:flex md:flex-col fixed left-0 justify-between w-50 h-screen p-7">
