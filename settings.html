@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script type="module" src="./src/site-navbar.js"></script>
+    <script type="module" src="./src/site-footer.js"></script>
+
+    <!-- Other libraries go here -->
+
+  </head>
+  
+<body class="bg-[#ccc5b6] flex flex-row">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+  <site-navbar></site-navbar>
+  
+  <style>
+        .current-page {
+            background-color: #f4f1ea;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <nav>
+        <!--Desktop-->
+        <!--Outer Container-->
+        <div class="hidden md:flex md:flex-col fixed left-0 justify-between w-50 h-screen p-7">
+            <!--Top Part-->
+            <div class="flex flex-col gap-2">
+                <img src="images/extra-time-logo-green-and-white.svg" class="mb-10">
+                <!--Menu Item 1-->
+                <a href="main.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full bg-white hover:bg-[#f4f1ea] current-page">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#74af27] w-8 pr-1" fill="currentColor">
+                            <path class="cls-1" d="M134.16,52.58H62.51c-18.39,0-33.3,14.91-33.3,33.3v71.64c0,18.39,14.91,33.3,33.3,33.3h18.67v-37.86c0-9.47,7.68-17.15,17.15-17.15h0c9.47,0,17.15,7.68,17.15,17.15v37.86h18.67c18.39,0,33.3-14.91,33.3-33.3v-71.64c0-18.39-14.91-33.3-33.3-33.3Z"/>
+                            <path class="cls-1" d="M76.51,13.5l-57.15,50.89c-22.52,20.05-8.34,57.32,21.82,57.32h114.3c30.16,0,44.34-37.26,21.82-57.32L120.16,13.5c-12.44-11.08-31.2-11.08-43.64,0Z"/>
+                        </svg>
+                        <p>Home</p>
+                    </div>
+                </button>
+                </a>
+                <!--Menu Item 2-->
+                <a href="events.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8 pr-1" fill="currentColor">
+                            <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.62s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM151.56,53.26l-24.65,48.45c-5.53,10.86-14.35,19.69-25.21,25.21l-48.44,24.65c-3.59,1.82-7.42-2-5.59-5.59l24.65-48.45c5.53-10.86,14.35-19.69,25.21-25.21l48.44-24.65c3.59-1.82,7.42,2,5.59,5.59Z"/>
+                            <circle class="cls-1" cx="99.61" cy="99.61" r="8.99"/>
+                        </svg>
+                        <p>Explore</p>
+                    </div>
+                </button>
+                </a>
+                <!--Menu Item 3-->
+                <a href="calendar.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8 pr-1" fill="currentColor">
+                            <path class="cls-1" d="M16.96,82.4v79.14c0,17.59,14.26,31.85,31.85,31.85h104.71c17.59,0,31.85-14.26,31.85-31.85v-79.14H16.96ZM68.33,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM68.33,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63Z"/>
+                            <path class="cls-1" d="M185.37,65.28v-8.46c0-17.59-14.26-31.85-31.85-31.85H48.81c-17.59,0-31.85,14.26-31.85,31.85v8.46h168.41Z"/>
+                            <rect class="cls-1" x="47.38" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
+                            <rect class="cls-1" x="132.79" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
+                        </svg>
+                        <p>Calendar</p>
+                    </div>
+                </button>
+                </a>
+                <!--Menu Item 4-->
+                <a href="friends.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8 pr-1" fill="currentColor">
+                            <circle class="cls-1" cx="136.7" cy="55.58" r="30.06"/>
+                            <circle class="cls-1" cx="65.72" cy="45.58" r="30.06"/>
+                            <path class="cls-1" d="M65.72,193.03c7.64,0,14.92.35,21.59.35,21.01,0,35.83-3.5,35.83-32.56,0-38.27-25.71-69.3-57.42-69.3S8.3,122.55,8.3,160.83c0,29.06,14.82,32.56,35.83,32.56,6.66,0,13.95-.35,21.59-.35Z"/>
+                            <path class="cls-1" d="M136.7,100c-7.52,0-14.68,1.64-21.26,4.55,14.29,14.76,23.29,35.71,23.29,58.99,0,13.29-3.03,22.73-7.62,29.58,1.84-.03,3.7-.05,5.59-.05,31.71,0,57.42,5.57,57.42-29.52s-25.71-63.54-57.42-63.54Z"/>
+                        </svg>
+                        <p>Friends</p>
+                    </div>
+                </button>
+                </a>
+            </div>
+            
+            <!--Bottom part-->
+            <div>
+                <!--Menu Item 5-->
+                <a href="settings.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8" fill="currentColor">
+                            <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.61s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM99.61,35.23c17.15,0,31.06,13.9,31.06,31.06s-13.9,31.06-31.06,31.06-31.06-13.9-31.06-31.06,13.9-31.06,31.06-31.06ZM99.61,183.71c-26.64,0-50.37-12.4-65.77-31.73,13.7-21.91,38.03-36.49,65.77-36.49s52.07,14.58,65.77,36.49c-15.41,19.33-39.14,31.73-65.77,31.73Z"/>
+                        </svg>
+                        <p>Profile</p>
+                    </div>
+                </button>
+                </a>
+            </div>
+
+        </div>
+
+        <!--Mobile-->
+        <div class="fixed bottom-0 w-full bg-gradient-to-t from-[#ccc5b6]/75 to-transparent z-50 md:z-0 md:flex">
+        <div class="flex flex-row md:hidden m-5 px-3 h-20 min-w-[250px] bg-white justify-between items-center gap-2 shadow-2xl rounded-full">
+            <!--Menu Item 1-->
+            <a href="main.html">
+            <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea] current-page">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#74af27] w-8 mx-auto" fill="currentColor">
+                    <path class="cls-1" d="M134.16,52.58H62.51c-18.39,0-33.3,14.91-33.3,33.3v71.64c0,18.39,14.91,33.3,33.3,33.3h18.67v-37.86c0-9.47,7.68-17.15,17.15-17.15h0c9.47,0,17.15,7.68,17.15,17.15v37.86h18.67c18.39,0,33.3-14.91,33.3-33.3v-71.64c0-18.39-14.91-33.3-33.3-33.3Z"/>
+                    <path class="cls-1" d="M76.51,13.5l-57.15,50.89c-22.52,20.05-8.34,57.32,21.82,57.32h114.3c30.16,0,44.34-37.26,21.82-57.32L120.16,13.5c-12.44-11.08-31.2-11.08-43.64,0Z"/>
+                </svg>
+            </button>
+            </a>
+            <!--Menu Item 2-->
+            <a href="events.html">
+            <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea]">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#ccc5b6] w-8 mx-auto" fill="currentColor">
+                    <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.62s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM151.56,53.26l-24.65,48.45c-5.53,10.86-14.35,19.69-25.21,25.21l-48.44,24.65c-3.59,1.82-7.42-2-5.59-5.59l24.65-48.45c5.53-10.86,14.35-19.69,25.21-25.21l48.44-24.65c3.59-1.82,7.42,2,5.59,5.59Z"/>
+                    <circle class="cls-1" cx="99.61" cy="99.61" r="8.99"/>
+                </svg>
+            </button>
+            </a>
+            <!--Menu Item 3-->
+            <a href="calendar.html">
+            <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea]">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#ccc5b6] w-8 mx-auto" fill="currentColor">
+                    <path class="cls-1" d="M16.96,82.4v79.14c0,17.59,14.26,31.85,31.85,31.85h104.71c17.59,0,31.85-14.26,31.85-31.85v-79.14H16.96ZM68.33,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM68.33,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63Z"/>
+                    <path class="cls-1" d="M185.37,65.28v-8.46c0-17.59-14.26-31.85-31.85-31.85H48.81c-17.59,0-31.85,14.26-31.85,31.85v8.46h168.41Z"/>
+                    <rect class="cls-1" x="47.38" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
+                    <rect class="cls-1" x="132.79" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
+                </svg>
+            </button>
+            </a>
+            <!--Menu Item 4-->
+            <a href="friends.html">
+            <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea]">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#ccc5b6] w-8 mx-auto" fill="currentColor">
+                    <circle class="cls-1" cx="136.7" cy="55.58" r="30.06"/>
+                    <circle class="cls-1" cx="65.72" cy="45.58" r="30.06"/>
+                    <path class="cls-1" d="M65.72,193.03c7.64,0,14.92.35,21.59.35,21.01,0,35.83-3.5,35.83-32.56,0-38.27-25.71-69.3-57.42-69.3S8.3,122.55,8.3,160.83c0,29.06,14.82,32.56,35.83,32.56,6.66,0,13.95-.35,21.59-.35Z"/>
+                    <path class="cls-1" d="M136.7,100c-7.52,0-14.68,1.64-21.26,4.55,14.29,14.76,23.29,35.71,23.29,58.99,0,13.29-3.03,22.73-7.62,29.58,1.84-.03,3.7-.05,5.59-.05,31.71,0,57.42,5.57,57.42-29.52s-25.71-63.54-57.42-63.54Z"/>
+                </svg>
+            </button>
+            </a>
+            <!--Menu Item 5-->
+            <a href="settings.html">
+                <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea]">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#ccc5b6] w-8 mx-auto" fill="currentColor">
+                        <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.61s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM99.61,35.23c17.15,0,31.06,13.9,31.06,31.06s-13.9,31.06-31.06,31.06-31.06-13.9-31.06-31.06,13.9-31.06,31.06-31.06ZM99.61,183.71c-26.64,0-50.37-12.4-65.77-31.73,13.7-21.91,38.03-36.49,65.77-36.49s52.07,14.58,65.77,36.49c-15.41,19.33-39.14,31.73-65.77,31.73Z"/>
+                    </svg>
+                </button>
+            </a>
+        </div>
+        </div>
+    </nav>
+  
+  <main class="w-full pt-5 px-10 ml-0 md:ml-50 mx-auto bg-[#f4f1ea] rounded-0 md:rounded-tl-[40px] md:rounded-bl-[40px]">
+
+  <h1 class="border-b border-gray-900/10 pb-10 mt-20">Settings</h1>
+  <form>
+  <div class="space-y-12">
+    <div class="border-b border-gray-300 pb-12">
+      <h2 class="text-base/7 font-semibold text-gray-900">Profile</h2>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-6">
+          <label for="username" class="block text-sm/6 font-medium text-gray-900">Username</label>
+          <div class="mt-2">
+            <div class="flex items-center overflow-hidden rounded-md bg-white pl-3 border border-gray-300 focus:outline-2 focus-within:border-[var(--primary-green)]">
+              <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">extratime.com/</div>
+              <input id="username" type="text" name="username" placeholder="janesmith" class="block border-0 min-w-0 grow bg-white py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-full">
+          <label for="photo" class="block text-sm/6 font-medium text-gray-900">Photo</label>
+          <div class="mt-2 flex items-center gap-x-3">
+            <svg viewBox="0 0 24 24" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-12 text-gray-300">
+              <path d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" fill-rule="evenodd" />
+            </svg>
+            <button type="button" class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300 hover:bg-gray-50">Change</button>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-base/7 font-semibold text-gray-900">Personal Information</h2>
+
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-3">
+          <label for="first-name" class="block text-sm/6 font-medium text-gray-900">First name</label>
+          <div class="mt-2">
+            <input id="first-name" type="text" name="first-name" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-[var(--primary-green)] sm:text-sm/6"/>
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Last name</label>
+          <div class="mt-2">
+            <input id="last-name" type="text" name="last-name" autocomplete="family-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-[var(--primary-green)] sm:text-sm/6"/>
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
+          <div class="mt-2">
+            <input id="email" type="email" name="email" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-[var(--primary-green)] sm:text-sm/6"/>
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="country" class="block text-sm/6 font-medium text-gray-900">Country</label>
+          <div class="mt-2 grid grid-cols-1">
+            <select id="country" name="country" autocomplete="country-name" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 border-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-[var(--primary-green)] sm:text-sm/6">
+              <option>United States</option>
+              <option>Canada</option>
+              <option>Mexico</option>
+            </select>
+           
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+    <!--Personal Recommendations-->
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-base/7 font-semibold text-gray-900">Personal Recommendations</h2>
+      <p class="mt-1 text-sm/6 text-gray-600">Let us know what kind of events you're interested in</p>
+
+      <div class="mt-10 space-y-10">
+        <fieldset>
+          <legend class="text-sm/6 font-semibold text-gray-900">Type of events</legend>
+          <div class="mt-6 space-y-6">
+            <!--Watch Parties-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="watchparties" type="checkbox" name="watchparties" checked aria-describedby="watchparties-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="comments" class="font-medium text-gray-900">Watch Parties</label>
+                <p id="comments-description" class="text-gray-500">Celebrate the big moments with fellow fans</p>
+              </div>
+            </div>
+
+            <!--Music-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="music" type="checkbox" name="music" aria-describedby="music-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="music" class="font-medium text-gray-900">Music</label>
+                <p id="music-description" class="text-gray-500">Catch a live concert featuring Canadian talent, and international acts.</p>
+              </div>
+            </div>
+
+            <!--Interactive-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="soccer" type="checkbox" name="soccer" aria-describedby="soccer-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="interactive" class="font-medium text-gray-900">Interactive</label>
+                <p id="interactive-description" class="text-gray-500">Sports, installations and outdoor events</p>
+              </div>
+            </div>
+
+            <!--Arts-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="arts" type="checkbox" name="arts" aria-describedby="arts-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="arts" class="font-medium text-gray-900">Arts</label>
+                <p id="arts-description" class="text-gray-500">Galleries, museums and independent exhibits</p>
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+
+        <!--Budget-->
+        <fieldset>
+          <legend class="text-sm/6 font-semibold text-gray-900">Budget</legend>
+          <p class="mt-1 text-sm/6 text-gray-600">Select a range</p>
+          <div class="mt-6 space-y-6">
+            <div class="flex items-center gap-x-3">
+              <input id="budget-50" type="radio" name="budget" checked class="appearance-none rounded-full border border-gray-300 accent-indigo-600"/>
+              <label for="budget-50" class="block text-sm/6 font-medium text-gray-900">Less than $50</label>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <input id="budget-100" type="radio" name="budget" class="appearance-none rounded-full border border-gray-300 accent-indigo-600"/>
+              <label for="budget-100" class="block text-sm/6 font-medium text-gray-900">Less than $100</label>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <input id="budget-200" type="radio" name="budget" class="appearance-none rounded-full border border-gray-300 accent-indigo-600"/>
+              <label for="budget-200" class="block text-sm/6 font-medium text-gray-900">Less than $200</label>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <input id="no-budget" type="radio" name="budget" class="appearance-none rounded-full border border-gray-300 accent-indigo-600"/>
+              <label for="no-budget" class="block text-sm/6 font-medium text-gray-900">No limit</label>
+            </div>
+          </div>
+        </fieldset>
+        
+        <!--Preferred days-->
+        <fieldset>
+          <legend class="text-sm/6 font-semibold text-gray-900">Preferred days</legend>
+          <div class="mt-6 space-y-6">
+
+            <!--Monday-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="monday" type="checkbox" name="momday" checked aria-describedby="monday-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="monday" class="font-medium text-gray-900">Monday</label>
+              </div>
+            </div>
+
+            <!--tuesday-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="tuesday" type="checkbox" name="tuesday" checked aria-describedby="tuesday-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="tuesday" class="font-medium text-gray-900">Tuesday</label>
+              </div>
+            </div>
+
+            <!--wednesday-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="wednesday" type="checkbox" name="wednesday" checked aria-describedby="wednesday-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="wednesday" class="font-medium text-gray-900">Wednesday</label>
+              </div>
+            </div>
+
+            <!--thursday-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="thursday" type="checkbox" name="thursday" checked aria-describedby="thursday-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="thursday" class="font-medium text-gray-900">Thursday</label>
+              </div>
+            </div>
+
+            <!--friday-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="friday" type="checkbox" name="friday" checked aria-describedby="friday-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="friday" class="font-medium text-gray-900">Friday</label>
+              </div>
+            </div>
+
+            <!--saturday-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="saturday" type="checkbox" name="saturday" checked aria-describedby="saturday-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="saturday" class="font-medium text-gray-900">Saturday</label>
+              </div>
+            </div>
+
+            <!--Sunday-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="sunday" type="checkbox" name="sunday" checked aria-describedby="sunday-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="sunday" class="font-medium text-gray-900">Sunday</label>
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+
+        <!--transportation-->
+        <fieldset>
+          <legend class="text-sm/6 font-semibold text-gray-900">Transportation Methods</legend>
+          <div class="mt-6 space-y-6">
+
+            <!--Walk-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="walk" type="checkbox" name="walk" checked aria-describedby="walk-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="walk" class="font-medium text-gray-900">Walk</label>
+              </div>
+            </div>
+
+            <!--Bike-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="bike" type="checkbox" name="bike" aria-describedby="bike-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="bike" class="font-medium text-gray-900">Bike</label>
+              </div>
+            </div>
+
+            <!--Car-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="car" type="checkbox" name="car" aria-describedby="car-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="car" class="font-medium text-gray-900">Car</label>
+              </div>
+            </div>
+
+            <!--Public Transport-->
+            <div class="flex gap-3">
+              <div class="flex h-6 shrink-0 items-center">
+                <div class="group grid size-4 grid-cols-1">
+                  <input id="public-transport" type="checkbox" name="public-transport" checked aria-describedby="public-transport-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                  <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                    <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                    <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm/6">
+                <label for="public-transport" class="font-medium text-gray-900">Public Transport</label>
+              </div>
+            </div>
+
+
+          </div>
+        </fieldset>
+
+        <!--Distance-->
+        <fieldset>
+          <legend class="text-sm/6 font-semibold text-gray-900">Distance</legend>
+          <p class="mt-1 text-sm/6 text-gray-600">Select a range</p>
+          <div class="mt-6 space-y-6">
+            <div class="flex items-center gap-x-3">
+              <input id="budget-50" type="radio" name="budget" checked class="appearance-none rounded-full border border-gray-300 accent-indigo-600" />
+              <label for="budget-50" class="block text-sm/6 font-medium text-gray-900">Less than $50</label>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <input id="budget-100" type="radio" name="budget" class="appearance-none rounded-full border border-gray-300 accent-indigo-600" />
+              <label for="budget-100" class="block text-sm/6 font-medium text-gray-900">Less than $100</label>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <input id="budget-200" type="radio" name="budget" class="appearance-none rounded-full border border-gray-300 accent-indigo-600" />
+              <label for="budget-200" class="block text-sm/6 font-medium text-gray-900">Less than $200</label>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <input id="no-budget" type="radio" name="budget" class="appearance-none rounded-full border border-gray-300 accent-indigo-600" />
+              <label for="no-budget" class="block text-sm/6 font-medium text-gray-900">No limit</label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6 mb-20 flex items-center justify-start gap-x-6">
+    <button type="submit" class="rounded-md bg-[var(--primary-green)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[var(--primary-green)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]">Save</button>
+    <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
+  </div>
+  </form>
+  </main>
+
+    <!--Confirmation dialog box-->
+  <div class="fixed inset-0 bg-black/50 flex items-center justify-center hidden"> <!--Background-->
+    <!--Text Box-->
+    <div class="relative w-100 mx-auto bg-white rounded-md p-10 shadow-2xl">
+      <h2>Changes Saved</h2>
+      <button>Continue</button>
+    </div>
+  </div>
+  <site-footer></site-footer>
+<!---------------------------------------------->
+<!-- Your own JavaScript functions go here    -->
+<!---------------------------------------------->
+
+  <!-- Link to scripts of your own -->
+  <script type="module" src="./src/main.js"></script>
+   
+
+</body>
+
+</html>
