@@ -9,60 +9,140 @@ class SiteNavbar extends HTMLElement {
     }
 
     renderNavbar() {
-        this.innerHTML = `<nav class="navbar fixed-bottom  rounded-box  ">
-    <div class="container-fluid  ">
-    <div class="visib" >  <a class="navbar-brand" href="#">
-    <img src="./images/Flat-soccer-ball--on-transparent-background-PNG.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    EXTRA TIME
-  </a></div>
-  <div id="navbarNav" class="">
-      <ul class="navbar-nav flex-row ">
-      <li class="nav-item">
-          <a class="nav-link" href="#">Home
-            <span> 
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-  <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
-</svg>
-            </span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Explore
-            <span> 
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg>
-            </span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Calendar<span><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
-            <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z"/>
-            <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-            </svg></span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Friends<span> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-            </svg></span>
-          </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Profile<span><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-            </svg></span></a>
-          </div>
-        </li>
-      </ul>
-      <form id="sbar" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    </div>
-  </div>
-</nav>`;
+        this.innerHTML = `
+         <nav>
+        <!--Desktop-->
+        <!--Outer Container-->
+        <div class="hidden md:flex md:flex-col fixed left-0 justify-between w-50 h-screen p-7">
+            <!--Top Part-->
+            <div class="flex flex-col gap-2">
+                <img src="images/extra-time-logo-green-and-white.svg" class="mb-10">
+                <!--Menu Item 1-->
+                <a href="main.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full bg-white hover:bg-[#f4f1ea] current-page">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#74af27] w-8 pr-1" fill="currentColor">
+                            <path class="cls-1" d="M134.16,52.58H62.51c-18.39,0-33.3,14.91-33.3,33.3v71.64c0,18.39,14.91,33.3,33.3,33.3h18.67v-37.86c0-9.47,7.68-17.15,17.15-17.15h0c9.47,0,17.15,7.68,17.15,17.15v37.86h18.67c18.39,0,33.3-14.91,33.3-33.3v-71.64c0-18.39-14.91-33.3-33.3-33.3Z"/>
+                            <path class="cls-1" d="M76.51,13.5l-57.15,50.89c-22.52,20.05-8.34,57.32,21.82,57.32h114.3c30.16,0,44.34-37.26,21.82-57.32L120.16,13.5c-12.44-11.08-31.2-11.08-43.64,0Z"/>
+                        </svg>
+                        <p>Home</p>
+                    </div>
+                </button>
+                </a>
+                <!--Menu Item 2-->
+                <a href="explore.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8 pr-1" fill="currentColor">
+                            <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.62s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM151.56,53.26l-24.65,48.45c-5.53,10.86-14.35,19.69-25.21,25.21l-48.44,24.65c-3.59,1.82-7.42-2-5.59-5.59l24.65-48.45c5.53-10.86,14.35-19.69,25.21-25.21l48.44-24.65c3.59-1.82,7.42,2,5.59,5.59Z"/>
+                            <circle class="cls-1" cx="99.61" cy="99.61" r="8.99"/>
+                        </svg>
+                        <p>Explore</p>
+                    </div>
+                </button>
+                </a>
+                <!--Menu Item 3-->
+                <a href="calendar.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8 pr-1" fill="currentColor">
+                            <path class="cls-1" d="M16.96,82.4v79.14c0,17.59,14.26,31.85,31.85,31.85h104.71c17.59,0,31.85-14.26,31.85-31.85v-79.14H16.96ZM68.33,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM68.33,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63Z"/>
+                            <path class="cls-1" d="M185.37,65.28v-8.46c0-17.59-14.26-31.85-31.85-31.85H48.81c-17.59,0-31.85,14.26-31.85,31.85v8.46h168.41Z"/>
+                            <rect class="cls-1" x="47.38" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
+                            <rect class="cls-1" x="132.79" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
+                        </svg>
+                        <p>Calendar</p>
+                    </div>
+                </button>
+                </a>
+                <!--Menu Item 4-->
+                <a href="friends.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8 pr-1" fill="currentColor">
+                            <circle class="cls-1" cx="136.7" cy="55.58" r="30.06"/>
+                            <circle class="cls-1" cx="65.72" cy="45.58" r="30.06"/>
+                            <path class="cls-1" d="M65.72,193.03c7.64,0,14.92.35,21.59.35,21.01,0,35.83-3.5,35.83-32.56,0-38.27-25.71-69.3-57.42-69.3S8.3,122.55,8.3,160.83c0,29.06,14.82,32.56,35.83,32.56,6.66,0,13.95-.35,21.59-.35Z"/>
+                            <path class="cls-1" d="M136.7,100c-7.52,0-14.68,1.64-21.26,4.55,14.29,14.76,23.29,35.71,23.29,58.99,0,13.29-3.03,22.73-7.62,29.58,1.84-.03,3.7-.05,5.59-.05,31.71,0,57.42,5.57,57.42-29.52s-25.71-63.54-57.42-63.54Z"/>
+                        </svg>
+                        <p>Friends</p>
+                    </div>
+                </button>
+                </a>
+            </div>
+            
+            <!--Bottom part-->
+            <div>
+                <!--Menu Item 5-->
+                <a href="settings.html">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
+                    <div class="flex flex-1 items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8" fill="currentColor">
+                            <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.61s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM99.61,35.23c17.15,0,31.06,13.9,31.06,31.06s-13.9,31.06-31.06,31.06-31.06-13.9-31.06-31.06,13.9-31.06,31.06-31.06ZM99.61,183.71c-26.64,0-50.37-12.4-65.77-31.73,13.7-21.91,38.03-36.49,65.77-36.49s52.07,14.58,65.77,36.49c-15.41,19.33-39.14,31.73-65.77,31.73Z"/>
+                        </svg>
+                        <p>Profile</p>
+                    </div>
+                </button>
+                </a>
+            </div>
+
+        </div>
+
+        <!--Mobile-->
+        <div class="fixed bottom-0 w-full bg-gradient-to-t from-[#ccc5b6]/75 to-transparent z-50 md:z-0 md:flex">
+        <div class="flex flex-row md:hidden m-5 px-3 h-20 min-w-[250px] bg-white justify-between items-center gap-2 shadow-2xl rounded-full">
+            <!--Menu Item 1-->
+            <a href="main.html">
+            <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea] current-page">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#74af27] w-8 mx-auto" fill="currentColor">
+                    <path class="cls-1" d="M134.16,52.58H62.51c-18.39,0-33.3,14.91-33.3,33.3v71.64c0,18.39,14.91,33.3,33.3,33.3h18.67v-37.86c0-9.47,7.68-17.15,17.15-17.15h0c9.47,0,17.15,7.68,17.15,17.15v37.86h18.67c18.39,0,33.3-14.91,33.3-33.3v-71.64c0-18.39-14.91-33.3-33.3-33.3Z"/>
+                    <path class="cls-1" d="M76.51,13.5l-57.15,50.89c-22.52,20.05-8.34,57.32,21.82,57.32h114.3c30.16,0,44.34-37.26,21.82-57.32L120.16,13.5c-12.44-11.08-31.2-11.08-43.64,0Z"/>
+                </svg>
+            </button>
+            </a>
+            <!--Menu Item 2-->
+            <a href="explore.html">
+            <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea]">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#ccc5b6] w-8 mx-auto" fill="currentColor">
+                    <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.62s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM151.56,53.26l-24.65,48.45c-5.53,10.86-14.35,19.69-25.21,25.21l-48.44,24.65c-3.59,1.82-7.42-2-5.59-5.59l24.65-48.45c5.53-10.86,14.35-19.69,25.21-25.21l48.44-24.65c3.59-1.82,7.42,2,5.59,5.59Z"/>
+                    <circle class="cls-1" cx="99.61" cy="99.61" r="8.99"/>
+                </svg>
+            </button>
+            </a>
+            <!--Menu Item 3-->
+            <a href="calendar.html">
+            <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea]">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#ccc5b6] w-8 mx-auto" fill="currentColor">
+                    <path class="cls-1" d="M16.96,82.4v79.14c0,17.59,14.26,31.85,31.85,31.85h104.71c17.59,0,31.85-14.26,31.85-31.85v-79.14H16.96ZM68.33,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM68.33,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63Z"/>
+                    <path class="cls-1" d="M185.37,65.28v-8.46c0-17.59-14.26-31.85-31.85-31.85H48.81c-17.59,0-31.85,14.26-31.85,31.85v8.46h168.41Z"/>
+                    <rect class="cls-1" x="47.38" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
+                    <rect class="cls-1" x="132.79" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
+                </svg>
+            </button>
+            </a>
+            <!--Menu Item 4-->
+            <a href="friends.html">
+            <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea]">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#ccc5b6] w-8 mx-auto" fill="currentColor">
+                    <circle class="cls-1" cx="136.7" cy="55.58" r="30.06"/>
+                    <circle class="cls-1" cx="65.72" cy="45.58" r="30.06"/>
+                    <path class="cls-1" d="M65.72,193.03c7.64,0,14.92.35,21.59.35,21.01,0,35.83-3.5,35.83-32.56,0-38.27-25.71-69.3-57.42-69.3S8.3,122.55,8.3,160.83c0,29.06,14.82,32.56,35.83,32.56,6.66,0,13.95-.35,21.59-.35Z"/>
+                    <path class="cls-1" d="M136.7,100c-7.52,0-14.68,1.64-21.26,4.55,14.29,14.76,23.29,35.71,23.29,58.99,0,13.29-3.03,22.73-7.62,29.58,1.84-.03,3.7-.05,5.59-.05,31.71,0,57.42,5.57,57.42-29.52s-25.71-63.54-57.42-63.54Z"/>
+                </svg>
+            </button>
+            </a>
+            <!--Menu Item 5-->
+            <a href="settings.html">
+                <button class="h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea]">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-[#ccc5b6] w-8 mx-auto" fill="currentColor">
+                        <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.61s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM99.61,35.23c17.15,0,31.06,13.9,31.06,31.06s-13.9,31.06-31.06,31.06-31.06-13.9-31.06-31.06,13.9-31.06,31.06-31.06ZM99.61,183.71c-26.64,0-50.37-12.4-65.77-31.73,13.7-21.91,38.03-36.49,65.77-36.49s52.07,14.58,65.77,36.49c-15.41,19.33-39.14,31.73-65.77,31.73Z"/>
+                    </svg>
+                </button>
+            </a>
+        </div>
+        </div>
+    </nav>
+  `;
     }
 }
    
