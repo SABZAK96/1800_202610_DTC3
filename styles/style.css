@@ -1,4 +1,33 @@
+/*Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
+body {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+/*Colors*/
+:root {
+  --primary-green: #74af27;
+  --medium-grey: #dfd8c9;
+  --light-grey: #f4f1ea;
+  --light-pink: #f8b6da;
+  --light-blue: #b5c9ea;  
+}
+
+/*Text Styling*/
+h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #252528;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #252528;
+    margin-bottom: 20px;
+}
 
 .rounded-box {
     width: 100%;

@@ -17,3 +17,10 @@ function sayHello() {
   // TODO: implement your logic here
 }
 document.addEventListener('DOMContentLoaded', sayHello);
+
+
+function confirmation() {
+  
+  document.addEventListener('DOMContentLoaded', sayHello);
+}
+
