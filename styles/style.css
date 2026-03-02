@@ -29,6 +29,14 @@ h2 {
     margin-bottom: 20px;
 }
 
+.current-page {
+    background-color: #f4f1ea;
+}
+        
+button {
+    cursor: pointer;
+}
+
 .rounded-box {
     width: 100%;
     background-color: rgb(206, 230, 171);
