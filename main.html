@@ -15,7 +15,7 @@
 
     <!-- Other libraries go here -->
 
-  </head>
+</head>
   
 <body class="bg-[var(--medium-grey)] flex flex-row">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -25,88 +25,127 @@
     
 
 <site-navbar></site-navbar>
-<main class="w-full pt-5 px-10 ml-0 md:ml-50 mx-auto bg-[var(--light-grey)] rounded-0 md:rounded-tl-[40px] md:rounded-bl-[40px]">
-   
-    <section class="container mt-5 pt-5 px-3 w-75 mx-auto">
-        <h1 class="fw-bold mb-5">All Events</h1>
-        <div class="row align-items-center rounded-4 p-4 mb-4" style=" background-color: rgb(206, 230, 171);">
-            
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="  d-inline-block">
-                    <img id="evntimglist" class="img-fluid rounded-2" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png">
-                </div>
-            </div>
-            
-            <div  class="col-lg-8 col-md-8 col-sm-12">
-                <h2 id="evnttitle" class="fw-bold">Event Title</h2>
-                <p id="evntdesclist">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Harum, libero. Earum inventore magnam quae.</p>
-                <div class="mb-2">
-            <span class="badge rounded-pill  text-white p-2 px-3 " style="background-color:rgb(68, 86, 41) ;">
-                <strong>Price:</strong> <span id="evntprice">$200</span>
-            </span>
-            <span class="badge rounded-pill text-white p-2 px-3" style="background-color:rgb(68, 86, 41) ;">
-                <strong>Date:</strong> <span id="evntdate">Feb 12</span>
-            </span>
-        </div>
-                    
-                </p>
-                <button class="btn text-white" style="background-color:rgb(68, 86, 41) ;">Go to Event</button>
-            </div>
+<main >
+    <div class="p-5 text-white" style="position: relative; background-image: url('images/hero-placeholder.jpg'); background-size: cover; background-position: center; min-height: 200px;">
+        <h1 id="welcome"  class="fs-1 fs-md-2 fs-lg-1" style="position: absolute; ">Welcome<br><span id="name-goes-here">friend </span> 
+        </h1>
+    </div>
 
-        </div>
-        <div class="row align-items-center rounded-4 p-4 mb-4" style=" background-color: rgb(206, 230, 171);">
-            
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="  d-inline-block">
-                    <img id="evntimglist" class="img-fluid rounded-2" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png">
-                </div>
-            </div>
-            
-            <div  class="col-lg-8 col-md-8 col-sm-12">
-                <h2 id="evnttitle" class="fw-bold">Event Title</h2>
-                <p id="evntdesclist">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Harum, libero. Earum inventore magnam quae.</p>
-                <div class="mb-2">
-            <span class="badge rounded-pill  text-white p-2 px-3 " style="background-color:rgb(68, 86, 41) ;">
-                <strong>Price:</strong> <span id="evntprice">$200</span>
-            </span>
-            <span class="badge rounded-pill text-white p-2 px-3" style="background-color:rgb(68, 86, 41) ;">
-                <strong>Date:</strong> <span id="evntdate">Feb 12</span>
-            </span>
-        </div>
-                    
-                </p>
-                <button class="btn text-white" style="background-color:rgb(68, 86, 41) ;">Go to Event</button>
-            </div>
 
-        </div>
-        <div class="row align-items-center rounded-4 p-4 mb-4" style=" background-color: rgb(206, 230, 171);">
-            
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="  d-inline-block">
-                    <img id="evntimglist" class="img-fluid rounded-2" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png">
-                </div>
-            </div>
-            
-            <div  class="col-lg-8 col-md-8 col-sm-12">
-                <h2 id="evnttitle" class="fw-bold">Event Title</h2>
-                <p id="evntdesclist">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Harum, libero. Earum inventore magnam quae.</p>
-                <div class="mb-2">
-            <span class="badge rounded-pill  text-white p-2 px-3 " style="background-color:rgb(68, 86, 41) ;">
-                <strong>Price:</strong> <span id="evntprice">$200</span>
-            </span>
-            <span class="badge rounded-pill text-white p-2 px-3" style="background-color:rgb(68, 86, 41) ;">
-                <strong>Date:</strong> <span id="evntdate">Feb 12</span>
-            </span>
-        </div>
-                    
-                </p>
-                <button class="btn text-white" style="background-color:rgb(68, 86, 41) ;">Go to Event</button>
-            </div>
+<div class="container mt-5 pt-5 px-3 w-75 mx-auto">
+    <h1 class="fw-bold mb-5">Popular Events</h1>
+    <div class="row g-5 justify-content-start flex-nowrap mb-5 " style="overflow-x:auto">
 
+    <div class="col-md-4">
+
+        <div class="d-flex flex-column rounded-4 p-4 " style="background-color:rgb(206, 230, 171) ;">
+            <img class="h-25 w-100" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png" alt="">
+            <h3 class="fw-bold pt-3">Event Title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, numquam!</p>
+            <p class="text-success">Read More</p>
         </div>
-    
-    </section>
-    <site-footer></site-footer>
+    </div>
+    <div class="col-md-4">
+
+    <div class="d-flex flex-column rounded-4 p-4 " style="background-color:rgb(206, 230, 171) ;">
+        <img class="h-25 w-100" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png" alt="">
+        <h3 class="fw-bold pt-3">Event Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, numquam!</p>
+        <p class="text-success">Read More</p>
+        </div>
+        </div>
+    <div class="col-md-4">
+
+    <div class="d-flex flex-column rounded-4 p-4 " style="background-color:rgb(206, 230, 171) ;">
+    <img class="h-25 w-100" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png" alt="">
+    <h3 class="fw-bold pt-3">Event Title</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, numquam!</p>
+        <p class="text-success">Read More</p>
+        </div>
+        </div>
+    <div class="col-md-4">
+
+    <div class="d-flex flex-column rounded-4 p-4 " style="background-color:rgb(206, 230, 171) ;">
+    <img class="h-25 w-100" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png" alt="">
+        <h3 class="fw-bold pt-3">Event Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, numquam!</p>
+        <p class="text-success">Read More</p>
+        </div>
+    </div>
+    </div>
+</div>
+    <div class="container mt-5 pt-5 px-3 w-75 mx-auto">
+    <h1 class="fw-bold mb-5">Events Picked for You</h1>
+    <div class="row g-5 justify-content-start flex-nowrap mb-5 " style="overflow-x:auto">
+
+    <div class="col-md-4">
+
+    <div class="d-flex flex-column rounded-4 p-4 " style="background-color:rgb(206, 230, 171) ;">
+    <img class="h-25 w-100" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png" alt="">
+        <h3 class="fw-bold pt-3">Event Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, numquam!</p>
+        <p class="text-success">Read More</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+
+    <div class="d-flex flex-column rounded-4 p-4 " style="background-color:rgb(206, 230, 171) ;">
+        <img class="h-25 w-100" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png" alt="">
+        <h3 class="fw-bold pt-3">Event Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, numquam!</p>
+        <p class="text-success">Read More</p>
+    </div>
+    </div>
+    <div class="col-md-4">
+
+    <div class="d-flex flex-column rounded-4 p-4 " style="background-color:rgb(206, 230, 171) ;">
+    <img class="h-25 w-100" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png" alt="">
+    <h3 class="fw-bold pt-3">Event Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, numquam!</p>
+        <p class="text-success">Read More</p>
+    </div>
+    </div>
+    <div class="col-md-4">
+
+    <div class="d-flex flex-column rounded-4 p-4 " style="background-color:rgb(206, 230, 171) ;">
+        <img class="h-25 w-100" src="./images/Screenshot-2022-11-19-at-11.41.58-PM.png" alt="">
+        <h3 class="fw-bold pt-3">Event Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, numquam!</p>
+        <p class="text-success">Read More</p>
+    </div>
+    </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <h1 class="fw-bold mb-5">Notifications</h1>
+    <div class="row g-2 justify-content-center">
+
+    <div class="col-12 col-md-3">
+    <div class="p-4 rounded-4 h-100" style="background-color: rgb(206, 230, 171);">
+        <h5 class="fw-bold">Friends</h5>
+        <p>friends going to this event:</p>
+    </div>
+    </div>
+
+    <div class="col-12 col-md-3">
+    <div class="p-4 rounded-4 h-100" style="background-color:rgb(206, 230, 171);">
+        <h5 class="fw-bold">News</h5>
+        <p class="mb-0">Recently added events</p>
+    </div>
+    </div>
+
+    <div class="col-12 col-md-3">
+        <div class="p-4 rounded-4 h-100" style="background-color:rgb(206, 230, 171);">
+        <h5 class="fw-bold">Notification 1</h5>
+        <p class="mb-0">Another Notif goes here.</p>
+    </div>
+    </div>
+
+    </div>
+</div>
+
+     
 </main>
 
 
