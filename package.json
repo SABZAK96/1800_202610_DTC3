@@ -14,5 +14,18 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
     "firebase": "^12.9.0"
-  }
+  },
+  "description": "Our team DTC03 is developing EXTRA TIME to help FIFA attendees to discover and plan events that fit their interests, schedules, and budgets by centralizing event discovery and integrating scheduling and transportation awareness unlike platforms such as Eventbrite, which focus mainly on listing events, and social media, where event information is fragmented across posts and stories.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SABZAK96/1800_202610_DTC3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SABZAK96/1800_202610_DTC3/issues"
+  },
+  "homepage": "https://github.com/SABZAK96/1800_202610_DTC3#readme"
 }

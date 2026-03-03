@@ -1,8 +1,8 @@
-# Elmo Hikes
+# Extra Time
 
 ## Overview
 
-Elmo Hikes is a client-side JavaScript web application that helps users discover and explore hiking trails. The app displays a curated list of hike trails, each with details such as name, location, difficulty, and an image. Users can browse the list and mark their favorite trails for easy access later.
+Our team DTC03 is developing EXTRA TIME to help FIFA attendees to discover and plan events that fit their interests, schedules, and budgets by centralizing event discovery and integrating scheduling and transportation awareness unlike platforms such as Eventbrite, which focus mainly on listing events, and social media, where event information is fragmented across posts and stories.
 
 Developed for the COMP 1800 course, this project applies User-Centred Design practices and agile project management, and demonstrates integration with Firebase backend services for storing user favorites.
 
@@ -10,10 +10,7 @@ Developed for the COMP 1800 course, this project applies User-Centred Design pra
 
 ## Features
 
-- Browse a list of curated hiking trails with images and details
-- Mark and unmark trails as favorites
-- View a personalized list of favorite hikes
-- Responsive design for desktop and mobile
+- To Be Annonced
 
 ---
 
