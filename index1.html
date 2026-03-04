@@ -1,13 +1,19 @@
-class SiteNavbar extends HTMLElement {
-    constructor() {
-        super();
-        this.renderNavbar();
-        // this.renderAuthControls();
-        
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Time Nav</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-[#ccc5b6]">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <style>
 
-    renderNavbar() {
-        this.innerHTML = `<nav>
+    </style>
+
+    <nav>
         <!--Desktop-->
         <!--Outer Container-->
         <div class="hidden md:flex md:flex-col fixed left-0 justify-between w-50 h-screen p-7">
@@ -28,7 +34,7 @@ class SiteNavbar extends HTMLElement {
                 </a>
                 <!--Menu Item 2-->
                 <a href="explore.html">
-                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white ">
+                <button class="h-15 w-full px-4 pt-1 rounded-full hover:bg-[#dfd8c9] text-white">
                     <div class="flex flex-1 items-center gap-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200" class="text-white w-8 pr-1" fill="currentColor">
                             <path class="cls-1" d="M99.61,6.19C48.02,6.19,6.19,48.02,6.19,99.62s41.83,93.43,93.43,93.43,93.43-41.83,93.43-93.43S151.21,6.19,99.61,6.19ZM151.56,53.26l-24.65,48.45c-5.53,10.86-14.35,19.69-25.21,25.21l-48.44,24.65c-3.59,1.82-7.42-2-5.59-5.59l24.65-48.45c5.53-10.86,14.35-19.69,25.21-25.21l48.44-24.65c3.59-1.82,7.42,2,5.59,5.59Z"/>
@@ -138,9 +144,6 @@ class SiteNavbar extends HTMLElement {
             </a>
         </div>
         </div>
-    </nav>`;
-    }
-}
-   
-
-customElements.define('site-navbar', SiteNavbar);
+    </nav>
+</body>
+</html>
