@@ -29,3 +29,21 @@ function showDashboard() {
 }
 
 showDashboard();
+
+let favselected = false;
+
+document.querySelectorAll(".favbtn").forEach(function(btn) {
+    btn.addEventListener("click", function(){favClick(btn);})});
+
+function favClick(x) {
+    if (favselected == false) {
+        x.style.fill = "red";
+        x.style.stroke = "none";
+        favselected = true;
+    } else {
+        x.style.fill = "none";
+        x.style.stroke = "black";
+        favselected = false;
+    }
+    return x;
+}
