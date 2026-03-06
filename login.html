@@ -26,51 +26,70 @@
  
 <site-navbar></site-navbar>
 <main class="  w-full pt-5 px-6 md:px-10 md:ml-64 mx-auto bg-[var(--light-grey)] min-h-screen rounded-none md:rounded-tl-[40px] md:rounded-bl-[40px]">
-<section class="max-w-6xl">
+<section class="w-3/4 h-auto mx-auto ">
   
-  <div class="mx-auto mt-5 py-5 w-full max-w-[420px]">
+  <div class="w-fit px-10  mx-auto bg-white shadow-lg rounded-2xl">
+    <div class="mx-auto mt-5 py-5 w-full max-w-[420px]">
 
     <!-- Alert -->
     <div id="authAlert" class="hidden mb-4 px-4 py-3 rounded bg-red-100 text-red-700 text-sm"></div>
 
     <!-- Login -->
     <div id="loginView">
-      <h3 class="mb-3 text-center text-xl font-semibold">Login</h3>
-      <form id="loginForm" novalidate>
+      <h3 class="mb-6 text-center text-xl font-semibold">Login</h3>
+      <div class=" flex flex-col items-center justify-center gap-3">
+        <form id="loginForm" novalidate>
         <div class="mb-3">
-          <input type="email" id="loginEmail" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Email" required />
+          <label class="text-sm font-bold mb-3" for="">Email Address *</label>
+          <input type="email" id="loginEmail" class="w-full border rounded-2xl border-gray-300  px-3 py-2 shadow-lg mt-2 mb-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Email" required />
         </div>
         <div class="mb-3">
-          <input type="password" id="loginPassword" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Password" required />
+          <label class="text-sm font-bold" for="">Password *</label>
+          <input type="password" id="loginPassword" class="w-full border border-gray-300 rounded-2xl mb-4 px-3 shadow-lg mt-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Password" required />
         </div>
-        <button type="submit" class="w-full bg-[var(--primary-green)] hover:bg-green-700 text-white py-2 rounded text-sm font-medium">Login</button>
+       <div class="flex flex-row justify-center gap-2 items-center">
+         <button type="submit" class="w-1/2 bg-[var(--primary-green)] hover:brightness-90 text-white py-2 rounded-2xl text-sm font-medium">Login</button>
+        <button type="" class="w-1/2 bg-[white] border-1 border-[var(--primary-green)] text-[var(--primary-green)] hover:bg-[var(--light-grey)] text-white py-2 rounded-2xl text-sm font-medium"><a href="#" id="toSignup" class="text-[var(--primary-green)] ">Sign up</a></button>
+       </div>
       </form>
-      <small class="block mt-3 text-center text-sm">
-        Don't have an account? <a href="#" id="toSignup" class="text-[var(--primary-green)] hover:underline">Sign up</a>
-      </small>
+      
+         
+      
+      </div>
     </div>
 
     <!-- Signup -->
-    <div id="signupView" class="hidden">
+    <div id="signupView" class="hidden w-full">
       <h3 class="mb-3 text-center text-xl font-semibold">Sign Up</h3>
-      <form id="signupForm" novalidate>
+<div class="w-full flex flex-col justify-center items-center px-10 ">
+        <form id="signupForm" novalidate>
         <div class="mb-3">
-          <input type="text" id="signupName" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="First and Last Name" required />
+          <label class="text-sm font-bold"  for="">First Name *</label>
+          <input type="text" id="signupName" class="w-full border border-gray-300 mb-4 mt-2 rounded-2xl shadow-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="First Name" required />
+        </div>
+         <div class="mb-3">
+          <label class="text-sm font-bold"  for="">Last Name *</label>
+          <input type="text" id="signupName" class="w-full border border-gray-300 mb-4 mt-2 rounded-2xl shadow-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Last Name" required />
         </div>
         <div class="mb-3">
-          <input type="email" id="signupEmail" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Email" required />
+          <label class="text-sm font-bold"  for="">Email Address *</label>
+          <input type="email" id="signupEmail" class="w-full border border-gray-300 mb-4 mt-2 rounded-2xl px-3 py-2 text-sm focus:outline-none shadow-lg focus:ring-2 focus:ring-green-400" placeholder="Email" required />
         </div>
         <div class="mb-3">
-          <input type="password" id="signupPassword" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Password" required />
+          <label class="text-sm font-bold" for="">Password *</label>
+          <input type="password" id="signupPassword" class="w-full border border-gray-300 rounded-2xl px-3 py-2 text-sm mb-4 mt-2 focus:outline- shadow-lg focus:ring-2 focus:ring-green-400" placeholder="Password" required />
         </div>
-        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded text-sm font-medium">Create Account</button>
+        <button  type="submit" class="w-full bg-[var(--primary-green)] hover:brightness-90 text-white py-2 rounded-2xl text-sm font-medium">Create Account</button>
       </form>
       <small class="block mt-3 text-center text-sm">
         Already have an account? <a href="#" id="toLogin" class="text-green-600 hover:underline">Login</a>
       </small>
+</div>
     </div>
 
   </div>
+  </div>
+  
 </section>
 </main>
 <site-footer></site-footer>
