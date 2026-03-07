@@ -75,6 +75,7 @@ function initAuthUI() {
         e.preventDefault();
         hideError();
         const name = document.querySelector('#signupName')?.value?.trim() ?? '';
+        const lastName = document.querySelector('#signupLastName')?.value?.trim() ?? '';
         const email = document.querySelector('#signupEmail')?.value?.trim() ?? '';
         const password = document.querySelector('#signupPassword')?.value ?? '';
         if (!name || !email || !password) { showError('Please fill in name, email, and password.'); return; }
