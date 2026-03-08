@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225.96 46.09">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-2 {
+        font-family: CalSans-Regular, 'Cal Sans';
+        font-size: 37.87px;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-7 {
+        letter-spacing: .01em;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(53.22 36.4)"><tspan class="cls-5" x="0" y="0">E</tspan><tspan class="cls-7" x="19.12" y="0">xt</tspan><tspan class="cls-3" x="52.86" y="0">r</tspan><tspan class="cls-6" x="65.2" y="0">a</tspan><tspan class="cls-7" x="85.65" y="0">Tim</tspan><tspan class="cls-4" x="151.42" y="0">e</tspan></text>
+  <path class="cls-1" d="M38.58,14.52l-4.92,4.92c1.2,4.34.11,9.19-3.3,12.59-4.27,4.27-10.79,4.91-15.76,1.96l17.72-17.72s0,0,0,0l4.58-4.58c-.61-.86-1.28-1.69-2.05-2.45C27.33,1.72,15.09,1.72,7.57,9.24,1.63,15.18.4,24.07,3.85,31.25l4.92-4.92c-1.2-4.34-.11-9.19,3.3-12.6,4.27-4.27,10.79-4.91,15.76-1.96L10.11,29.49s0,0,0,0l-4.58,4.58c.61.86,1.28,1.69,2.05,2.45,7.52,7.52,19.76,7.52,27.29,0,5.94-5.94,7.17-14.83,3.72-22.01Z"/>
+</svg>
