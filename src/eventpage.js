@@ -64,7 +64,7 @@ async function loadcards() {
                   
               <div >
                     <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2">
-                      <svg class="favbtn fill-none w-6 h-6 stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                      <svg class="favbtn fill-black w-6 h-6 stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
 
           <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
         </svg>
@@ -85,6 +85,24 @@ async function loadcards() {
             </div>
           </div>
           </div>`
+                // favorite button
+    let favselected = false;
+
+document.querySelectorAll(".favbtn").forEach(function(btn) {
+    btn.addEventListener("click", function(){favClick(btn);})});
+
+function favClick(x) {
+    if (favselected == false) {
+        x.style.fill = "red";
+        x.style.stroke = "none";
+        favselected = true;
+    } else {
+        x.style.fill = "black";
+        x.style.stroke = "black";
+        favselected = false;
+    }
+    return x;
+}
           const new_card = document.createElement("div");
           new_card.innerHTML = result;
           document.querySelector(".container").appendChild(new_card.firstElementChild);
