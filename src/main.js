@@ -30,7 +30,6 @@ function showDashboard() {
 
 showDashboard();
 
-let favselected = false;
 
 document.querySelectorAll(".favbtn").forEach(function(btn) {
     btn.addEventListener("click", function(){favClick(btn);})});
