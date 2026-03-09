@@ -1,9 +1,38 @@
 import { onAuthReady } from "./authentication.js";
-import { db } from "./firebaseConfig.js";
-import { collection, getDocs } from "firebase/firestore";
+ import { db } from "./firebaseConfig.js"; 
+ import { collection, getDocs } from "firebase/firestore"; 
+ import { auth } from "./firebaseConfig.js";
+  import { onAuthStateChanged, signOut } from "firebase/auth"
+
+const usernameDisplay = document.getElementById("username-display");
+const authBtn = document.getElementById("auth-btn");
+const signedInUserSection = document.querySelector(".signedinuser");
+
+
+onAuthStateChanged(auth, (user) => {
+    if (signedInUserSection) {
+        signedInUserSection.classList.remove("hidden");
+    }
+
+    if (user) {
+        usernameDisplay.textContent = user.displayName || user.email || "User";
+        authBtn.onclick = async () => {
+            try {
+                await signOut(auth);
+                window.location.href = "index.html";
+            } catch (error) {
+                console.log("Logout error");
+            }
+        };
+    } else {
+        authBtn.onclick = () => {
+            window.location.href = "login.html";
+        };
+    }
+});
 
 function showDashboard() {
-  const nameElement = document.getElementById("name-goes-here");
+  const nameElement = document.getElementById("username-display");
 
   onAuthReady((user) => {
     if (!user) {
@@ -15,8 +44,8 @@ function showDashboard() {
       nameElement.textContent = `${name}!`;
     }
   });
+  
 }
-
 showDashboard();
 
 // Calendar SVG used in carousel cards

@@ -7,9 +7,9 @@ import {
 import { onAuthReady } from "./authentication.js";
 
 onAuthReady((user) => {
-    if (user) {
+  if (user) {
     window.location.href = "main.html";
-    }
+  }
 });
 
 function initAuthUI() {
