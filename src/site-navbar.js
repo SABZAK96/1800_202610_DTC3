@@ -3,11 +3,11 @@ class SiteNavbar extends HTMLElement {
         super();
         this.renderNavbar();
         // this.renderAuthControls();
-        
     }
 
     renderNavbar() {
-        this.innerHTML = `<nav>
+        this.innerHTML = `
+        <nav>
         <!--Desktop-->
         <!--Outer Container-->
         <div class="hidden md:flex md:flex-col fixed left-0 justify-between w-50 h-screen px-7 pt-4 pb-10">

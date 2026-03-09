@@ -4,6 +4,13 @@ import {
     signupUser,
     authErrorMessage,
 } from './authentication.js';
+import { onAuthReady } from "./authentication.js";
+
+onAuthReady((user) => {
+    if (user) {
+    window.location.href = "main.html";
+    }
+});
 
 function initAuthUI() {
     const alertEl = document.getElementById('authAlert');
@@ -16,79 +23,79 @@ function initAuthUI() {
     const redirectUrl = 'main.html';
 
     function setVisible(el, visible) {
-        el.classList.toggle('hidden', !visible);
-    }
+        el.classList.toggle('hidden', !visible);
+    }
 
-    let errorTimeout;
-    function showError(msg) {
-        alertEl.textContent = msg || '';
-        alertEl.classList.remove('hidden');
-        clearTimeout(errorTimeout);
-        errorTimeout = setTimeout(hideError, 5000);
-    }
+    let errorTimeout;
+    function showError(msg) {
+        alertEl.textContent = msg || '';
+        alertEl.classList.remove('hidden');
+        clearTimeout(errorTimeout);
+        errorTimeout = setTimeout(hideError, 5000);
+    }
 
-    function hideError() {
-        alertEl.classList.add('hidden');
-        alertEl.textContent = '';
-        clearTimeout(errorTimeout);
-    }
+    function hideError() {
+        alertEl.classList.add('hidden');
+        alertEl.textContent = '';
+        clearTimeout(errorTimeout);
+    }
 
-    function setSubmitDisabled(form, disabled) {
-        const submitBtn = form?.querySelector('[type="submit"]');
-        if (submitBtn) submitBtn.disabled = disabled;
-    }
+    function setSubmitDisabled(form, disabled) {
+        const submitBtn = form?.querySelector('[type="submit"]');
+        if (submitBtn) submitBtn.disabled = disabled;
+    }
 
-    toSignupBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        hideError();
-        setVisible(loginView, false);
-        setVisible(signupView, true);
-        signupView?.querySelector('input')?.focus();
-    });
+    toSignupBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        hideError();
+        setVisible(loginView, false);
+        setVisible(signupView, true);
+        signupView?.querySelector('input')?.focus();
+    });
 
-    toLoginBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        hideError();
-        setVisible(signupView, false);
-        setVisible(loginView, true);
-        loginView?.querySelector('input')?.focus();
-    });
+    toLoginBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        hideError();
+        setVisible(signupView, false);
+        setVisible(loginView, true);
+        loginView?.querySelector('input')?.focus();
+    });
 
-    loginForm?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        hideError();
-        const email = document.querySelector('#loginEmail')?.value?.trim() ?? '';
-        const password = document.querySelector('#loginPassword')?.value ?? '';
-        if (!email || !password) { showError('Please enter your email and password.'); return; }
-        setSubmitDisabled(loginForm, true);
-        try {
-            await loginUser(email, password);
-            location.href = redirectUrl;
-        } catch (err) {
-            showError(authErrorMessage(err));
-        } finally {
-            setSubmitDisabled(loginForm, false);
-        }
-    });
+    loginForm?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        hideError();
+        const email = document.querySelector('#loginEmail')?.value?.trim() ?? '';
+        const password = document.querySelector('#loginPassword')?.value ?? '';
+        if (!email || !password) { showError('Please enter your email and password.'); return; }
+        setSubmitDisabled(loginForm, true);
+        try {
+            await loginUser(email, password);
+            location.href = redirectUrl;
+        } catch (err) {
+            showError(authErrorMessage(err));
+        } finally {
+            setSubmitDisabled(loginForm, false);
+        }
+    });
 
-    signupForm?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        hideError();
-        const name = document.querySelector('#signupName')?.value?.trim() ?? '';
-        const lastName = document.querySelector('#signupLastName')?.value?.trim() ?? '';
-        const email = document.querySelector('#signupEmail')?.value?.trim() ?? '';
-        const password = document.querySelector('#signupPassword')?.value ?? '';
-        if (!name || !email || !password) { showError('Please fill in name, email, and password.'); return; }
-        setSubmitDisabled(signupForm, true);
-        try {
-            await signupUser(name, email, password);
-            location.href = redirectUrl;
-        } catch (err) {
-            showError(authErrorMessage(err));
-        } finally {
-            setSubmitDisabled(signupForm, false);
-        }
-    });
+    signupForm?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        hideError();
+        const name = document.querySelector('#signupName')?.value?.trim() ?? '';
+        const lastName = document.querySelector('#signupLastName')?.value?.trim() ?? '';
+        const email = document.querySelector('#signupEmail')?.value?.trim() ?? '';
+        const password = document.querySelector('#signupPassword')?.value ?? '';
+        if (!name || !email || !password) { showError('Please fill in name, email, and password.'); return; }
+        setSubmitDisabled(signupForm, true);
+        try {
+            await signupUser(name, email, password);
+            location.href = redirectUrl;
+        } catch (err) {
+            showError(authErrorMessage(err));
+        } finally {
+            setSubmitDisabled(signupForm, false);
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', initAuthUI);

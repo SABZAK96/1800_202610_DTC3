@@ -1,8 +1,10 @@
+import { onAuthReady } from "./authentication.js";
+import { db } from "./firebaseConfig.js"; 
+import { collection, getDocs } from "firebase/firestore"; 
+import { auth } from "./firebaseConfig.js";
+import { onAuthStateChanged, signOut } from "firebase/auth"
 
-import {
-    onAuthReady
-} from "./authentication.js"
-
+/*
 function showDashboard() {
       const nameElement = document.getElementById("name-goes-here"); // the <h1> element to display "Hello, {name}"
 
@@ -29,6 +31,37 @@ function showDashboard() {
 }
 
 showDashboard();
+*/
+
+
+const usernameDisplay = document.getElementById("username-display");
+const authBtn = document.getElementById("auth-btn");
+const signedInUserSection = document.querySelector(".signedinuser");
+
+
+onAuthStateChanged(auth, (user) => {
+    if (signedInUserSection) {
+        signedInUserSection.classList.remove("hidden");
+    }
+
+    if (user) {
+      console.log(user.displayName)
+        usernameDisplay.textContent = user.displayName || user.email || "User";
+        authBtn.onclick = async () => {
+            try {
+                await signOut(auth);
+                window.location.href = "index.html";
+            } catch (error) {
+                console.log("Logout error");
+            }
+        };
+    } else {
+        authBtn.onclick = () => {
+            window.location.href = "login.html";
+        };
+    }
+});
+
 
 
 document.querySelectorAll(".favbtn").forEach(function(btn) {
@@ -61,7 +94,7 @@ function waitForElement(selector, callback) {
 waitForElement(".carousel", (slider) => {
   
   //Side scroll carousel
-document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
 
   const slider = document.querySelector(".carousel");
   console.log(slider);
@@ -103,24 +136,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-//js to mark current page
+//Highlight current page
 function currentPage() {
     const links = document.querySelectorAll(".menuButton");
-    console.log(links);
     const currentPath = window.location.pathname;
-    console.log(currentPath);
-
-    links.forEach(link => {
-        console.log(link.parentElement.getAttribute("href")) 
-    })
-
+    
     links.forEach(link => {
         if (link.parentElement.getAttribute("href") === currentPath) {
             link.classList.add("bg-white");
             link.classList.add("shadow-2xl");
-            console.log(link)
-            console.log(link.querySelector("svg"))
-            console.log(link.querySelector("svg").classList.remove("text-white"));
+            link.classList.remove("hover:bg-[#aaa9bc]");
+            link.querySelector("svg").classList.remove("text-white");
             link.querySelector("svg").classList.add("text-[var(--primary-green)]");
             link.querySelector("svg").nextElementSibling.classList.remove("text-white");
             link.querySelector("svg").nextElementSibling.classList.add("text-black");
