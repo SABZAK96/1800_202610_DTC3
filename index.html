@@ -47,8 +47,8 @@
     <div class="w-full md:w-[50%]">
       <h1 class="" style="color:white">Welcome to the FIFA Fan Festival 2026!</h1>
       <p class="text-white mb-20">Sign up for access to personalised recommendations, create your 2026 schedule and connect with friends</p>
-      <button id="Loginbtn" type="button" class="bg-[var(--primary-green)]  h-10 px-6 mr-4 rounded-full text-sm">Sign up</button>
-      <button id="Loginbtn" type="button" class="border-2 border-white h-10 px-6 rounded-full text-sm">Login</button>
+      <a href="login.html"><button id="Loginbtn" type="button" class="bg-[var(--primary-green)]  h-10 px-6 mr-4 rounded-full text-sm">Sign up</button></a>
+      <a href="login.html"><button id="Loginbtn" type="button" class="border-2 border-white h-10 px-6 rounded-full text-sm">Login</button></a>
     </div>
   </div>
 
@@ -128,133 +128,29 @@
 
   <!--Featured / For you-->
   <h1 style="margin-bottom: 50px;">Featured</h1>
-  <div class="flex mb-30">
+  <div class="featured-container flex mb-30">
     <!--Wide Featured Event Card-->
-    <div class="flex flex-1 bg-white rounded-4xl shadow-2xl">
-      <!--Image-->
-      <div class="flex-1 rounded-l-4xl shadow-xl w-full">
-        <img src="/images/ET-IMG-004.jpg" class="w-full rounded-l-4xl h-80 object-cover object-center">
-      </div>
-      <!--Text-->
-      <div class="flex-1 flex flex-col justify-between py-10 px-10">
-        <div>
-          <p class="text-sm text-gray-500">JUNE 30</p>
-          <h1>Vancouver Legends Breakfast</h1>
-          <p>Morning coffee and tactical talk with former football legends.</p>
-        </div>  
-        <button id="Loginbtn" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white">Learn more</button>
-      </div>
-    </div>
+    
   </div>
 
   <!--All Events-->
   <h1 style="margin-bottom: 50px;">This week</h1>
-  <div id="allEvents" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-30">
+  <div class="thisweek-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-30">
 
     <!--Event Card 1-->
-    <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
-      <!--Image-->
-      <div class="rounded-t-4xl w-full relative">
-        <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 200 200">
-            <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-          </svg>
-        </div>
-        <img src="/images/ET-IMG-004.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
-      </div>
-      <!--Text-->
-      <div class="flex flex-col flex-1 justify-between py-8 px-8">
-        <div>
-          <p class="text-sm text-gray-500">JUNE 30</p>
-          <h2>Short title</h2>
-        </div>  
-        <button id="LearnMore" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white">Learn more</button>
-      </div>
-    </div>
+    
 
     <!--Event Card 2-->
-    <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
-      <!--Image-->
-      <div class="rounded-t-4xl w-full relative">
-        <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 200 200">
-            <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-          </svg>
-        </div>
-        <img src="/images/ET-IMG-004.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
-      </div>
-      <!--Text-->
-      <div class="flex flex-col flex-1 justify-between py-8 px-8">
-        <div>
-          <p class="text-sm text-gray-500">JUNE 30</p>
-          <h2>The 'North Shore' Megafan Hub</h2>
-        </div>  
-        <button id="LearnMore" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white">Learn more</button>
-      </div>
-    </div>
+ 
 
     <!--Event Card 3-->
-    <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
-      <!--Image-->
-      <div class="rounded-t-4xl w-full relative">
-        <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 200 200">
-            <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-          </svg>
-        </div>
-        <img src="/images/ET-IMG-004.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
-      </div>
-      <!--Text-->
-      <div class="flex flex-col flex-1 justify-between py-8 px-8">
-        <div>
-          <p class="text-sm text-gray-500">JUNE 30</p>
-          <h2>The False Creek Floating Fan-Zone</h2>
-        </div>  
-        <button id="LearnMore" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white">Learn more</button>
-      </div>
-    </div>
+   
 
     <!--Event Card 4-->
-    <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
-      <!--Image-->
-      <div class="rounded-t-4xl w-full relative">
-        <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 200 200">
-            <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-          </svg>
-        </div>
-        <img src="/images/ET-IMG-004.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
-      </div>
-      <!--Text-->
-      <div class="flex flex-col flex-1 justify-between py-8 px-8">
-        <div>
-          <p class="text-sm text-gray-500">JUNE 30</p>
-          <h2>Gastown ‘Classic Kits’ Gala</h2>
-        </div>  
-        <button id="LearnMore" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white">Learn more</button>
-      </div>
-    </div>
+ 
 
     <!--Event Card 5-->
-    <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
-      <!--Image-->
-      <div class="rounded-t-4xl w-full relative">
-        <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 200 200">
-            <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-          </svg>
-        </div>
-        <img src="/images/ET-IMG-004.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
-      </div>
-      <!--Text-->
-      <div class="flex flex-col flex-1 justify-between py-8 px-8">
-        <div>
-          <p class="text-sm text-gray-500">JUNE 30</p>
-          <h2>Grouse Mountain Peak Pitch</h2>
-        </div>  
-        <button id="LearnMore" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white">Learn more</button>
-      </div>
-    </div>
+ 
 
   <!--Event grid ends-->
   </div>
@@ -280,8 +176,8 @@
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-  <script type="module" src="./src/main.js"></script>
-  <script type="module" src="./src/index.js"></script>
+    
+     <script type="module" src="./src/index.js"></script>
    
 
 </body>
