@@ -4,6 +4,13 @@ import {
     signupUser,
     authErrorMessage,
 } from './authentication.js';
+import { onAuthReady } from "./authentication.js";
+
+onAuthReady((user) => {
+  if (user) {
+    window.location.href = "main.html";
+  }
+});
 
 function initAuthUI() {
     const alertEl = document.getElementById('authAlert');
