@@ -1,5 +1,8 @@
+import { onAuthReady } from "./authentication.js"; 
 import { db } from "./firebaseConfig.js";
-import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, doc,getDoc, getDocs,setDoc, updateDoc, onSnapshot, arrayRemove, arrayUnion } from "firebase/firestore";
+import { auth } from "./firebaseConfig.js"; 
+import { onAuthStateChanged, signOut } from "firebase/auth";
 // fixing back button behaviour by adding from to links in event template cards, retrieving it and setting back href attribute to it
 const params = new URL(window.location.href).searchParams;
 const previousPage = params.get("from");
@@ -48,19 +51,19 @@ async function loadcards() {
   const ref = collection(db, "Events_2026");
   const docs = await getDocs(ref);
   let number = 0;
-  docs.forEach((doc) => {
-    const data = doc.data();
+  docs.forEach((eventdoc) => {
+    const data = eventdoc.data();
 
     let z = getDocIdFromUrl();
-    const a = doc.id;
-    if (z != doc.id) {
+    const a = eventdoc.id;
+    if (z != eventdoc.id) {
       if (number < 3) {
         let result = `<div class="w-full lg:w-1/3 p-2">
           
           <div class="flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
             <div class="w-full relative">
               <div class="relative">
-                <img class="h-48 w-full object-cover rounded-t-xl " src="./images/${doc.id}.png" alt="">
+                <img class="h-48 w-full object-cover rounded-t-xl " src="./images/${eventdoc.id}.png" alt="">
                 <div class="flex  flex-wrap gap-2 pb-4 absolute bottom-0 left-1  ">
         <span class=" bg-[var(--light-blue)] whitespace-nowrap w-fit  text-white py-1 px-2 rounded-full text-xs">
            <span id="">${data.tags[0]}</span>
@@ -86,7 +89,7 @@ async function loadcards() {
               <h3 id="" class="font-semibold text-sm  text-[var(--medium-grey)] pt-2">${data.date}</h3>
                
             <p id="" class=" font-bold text-xl pt-3 pb-8">${data.title}</p>
-            <a href="eventpage.html?docID=${doc.id}" 
+            <a href="eventpage.html?docID=${eventdoc.id}" 
               type="button"  
               class="bg-black rounded-xl text-white text-center  mt-8 px-2 py-2 text-xs cursor-pointer focus:outline-none">
               View Details
@@ -94,32 +97,102 @@ async function loadcards() {
             </div>
           </div>
           </div>`;
-        // favorite button
-        let favselected = false;
 
-        document.querySelectorAll(".favbtn").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            favClick(btn);
-          });
+        const new_card = document.createElement("div");
+        new_card.innerHTML = result;
+        const each_card = document.querySelector(".container").appendChild(new_card.firstElementChild);
+      // having favselected here doesnt work cause everytime i refresh the page it goes away??
+      // using foreach loop attached multiple listeners to a single heart button, when ever the function worked, so at
+      // the third iteration, first heart button had 3 listeners. with this method we attach one listener to each created card heart button
+        const favBtn = each_card.querySelector(".favbtn");
+
+ // favorite button should work for logged in user
+    const user = auth.currentUser;
+
+    if (user) {
+      // if there is no favorite events field in the database, create one, and update it if needed
+      async function check_fav_field(){
+        const ref = await getDoc(doc(db, "users",user.uid))
+        const user_data = ref.data()
+        if (!user_data.favorite_events){
+          let saved_events =[]
+          // should use merge true when using setdocs to avoid deleting other data
+          await setDoc(doc(db,"users",user.uid), {
+            favorite_events: saved_events,
+          },{ merge: true })
+          return saved_events
+        } else {
+          return user_data.favorite_events
+        }
+      }
+      // get the fields related to a user and check the events saved in the required field, if they are in there, it should
+      // always be red as along as they are in the database
+        async function remember_heart_color(x){
+          // this function should be called first to get the favorite events list array
+          await check_fav_field();
+          const ref = await getDoc(doc(db,"users", user.uid));
+          const ref_data_event = ref.data().favorite_events;
+          if (ref_data_event.includes(eventdoc.id)){
+            x.style.fill = "red";
+            x.style.stroke = "none";
+
+          } else {
+            x.style.fill = "black";
+            x.style.stroke = "black";
+
+          }
+        }
+
+  //  load the current heart color status from firestore and then handle clicking
+  // this eventlistener should be added inside if(user) because it should only work for authenticated users
+        remember_heart_color(favBtn);
+        favBtn.addEventListener("click", function () {
+          favClick(favBtn);
         });
 
-        function favClick(x) {
+        async function favClick(x) {
+          // check_fav_filed() should be called here before updating 
+          await check_fav_field();
+          let favselected = false;
+          const ref = await getDoc(doc(db,"users",user.uid));
+          const ref_data = ref.data();
+          // check if an event (its ID) exists in the favorite events
+          if (!ref_data.favorite_events.includes(eventdoc.id)){
+            favselected = false;
+          } else {
+            favselected = true;
+            
+          }
           if (favselected == false) {
             x.style.fill = "red";
             x.style.stroke = "none";
             favselected = true;
+          const id_fav = eventdoc.id
+         
+          await updateDoc(doc(db, "users", user.uid), {
+            // array union is for firebase for adding sth to array
+           favorite_events : arrayUnion(id_fav),
+          } )
           } else {
+            // updating the database if fav button is selected again
+
+            favselected = false;
             x.style.fill = "black";
             x.style.stroke = "black";
-            favselected = false;
+            const id_fav = eventdoc.id;
+  
+            
+             await updateDoc(doc(db, "users", user.uid), {
+              // array remove is for firebase for removing stuff from an array
+            favorite_events : arrayRemove(id_fav) ,
+          } )
+            
           }
           return x;
         }
-        const new_card = document.createElement("div");
-        new_card.innerHTML = result;
-        document
-          .querySelector(".container")
-          .appendChild(new_card.firstElementChild);
+        
+    }
+
         number++;
       }
     }
