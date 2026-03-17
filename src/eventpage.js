@@ -23,8 +23,7 @@ function eventdetails(id) {
       console.log("exists?", docSnap.exists());
       const id = docSnap.id;
       console.log(id);
-      document.getElementById("evntimgpage").style.backgroundImage =
-        `url('./images/${id}.png')`;
+     
       document.getElementById("tag0").innerHTML = docSnap.data().tags[0];
       document.getElementById("tag1").innerHTML = docSnap.data().tags[1];
       document.getElementById("price").innerHTML = docSnap.data().price;
@@ -56,8 +55,92 @@ async function loadcards() {
 
     let z = getDocIdFromUrl();
     const a = eventdoc.id;
-    if (z != eventdoc.id) {
-      if (number < 3) {
+    if( z == eventdoc.id && number ==0 ){
+      number ++;
+    const result_html = `<div class ="relative">
+    <div id="evntimgpage" class=" bg-[url('./images/${eventdoc.id}.png')] rounded-2xl mb-3 bg-center bg-cover " style="height: 350px;"></div>
+        <!-- fav button -->
+        <div class="absolute top-4 right-4 bg-white rounded-2xl w-fit py-1 px-3"><button class="flex flex-row text-sm whitespace-nowrap justify-center items-center gap-1">
+        <svg class=" favbtn w-6 h-6 fill-none stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+          <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
+        </svg>Add to Favorites</button></div></div>`
+        // prepand will return none, so the same logic for appending and query selecting that i used for the bottom cards will not work here
+        const container = document.querySelector(".new-container");
+        const single_card = document.createElement("div");
+        single_card.innerHTML = result_html;
+        const card = single_card.firstElementChild;
+        container.prepend(card);
+        const favBtn = card.querySelector(".favbtn");
+
+    // the whole logic in other if statement for the cards at the bottom should be applied to this one
+    const user = auth.currentUser;
+
+    if (user) {
+      async function check_fav_field_main(){
+        const ref = await getDoc(doc(db, "users",user.uid))
+        const user_data = ref.data()
+        if (!user_data.favorite_events){
+          let saved_events =[]
+          await setDoc(doc(db,"users",user.uid), {
+            favorite_events: saved_events,
+          },{ merge: true })
+          return saved_events
+        } else {
+          return user_data.favorite_events
+        }
+      }
+        async function remember_heart_color_main(x){
+          await check_fav_field_main();
+          const ref = await getDoc(doc(db,"users", user.uid));
+          const ref_data_event = ref.data().favorite_events;
+          if (ref_data_event.includes(eventdoc.id)){
+            x.style.fill = "red";
+            x.style.stroke = "none";
+          } else {
+            x.style.fill = "black";
+            x.style.stroke = "black";
+          }
+        }
+
+        remember_heart_color_main(favBtn);
+        favBtn.addEventListener("click", function () {
+          favClick_main(favBtn);
+        });
+
+        async function favClick_main(x) {
+          await check_fav_field_main();
+          let favselected = false;
+          const ref = await getDoc(doc(db,"users",user.uid));
+          const ref_data = ref.data();
+          if (!ref_data.favorite_events.includes(eventdoc.id)){
+            favselected = false;
+          } else {
+            favselected = true;
+          }
+          if (favselected == false) {
+            x.style.fill = "red";
+            x.style.stroke = "none";
+            favselected = true;
+            const id_fav = eventdoc.id
+            await updateDoc(doc(db, "users", user.uid), {
+              favorite_events : arrayUnion(id_fav),
+            })
+          } else {
+            favselected = false;
+            x.style.fill = "black";
+            x.style.stroke = "black";
+            const id_fav = eventdoc.id;
+            await updateDoc(doc(db, "users", user.uid), {
+              favorite_events : arrayRemove(id_fav),
+            })
+          }
+          return x;
+        }
+    }
+
+    }
+    else {
+      if (number >0 && number < 4) {
         let result = `<div class="w-full lg:w-1/3 p-2">
           
           <div class="flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
