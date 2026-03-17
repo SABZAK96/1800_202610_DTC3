@@ -1,9 +1,10 @@
 import { onAuthReady } from "./authentication.js";
  import { db } from "./firebaseConfig.js"; 
- import { collection, getDocs } from "firebase/firestore"; 
+ import { collection, doc, getDocs, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
  import { auth } from "./firebaseConfig.js";
   import { onAuthStateChanged, signOut } from "firebase/auth"
-
+// the exact logic for favoriting cards for signed in users is used in here.
+// only necessary changes(exactly as eventpage.js) are made for applying the favorite logic
 const usernameDisplay = document.getElementById("username-display");
 const authBtn = document.getElementById("auth-btn");
 const signedInUserSection = document.querySelector(".signedinuser");
@@ -74,11 +75,11 @@ async function loadMainEvents() {
   // Clear static hardcoded cards
   if (carouselInner) carouselInner.innerHTML = "";
 
-  snap.forEach((doc) => {
-    let data = doc.data();
-    let id = doc.id;
+  snap.forEach((eventdoc) => {
+    let data = eventdoc.data();
+    let id = eventdoc.id;
 
-    // First 5 events → carousel cards
+    // First 4 events → carousel cards
     if (populate < 4) {
       let carouselCard = `
         <a href="eventpage.html?docID=${id}&from=main.html" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
@@ -129,29 +130,72 @@ async function loadMainEvents() {
         </div>`;
       const card = document.createElement("div");
       card.innerHTML = favCard;
-      favouritesContainer.appendChild(card.firstElementChild);
+      const each_card = favouritesContainer.appendChild(card.firstElementChild);
+      const favBtn = each_card.querySelector(".favbtn");
+      const user = auth.currentUser;
+      if (user) {
+        async function check_fav_field(){
+          const ref = await getDoc(doc(db, "users", user.uid))
+          const user_data = ref.data()
+          if (!user_data.favorite_events){
+            let saved_events = []
+            await setDoc(doc(db, "users", user.uid), {
+              favorite_events: saved_events,
+            },{ merge: true })
+            return saved_events
+          } else {
+            return user_data.favorite_events
+          }
+        }
+        async function remember_heart_color(x){
+          await check_fav_field();
+          const ref = await getDoc(doc(db, "users", user.uid));
+          const ref_data_event = ref.data().favorite_events;
+          if (ref_data_event.includes(eventdoc.id)){
+            x.style.fill = "red";
+            x.style.stroke = "none";
+          } else {
+            x.style.fill = "black";
+            x.style.stroke = "black";
+          }
+        }
+        remember_heart_color(favBtn);
+        favBtn.addEventListener("click", function () {
+          favClick(favBtn);
+        });
+        async function favClick(x) {
+          await check_fav_field();
+          let favselected = false;
+          const ref = await getDoc(doc(db, "users", user.uid));
+          const ref_data = ref.data();
+          if (!ref_data.favorite_events.includes(eventdoc.id)){
+            favselected = false;
+          } else {
+            favselected = true;
+          }
+          if (favselected == false) {
+            x.style.fill = "red";
+            x.style.stroke = "none";
+            favselected = true;
+            const id_fav = eventdoc.id
+            await updateDoc(doc(db, "users", user.uid), {
+              favorite_events : arrayUnion(id_fav),
+            })
+          } else {
+            favselected = false;
+            x.style.fill = "black";
+            x.style.stroke = "black";
+            const id_fav = eventdoc.id;
+            await updateDoc(doc(db, "users", user.uid), {
+              favorite_events : arrayRemove(id_fav),
+            })
+          }
+          return x;
+        }
+      }
       populate++;
     }
   });
-
-  // Fav button logic — runs AFTER all cards are in the DOM
-  let favselected = false;
-  document.querySelectorAll(".favbtn").forEach(function (btn) {
-    btn.addEventListener("click", function () { favClick(btn); });
-  });
-
-  function favClick(x) {
-    if (favselected == false) {
-      x.style.fill = "red";
-      x.style.stroke = "none";
-      favselected = true;
-    } else {
-      x.style.fill = "none";
-      x.style.stroke = "black";
-      favselected = false;
-    }
-    return x;
-  }
 }
 
 loadMainEvents();
