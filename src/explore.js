@@ -47,7 +47,7 @@ async function loadevents() {
 
       <!-- tags for the event -->
 
-        <a href="eventpage.html?docID=${doc.id}" class="w-fit bg-black text-white text-sm py-1 px-3 rounded-lg hover:opacity-90 transition-opacity">
+        <a href="eventpage.html?docID=${doc.id}&from=explore.html" class="w-fit bg-black text-white text-sm py-1 px-3 rounded-lg hover:opacity-90 transition-opacity">
         Go to Event
       </a> 
     </div>
@@ -133,7 +133,7 @@ function favClick(x) {
               <h3 id="evntdate" class="font-semibold text-sm  text-[var(--medium-grey)] pt-2">${data.date}</h3>
                
             <p id="evnttitle" class=" font-bold text-md pt-3 pb-8">${data.title}</p>
-            <a href="eventpage.html?docID=${doc.id}" 
+            <a href="eventpage.html?docID=${doc.id}&from=eventlist.html" 
               type="button"  
               class="bg-black rounded-xl text-white text-center  mt-8 px-2 py-2 text-xs cursor-pointer focus:outline-none">
               View Details

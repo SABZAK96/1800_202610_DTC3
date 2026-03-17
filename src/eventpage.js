@@ -1,52 +1,61 @@
 import { db } from "./firebaseConfig.js";
-import { collection, doc,getDocs, onSnapshot } from "firebase/firestore";
-
+import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
+// fixing back button behaviour by adding from to links in event template cards, retrieving it and setting back href attribute to it
+const params = new URL(window.location.href).searchParams;
+const previousPage = params.get("from");
+if (previousPage) {
+    document.getElementById("backbutton").setAttribute("href", previousPage);
+}
 function getDocIdFromUrl() {
-    const params = new URL(window.location.href).searchParams;
-const current_id = params.get("docID");
-    return current_id ;
+  const params = new URL(window.location.href).searchParams;
+  const current_id = params.get("docID");
+  return current_id;
 }
 
-function eventdetails(id){
-    const ref = doc(db, "Events_2026", id)
-    onSnapshot(ref , docSnap =>{
-        if (docSnap.exists()) {
-            console.log("exists?", docSnap.exists());
-            const id = docSnap.id;
-            console.log(id);
-            document.getElementById("evntimgpage").style.backgroundImage = `url('./images/${id}.png')`;
-            document.getElementById("tag0").innerHTML = docSnap.data().tags[0];
-            document.getElementById("tag1").innerHTML = docSnap.data().tags[1];
-            document.getElementById("price").innerHTML = docSnap.data().price;
-            document.getElementById("loc").innerText = docSnap.data().location;
-            document.getElementById("addr").innerText = docSnap.data().address;
-            document.getElementById("date").innerText = docSnap.data().date;
-            document.getElementById("time").innerText = docSnap.data().time;
-            document.getElementById("evnttitle").innerText = docSnap.data().title;
-            document.getElementById("evntsum").innerText = docSnap.data().short_summary;
-            document.getElementById("evntdescr").innerText = docSnap.data().description;
-            document.getElementById("refundpolicy").innerText = docSnap.data().refund_policy;
-        } else{
-            console.log("no such data exist!");
-        }
-    });
+
+function eventdetails(id) {
+  const ref = doc(db, "Events_2026", id);
+  onSnapshot(ref, (docSnap) => {
+    if (docSnap.exists()) {
+      console.log("exists?", docSnap.exists());
+      const id = docSnap.id;
+      console.log(id);
+      document.getElementById("evntimgpage").style.backgroundImage =
+        `url('./images/${id}.png')`;
+      document.getElementById("tag0").innerHTML = docSnap.data().tags[0];
+      document.getElementById("tag1").innerHTML = docSnap.data().tags[1];
+      document.getElementById("price").innerHTML = docSnap.data().price;
+      document.getElementById("loc").innerText = docSnap.data().location;
+      document.getElementById("addr").innerText = docSnap.data().address;
+      document.getElementById("date").innerText = docSnap.data().date;
+      document.getElementById("time").innerText = docSnap.data().time;
+      document.getElementById("evnttitle").innerText = docSnap.data().title;
+      document.getElementById("evntsum").innerText =
+        docSnap.data().short_summary;
+      document.getElementById("evntdescr").innerText =
+        docSnap.data().description;
+      document.getElementById("refundpolicy").innerText =
+        docSnap.data().refund_policy;
+    } else {
+      console.log("no such data exist!");
+    }
+  });
 }
 eventdetails(getDocIdFromUrl());
 
 // load the bottom placeholders
 async function loadcards() {
-    const ref = collection(db, "Events_2026");
-    const docs = await getDocs(ref);
-    let number = 0;
-    docs.forEach((doc) =>{
-        const data = doc.data();
-        
-        let z = getDocIdFromUrl();
-        const a = doc.id;
-        if (z != doc.id){
-            if (number < 3){
-                
-            let result = `<div class="w-full lg:w-1/3 p-2">
+  const ref = collection(db, "Events_2026");
+  const docs = await getDocs(ref);
+  let number = 0;
+  docs.forEach((doc) => {
+    const data = doc.data();
+
+    let z = getDocIdFromUrl();
+    const a = doc.id;
+    if (z != doc.id) {
+      if (number < 3) {
+        let result = `<div class="w-full lg:w-1/3 p-2">
           
           <div class="flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
             <div class="w-full relative">
@@ -84,33 +93,37 @@ async function loadcards() {
             </a>
             </div>
           </div>
-          </div>`
-                // favorite button
-    let favselected = false;
+          </div>`;
+        // favorite button
+        let favselected = false;
 
-document.querySelectorAll(".favbtn").forEach(function(btn) {
-    btn.addEventListener("click", function(){favClick(btn);})});
+        document.querySelectorAll(".favbtn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            favClick(btn);
+          });
+        });
 
-function favClick(x) {
-    if (favselected == false) {
-        x.style.fill = "red";
-        x.style.stroke = "none";
-        favselected = true;
-    } else {
-        x.style.fill = "black";
-        x.style.stroke = "black";
-        favselected = false;
-    }
-    return x;
-}
-          const new_card = document.createElement("div");
-          new_card.innerHTML = result;
-          document.querySelector(".container").appendChild(new_card.firstElementChild);
-          number ++;
-            }
+        function favClick(x) {
+          if (favselected == false) {
+            x.style.fill = "red";
+            x.style.stroke = "none";
+            favselected = true;
+          } else {
+            x.style.fill = "black";
+            x.style.stroke = "black";
+            favselected = false;
+          }
+          return x;
         }
-});
-    
+        const new_card = document.createElement("div");
+        new_card.innerHTML = result;
+        document
+          .querySelector(".container")
+          .appendChild(new_card.firstElementChild);
+        number++;
+      }
+    }
+  });
 }
 console.log("loadcards is running");
 loadcards();
