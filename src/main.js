@@ -192,6 +192,10 @@ async function loadMainEvents() {
           }
           return x;
         }
+      } else {
+        favBtn.addEventListener("click", function () {
+          window.location.href = "login.html";
+        });
       }
       populate++;
     }
