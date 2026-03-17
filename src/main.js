@@ -81,7 +81,7 @@ async function loadMainEvents() {
     // First 5 events → carousel cards
     if (populate < 4) {
       let carouselCard = `
-        <a href="eventpage.html?docID=${id}" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
+        <a href="eventpage.html?docID=${id}&from=main.html" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
           <div class="flex rounded-l-4xl shadow-xl w-50">
             <img src="./images/${id}.png" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
           </div>
@@ -124,7 +124,7 @@ async function loadMainEvents() {
               <p class="text-sm text-gray-500">${data.date}</p>
               <h2>${data.title}</h2>
             </div>
-            <a href="eventpage.html?docID=${id}" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</a>
+            <a href="eventpage.html?docID=${id}&from=main.html" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</a>
           </div>
         </div>`;
       const card = document.createElement("div");

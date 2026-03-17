@@ -22,12 +22,12 @@
   
 <site-navbar></site-navbar>
     
-<main class="max-w-7xl mx-auto relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 mx-auto bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
+<main class="max-w-7xl mx-auto relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
 <div class="absolute top-0 w-full h-75 rounded-t-2xl -ml-10 bg-[#d8d4da] z-0"></div>
 <div class="mx-auto z-10 relative">
 
     <!--Header Search and login-->
-    <div class="flex flex-col md:flex-row justify-between mb-20">
+    <div class=" flex flex-wrap flex-row  gap-3 md:justify-between items-align mb-20">
         <!--Left side-->
         <div>
         <form>
@@ -36,9 +36,9 @@
         </form>
         </div>
         <!--Right side-->
-        <div id="" class="signedinuser hidden md:flex gap-5">
+        <div id="" class="signedinuser flex gap-5">
             <!--Friend Requests-->
-            <div class="flex justify-center items-center">
+            <div class="hidden lg:flex lg:justify-center lg:items-center">
                 <button class="bg-[var(--primary-green)] h-10 px-4 rounded-full text-white text-sm font-bold mr-3">3</button>
                 <p class="text-xs font-bold">Friend requests</p>
             </div>
@@ -54,8 +54,8 @@
     </div>
 
     <!--Upcoming events-->
-    <h1 style="margin-bottom: 40px;">Upcoming events</h1>
-    <div class="carousel overflow-x-auto no-scrollbar flex gap-4 p-4 cursor-grab select-none -ml-10 -mr-10 pl-10 pb-15">
+    <h1 style="margin-bottom: 40px; ">Upcoming events</h1>
+    <div class="carousel overflow-x-auto no-scrollbar cursor-grab select-none flex gap-4 p-4  -ml-10 -mr-10 pl-10 pb-15">
         <div class="flex gap-4 w-max p-0">
 
             <!--Wide Featured Event Card-->
@@ -169,7 +169,7 @@
 
   <h2 style="margin-bottom: 50px;">Top categories</h2>
   <!--Categories-->
-  <div class="mb-20">
+  <div class=" carousel overflow-x-auto no-scrollbar cursor-grab -ml-10 -mr-10 select-none md:mb-20">
 
     <!--Category buttons-->
     <div class="flex items-start gap-5">
@@ -243,7 +243,7 @@
 
 
   <!--Your Favourites-->
-  <h1 style="margin-bottom: 50px;">Your favourites</h1>
+  <h1 class="m:pt-0 pt-5" style="margin-bottom: 50px;">Your favourites</h1>
   <div class="favourites-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-30">
 
 
