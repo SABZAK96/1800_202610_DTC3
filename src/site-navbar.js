@@ -88,7 +88,7 @@ class SiteNavbar extends HTMLElement {
 
         <!--Mobile-->
         <div class="fixed bottom-0 w-full bg-gradient-to-t from-[#484856]/75 to-transparent z-50 md:z-0 md:flex">
-        <div class="flex flex-row md:hidden m-5 px-3 h-20 min-w-[250px] bg-white justify-between items-center gap-2 shadow-2xl rounded-full">
+        <div class="flex flex-row md:hidden mx-auto mb-5 px-3 h-20 w-full bg-white justify-between items-center gap-2 shadow-2xl rounded-full">
             <!--Menu Item 1-->
             <a href="main.html">
             <button class="btnhomem h-15 w-15 rounded-full bg-white hover:bg-[#f4f1ea] ">
@@ -234,6 +234,7 @@ tabeffects(){
     }
 
 }
+
 
 }
 

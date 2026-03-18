@@ -136,6 +136,10 @@ async function loadcards() {
           }
           return x;
         }
+    } else {
+      favBtn.addEventListener("click", function () {
+        window.location.href = "login.html";
+      });
     }
 
     }
@@ -273,7 +277,11 @@ async function loadcards() {
           }
           return x;
         }
-        
+
+    } else {
+      favBtn.addEventListener("click", function () {
+        window.location.href = "login.html";
+      });
     }
 
         number++;
