@@ -239,3 +239,21 @@ tabeffects(){
 }
 
 customElements.define('site-navbar', SiteNavbar);
+
+
+// Mark current page in navbar
+function currentPage() {
+  const links = document.querySelectorAll(".menuButton");
+  const currentPath = window.location.pathname;
+  links.forEach(link => {
+    if (link.parentElement.getAttribute("href") === currentPath) {
+      link.classList.add("bg-white", "shadow-2xl");
+      link.querySelector("svg").classList.remove("text-white");
+      link.querySelector("svg").classList.add("text-[var(--primary-green)]");
+      link.querySelector("svg").nextElementSibling.classList.remove("text-white");
+      link.querySelector("svg").nextElementSibling.classList.add("text-black");
+    }
+  });
+}
+
+currentPage();

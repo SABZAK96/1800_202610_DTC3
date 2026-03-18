@@ -209,21 +209,7 @@ async function loadMainEvents() {
 
 loadMainEvents();
 
-// Carousel drag to scroll
-function waitForElement(selector, callback) {
-  const interval = setInterval(() => {
-    const el = document.querySelector(selector);
-    if (el) {
-      clearInterval(interval);
-      callback(el);
-    }
-  }, 100);
-}
 
-waitForElement(".carousel", (slider) => {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
 
   slider.addEventListener("dragstart", (e) => e.preventDefault());
   slider.addEventListener("mousedown", (e) => {
@@ -247,22 +233,6 @@ waitForElement(".carousel", (slider) => {
     const walk = (x - startX) * 2;
     slider.scrollLeft = scrollLeft - walk;
   });
-});
 
-// // Mark current page in navbar
-// function currentPage() {
-//   const links = document.querySelectorAll(".menuButton");
-//   const currentPath = window.location.pathname;
-//   links.forEach(link => {
-//     if (link.parentElement.getAttribute("href") === currentPath) {
-//       link.classList.add("bg-white", "shadow-2xl");
-//       link.querySelector("svg").classList.remove("text-white");
-//       link.querySelector("svg").classList.add("text-[var(--primary-green)]");
-//       link.querySelector("svg").nextElementSibling.classList.remove("text-white");
-//       link.querySelector("svg").nextElementSibling.classList.add("text-black");
-//     }
-//   });
-// }
 
-// currentPage();
 
