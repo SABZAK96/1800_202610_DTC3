@@ -3,13 +3,17 @@ import { db } from "./firebaseConfig.js";
 import { collection, getDocs,setDoc, doc } from "firebase/firestore";
 import { auth } from "./firebaseConfig.js"; 
 import { onAuthStateChanged, signOut } from "firebase/auth";
+
 // if the user is not logged in, switch the window to login so they signup first
 onAuthReady((user) => {
     if (!user) {
         window.location.href = "login.html";
-    } 
+    }  else {
+        // before adding this line, if the user was not authenticated, the content of the page were shown completely
+        // then they would get redirected to login. it was weird
+        document.getElementById("unsigneduser").classList.toggle("hidden");
+    }
 });
-
 
 //-------------------------------------------------------------
 // Function to enable editing of user info form fields
