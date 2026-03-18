@@ -69,10 +69,22 @@ Back to Events</a>
 </div>
          <!-- buttons go here -->
       <div class="flex flex-col gap-2 w-50">
-        <button class=" flex flex-row items-center justify-center gap-1 bg-[var(--primary-green)] text-white whitespace-nowrap text-sm w-full p-3 rounded-full hover:opacity-90 transition-opacity">
-          <svg class="2-6 h-6 fill-white" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-          <path class="cls-1" d="M100,6.19C48.19,6.19,6.19,48.19,6.19,100s42,93.81,93.81,93.81,93.81-42,93.81-93.81S151.81,6.19,100,6.19ZM147.24,111.19h-36.05v36.05c0,6.18-5.01,11.19-11.19,11.19s-11.19-5.01-11.19-11.19v-36.05h-36.05c-6.18,0-11.19-5.01-11.19-11.19s5.01-11.19,11.19-11.19h36.05v-36.05c0-6.18,5.01-11.19,11.19-11.19s11.19,5.01,11.19,11.19v36.05h36.05c6.18,0,11.19,5.01,11.19,11.19s-5.01,11.19-11.19,11.19Z"/>
-        </svg>Add to Calendar</button>
+        <button type="button" class="Btncalendar flex flex-row items-center justify-center gap-1 bg-[var(--primary-green)] text-white whitespace-nowrap text-sm w-full p-3 rounded-full hover:opacity-90 transition-opacity">
+          <div class="calendarmsgcurrent flex flex-row white items-center justify-center gap-1" >
+              <svg class="2-6 h-6 fill-white" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+              <path class="cls-1" d="M100,6.19C48.19,6.19,6.19,48.19,6.19,100s42,93.81,93.81,93.81,93.81-42,93.81-93.81S151.81,6.19,100,6.19ZM147.24,111.19h-36.05v36.05c0,6.18-5.01,11.19-11.19,11.19s-11.19-5.01-11.19-11.19v-36.05h-36.05c-6.18,0-11.19-5.01-11.19-11.19s5.01-11.19,11.19-11.19h36.05v-36.05c0-6.18,5.01-11.19,11.19-11.19s11.19,5.01,11.19,11.19v36.05h36.05c6.18,0,11.19,5.01,11.19,11.19s-5.01,11.19-11.19,11.19Z"/>
+            </svg>
+            <p >Add to Calendar</p>
+          </div>
+<!-- change the button when its added to the calendar-->
+        <div class="calendarmsg hidden flex flex-row white items-center justify-center gap-1" >
+          
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+
+          <p  >In Calendar</p>
+        </div></button>
 
 
           <button class=" flex flex-row items-center justify-center gap-1 bg-[var(--primary-green)] text-white text-sm w-full p-3 rounded-full hover:opacity-90 transition-opacity">

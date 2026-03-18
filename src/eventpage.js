@@ -9,6 +9,7 @@ const previousPage = params.get("from");
 if (previousPage) {
     document.getElementById("backbutton").setAttribute("href", previousPage);
 }
+
 function getDocIdFromUrl() {
   const params = new URL(window.location.href).searchParams;
   const current_id = params.get("docID");
@@ -291,3 +292,45 @@ async function loadcards() {
 }
 console.log("loadcards is running");
 loadcards();
+
+// add to calendar events save into database
+async function AddtoCalendar(id){
+  // if user signed in do the following
+    const user = auth.currentUser;
+    if (user) {
+      // first get the user docs
+      const ref = await getDoc(doc(db, "users", user.uid));
+      const ref_data = ref.data();
+      // check if the calendar field exists, if not create one
+      if (!ref_data.calendar){
+        let new_calendar = []
+        await setDoc(doc(db, "users", user.uid),{
+          calendar : new_calendar,
+        }, {merge : true})
+    }
+        await setDoc(doc(db, "users", user.uid), {
+        calendar : arrayUnion(id)
+      }, {merge : true})
+  } else {
+       // redirect the user to log in if they're not logged in already
+    window.location.href ="login.html"
+    }
+    // add the id to the collection, if button clicked
+    
+
+  
+  }
+
+
+  document.querySelector(".Btncalendar").addEventListener("click",async ()=>{
+    await AddtoCalendar(getDocIdFromUrl());
+    // change the button text when its added to the calendar
+    document.querySelector(".calendarmsgcurrent").classList.toggle("hidden")
+    document.querySelector(".calendarmsg").classList.toggle("hidden")
+    
+  } )
+  
+
+  
+  
+  
