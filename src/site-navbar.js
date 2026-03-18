@@ -235,6 +235,7 @@ tabeffects(){
 
 }
 
+
 }
 
 customElements.define('site-navbar', SiteNavbar);
