@@ -1,14 +1,15 @@
 import { onAuthReady } from "./authentication.js";
 import { db } from "./firebaseConfig.js";
+import { collection, getDocs,setDoc, doc } from "firebase/firestore";
+import { auth } from "./firebaseConfig.js"; 
+import { onAuthStateChanged, signOut } from "firebase/auth";
 // if the user is not logged in, switch the window to login so they signup first
 onAuthReady((user) => {
     if (!user) {
         window.location.href = "login.html";
-    }
+    } 
 });
-import { collection, getDocs,setDoc, doc } from "firebase/firestore";
-import { auth } from "./firebaseConfig.js"; 
-import { onAuthStateChanged, signOut } from "firebase/auth";
+
 
 //-------------------------------------------------------------
 // Function to enable editing of user info form fields
