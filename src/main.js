@@ -1,10 +1,12 @@
+// the exact logic for favoriting cards for signed in users is used in here.
+// only necessary changes(exactly as eventpage.js) are made for applying the favorite logic
+
 import { onAuthReady } from "./authentication.js";
  import { db } from "./firebaseConfig.js"; 
  import { collection, doc, getDocs, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
  import { auth } from "./firebaseConfig.js";
   import { onAuthStateChanged, signOut } from "firebase/auth"
-// the exact logic for favoriting cards for signed in users is used in here.
-// only necessary changes(exactly as eventpage.js) are made for applying the favorite logic
+
 const usernameDisplay = document.getElementById("username-display");
 const authBtn = document.getElementById("auth-btn");
 const signedInUserSection = document.querySelector(".signedinuser");
@@ -39,6 +41,9 @@ function showDashboard() {
     if (!user) {
       location.href = "index.html";
       return;
+    } else{ 
+      document.getElementById("unsigneduser").classList.toggle("hidden");
+
     }
     const name = user.displayName || user.email;
     if (nameElement) {
@@ -244,20 +249,20 @@ waitForElement(".carousel", (slider) => {
   });
 });
 
-// Mark current page in navbar
-function currentPage() {
-  const links = document.querySelectorAll(".menuButton");
-  const currentPath = window.location.pathname;
-  links.forEach(link => {
-    if (link.parentElement.getAttribute("href") === currentPath) {
-      link.classList.add("bg-white", "shadow-2xl");
-      link.querySelector("svg").classList.remove("text-white");
-      link.querySelector("svg").classList.add("text-[var(--primary-green)]");
-      link.querySelector("svg").nextElementSibling.classList.remove("text-white");
-      link.querySelector("svg").nextElementSibling.classList.add("text-black");
-    }
-  });
-}
+// // Mark current page in navbar
+// function currentPage() {
+//   const links = document.querySelectorAll(".menuButton");
+//   const currentPath = window.location.pathname;
+//   links.forEach(link => {
+//     if (link.parentElement.getAttribute("href") === currentPath) {
+//       link.classList.add("bg-white", "shadow-2xl");
+//       link.querySelector("svg").classList.remove("text-white");
+//       link.querySelector("svg").classList.add("text-[var(--primary-green)]");
+//       link.querySelector("svg").nextElementSibling.classList.remove("text-white");
+//       link.querySelector("svg").nextElementSibling.classList.add("text-black");
+//     }
+//   });
+// }
 
-currentPage();
+// currentPage();
 
