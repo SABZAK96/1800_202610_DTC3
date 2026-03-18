@@ -26,24 +26,19 @@
 
   <site-navbar></site-navbar>
 
-  <main class="max-w-7xl mx-auto relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 mx-auto bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
+  <main class="max-w-7xl relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 mx-auto bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
     
 <section class="max-w-6xl">
       <section class="flex  flex-col mb-5">
-      <a class="flex flex-row gap-1 items-center pb-3" href="explore.html"><svg class="w-6 h-6" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+      <a id="backbutton" class="flex flex-row gap-1 items-center pb-3" href=""><svg class="w-6 h-6" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <path d="M31.18,89.84h153.06c5.28,0,9.57,4.28,9.57,9.57,0,5.28-4.28,9.57-9.57,9.57H31.18c-5.28,0-9.57-4.28-9.57-9.57s4.28-9.57,9.57-9.57Z"/>
   <path d="M76.78,28.82c2.45,0,4.9.93,6.76,2.8,3.74,3.74,3.74,9.79,0,13.53l-54.26,54.26,54.26,54.26c3.74,3.74,3.74,9.79,0,13.53-3.74,3.74-9.79,3.74-13.53,0L8.99,106.17c-3.74-3.74-3.74-9.79,0-13.53l61.02-61.02c1.87-1.87,4.32-2.8,6.76-2.8Z"/>
 </svg>
 Back to Events</a>
-      <div class="w-full  p-2 relative">
-        <div id="evntimgpage" class="rounded-2xl mb-3 bg-center bg-cover " style="height: 350px;"></div>
-        <!-- fav button -->
-        <div class="absolute top-4 right-4 bg-white rounded-2xl w-fit py-1 px-3"><button class="flex flex-row text-sm whitespace-nowrap justify-center items-center gap-1"><svg class=" favbtn w-6 h-6 fill-none stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  
-  <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-</svg>Add to Favorites</button></div>
+      <div class=" new-container w-full  p-2 relative">
+
         
- <div class="w-full pt-4  ">
+      <div class="w-full pt-4  ">
           
            <!-- for price date and stuff -->
         
@@ -74,10 +69,22 @@ Back to Events</a>
 </div>
          <!-- buttons go here -->
       <div class="flex flex-col gap-2 w-50">
-        <button class=" flex flex-row items-center justify-center gap-1 bg-[var(--primary-green)] text-white whitespace-nowrap text-sm w-full p-3 rounded-full hover:opacity-90 transition-opacity">
-          <svg class="2-6 h-6 fill-white" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-          <path class="cls-1" d="M100,6.19C48.19,6.19,6.19,48.19,6.19,100s42,93.81,93.81,93.81,93.81-42,93.81-93.81S151.81,6.19,100,6.19ZM147.24,111.19h-36.05v36.05c0,6.18-5.01,11.19-11.19,11.19s-11.19-5.01-11.19-11.19v-36.05h-36.05c-6.18,0-11.19-5.01-11.19-11.19s5.01-11.19,11.19-11.19h36.05v-36.05c0-6.18,5.01-11.19,11.19-11.19s11.19,5.01,11.19,11.19v36.05h36.05c6.18,0,11.19,5.01,11.19,11.19s-5.01,11.19-11.19,11.19Z"/>
-        </svg>Add to Calendar</button>
+        <button type="button" class="Btncalendar flex flex-row items-center justify-center gap-1 bg-[var(--primary-green)] text-white whitespace-nowrap text-sm w-full p-3 rounded-full hover:opacity-90 transition-opacity">
+          <div class="calendarmsgcurrent flex flex-row white items-center justify-center gap-1" >
+              <svg class="2-6 h-6 fill-white" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+              <path class="cls-1" d="M100,6.19C48.19,6.19,6.19,48.19,6.19,100s42,93.81,93.81,93.81,93.81-42,93.81-93.81S151.81,6.19,100,6.19ZM147.24,111.19h-36.05v36.05c0,6.18-5.01,11.19-11.19,11.19s-11.19-5.01-11.19-11.19v-36.05h-36.05c-6.18,0-11.19-5.01-11.19-11.19s5.01-11.19,11.19-11.19h36.05v-36.05c0-6.18,5.01-11.19,11.19-11.19s11.19,5.01,11.19,11.19v36.05h36.05c6.18,0,11.19,5.01,11.19,11.19s-5.01,11.19-11.19,11.19Z"/>
+            </svg>
+            <p >Add to Calendar</p>
+          </div>
+<!-- change the button when its added to the calendar-->
+        <div class="calendarmsg hidden flex flex-row white items-center justify-center gap-1" >
+          
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+
+          <p  >In Calendar</p>
+        </div></button>
 
 
           <button class=" flex flex-row items-center justify-center gap-1 bg-[var(--primary-green)] text-white text-sm w-full p-3 rounded-full hover:opacity-90 transition-opacity">

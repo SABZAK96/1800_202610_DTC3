@@ -12,7 +12,6 @@
     <script type="module" src="./src/site-footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-<<<<<<< HEAD
     <style>      
       .current-page {
             background-color: #f4f1ea;
@@ -23,25 +22,16 @@
     </style>
 </head>
   
-<body class="flex flex-row">
+<body id="unsigneduser" class="flex flex-row hidden">
   
   <site-navbar></site-navbar>  
 
-  <main class="w-full pt-5 px-10 ml-0 md:ml-50 mx-auto bg-[var(--light-grey)] rounded-0 md:rounded-tl-[40px] md:rounded-bl-[40px]">
-=======
-
-</head>
-  
-<body class="">
-  
-  <site-navbar></site-navbar>  
-
-  <main class="max-w-7xl mx-auto relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 mx-auto bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
->>>>>>> main
+  <main class="w-full pt-5 px-10 pb-32 md:pb-0 ml-0 md:ml-50 mx-auto bg-[var(--light-grey)] rounded-0 md:rounded-tl-[40px] md:rounded-bl-[40px]">
     <section class="max-w-6xl">
       <h1 class="border-b border-gray-900/10 pb-10 mt-20">Settings</h1>
 
-      <form id="settings-form">
+      <fieldset id="personalInfoFields" disabled>
+        <form id="settings-form">
         <div class="space-y-12">
           <div class="border-b border-gray-300 pb-12">
             <h2 class="text-base/7 font-semibold text-gray-900">Profile</h2>
@@ -111,7 +101,7 @@
             <p class="mt-1 text-sm/6 text-gray-600">Let us know what kind of events you're interested in</p>
 
             <div class="mt-10 space-y-10">
-              <fieldset>
+              
                 <legend class="text-sm/6 font-semibold text-gray-900">Type of events</legend>
                 <div class="mt-6 space-y-6">
 
@@ -180,9 +170,9 @@
                   </div>
 
                 </div>
-              </fieldset>
+              
 
-              <fieldset>
+              
                 <legend class="text-sm/6 font-semibold text-gray-900">Budget</legend>
                 <p class="mt-1 text-sm/6 text-gray-600">Select a range</p>
                 <div class="mt-6 space-y-6">
@@ -203,9 +193,9 @@
                     <label for="no-budget" class="block text-sm/6 font-medium text-gray-900">No limit</label>
                   </div>
                 </div>
-              </fieldset>
+              
 
-              <fieldset>
+              
                 <legend class="text-sm/6 font-semibold text-gray-900">Preferred days</legend>
                 <div class="mt-6 space-y-6">
                   <div class="flex gap-3">
@@ -314,9 +304,9 @@
                   </div>
 
                 </div>
-              </fieldset>
+              
 
-              <fieldset>
+             
                 <legend class="text-sm/6 font-semibold text-gray-900">Transportation Methods</legend>
                 <div class="mt-6 space-y-6">
 
@@ -381,9 +371,7 @@
                   </div>
 
                 </div>
-              </fieldset>
 
-              <fieldset>
                 <legend class="text-sm/6 font-semibold text-gray-900">Distance</legend>
                 <p class="mt-1 text-sm/6 text-gray-600">Select a range</p>
                 <div class="mt-6 space-y-6">
@@ -404,17 +392,23 @@
                     <label for="distance-nolimit" class="block text-sm/6 font-medium text-gray-900">No limit</label>
                   </div>
                 </div>
-              </fieldset>
+              
 
             </div>
           </div>
         </div>
 
-        <div class="mt-6 mb-20 flex items-center justify-start gap-x-6">
-          <button id="submit" type="submit" class="rounded-md bg-[var(--primary-green)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[var(--primary-green)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]">Save</button>
-          <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
-        </div>
+
       </form>
+      </fieldset>
+        <div class="mt-6 mb-20 flex items-center justify-start gap-x-6">
+          <!-- edit -->
+            <button  type="button" id="editButton" class="rounded-md bg-[var(--medium-grey)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[#6b6c6a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]">Edit</button>
+          <!-- save -->
+            <button id="submit" type="submit" class="rounded-md bg-[var(--primary-green)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[#6a9a33]  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]">Save</button>
+          <!-- cancel -->
+            <button type="button" class="text-sm/6 font-semibold text-gray-900 ">Cancel</button>
+        </div>
     </section>
 
     <site-footer></site-footer>
@@ -423,7 +417,7 @@
   <div id="savechange" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden">
     <div class="relative w-100 mx-auto bg-white rounded-md p-10 shadow-2xl">
       <h2>Changes Saved</h2>
-      <button id="continue">Continue</button>
+      <button id="continue" class="rounded-md bg-[var(--primary-green)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[#6a9a33] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)] mt-3">Continue</button>
     </div>
   </div>
 
