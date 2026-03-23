@@ -1,6 +1,9 @@
+// the exact logic for favoriting cards for signed in users is used in here.
+// only necessary changes(exactly as eventpage.js) are made for applying the favorite logic
+
 import { onAuthReady } from "./authentication.js";
  import { db } from "./firebaseConfig.js"; 
- import { collection, getDocs } from "firebase/firestore"; 
+ import { collection, doc, getDocs, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
  import { auth } from "./firebaseConfig.js";
   import { onAuthStateChanged, signOut } from "firebase/auth"
 
@@ -38,6 +41,9 @@ function showDashboard() {
     if (!user) {
       location.href = "index.html";
       return;
+    } else{ 
+      document.getElementById("unsigneduser").classList.toggle("hidden");
+
     }
     const name = user.displayName || user.email;
     if (nameElement) {
@@ -74,14 +80,14 @@ async function loadMainEvents() {
   // Clear static hardcoded cards
   if (carouselInner) carouselInner.innerHTML = "";
 
-  snap.forEach((doc) => {
-    let data = doc.data();
-    let id = doc.id;
+  snap.forEach((eventdoc) => {
+    let data = eventdoc.data();
+    let id = eventdoc.id;
 
-    // First 5 events → carousel cards
+    // First 4 events → carousel cards
     if (populate < 4) {
       let carouselCard = `
-        <a href="eventpage.html?docID=${id}" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
+        <a href="eventpage.html?docID=${id}&from=main.html" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
           <div class="flex rounded-l-4xl shadow-xl w-50">
             <img src="./images/${id}.png" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
           </div>
@@ -124,53 +130,86 @@ async function loadMainEvents() {
               <p class="text-sm text-gray-500">${data.date}</p>
               <h2>${data.title}</h2>
             </div>
-            <a href="eventpage.html?docID=${id}" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</a>
+            <a href="eventpage.html?docID=${id}&from=main.html" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</a>
           </div>
         </div>`;
       const card = document.createElement("div");
       card.innerHTML = favCard;
-      favouritesContainer.appendChild(card.firstElementChild);
+      const each_card = favouritesContainer.appendChild(card.firstElementChild);
+      const favBtn = each_card.querySelector(".favbtn");
+      const user = auth.currentUser;
+      if (user) {
+        async function check_fav_field(){
+          const ref = await getDoc(doc(db, "users", user.uid))
+          const user_data = ref.data()
+          if (!user_data.favorite_events){
+            let saved_events = []
+            await setDoc(doc(db, "users", user.uid), {
+              favorite_events: saved_events,
+            },{ merge: true })
+            return saved_events
+          } else {
+            return user_data.favorite_events
+          }
+        }
+        async function remember_heart_color(x){
+          await check_fav_field();
+          const ref = await getDoc(doc(db, "users", user.uid));
+          const ref_data_event = ref.data().favorite_events;
+          if (ref_data_event.includes(eventdoc.id)){
+            x.style.fill = "red";
+            x.style.stroke = "none";
+          } else {
+            x.style.fill = "black";
+            x.style.stroke = "black";
+          }
+        }
+        remember_heart_color(favBtn);
+        favBtn.addEventListener("click", function () {
+          favClick(favBtn);
+        });
+        async function favClick(x) {
+          await check_fav_field();
+          let favselected = false;
+          const ref = await getDoc(doc(db, "users", user.uid));
+          const ref_data = ref.data();
+          if (!ref_data.favorite_events.includes(eventdoc.id)){
+            favselected = false;
+          } else {
+            favselected = true;
+          }
+          if (favselected == false) {
+            x.style.fill = "red";
+            x.style.stroke = "none";
+            favselected = true;
+            const id_fav = eventdoc.id
+            await updateDoc(doc(db, "users", user.uid), {
+              favorite_events : arrayUnion(id_fav),
+            })
+          } else {
+            favselected = false;
+            x.style.fill = "black";
+            x.style.stroke = "black";
+            const id_fav = eventdoc.id;
+            await updateDoc(doc(db, "users", user.uid), {
+              favorite_events : arrayRemove(id_fav),
+            })
+          }
+          return x;
+        }
+      } else {
+        favBtn.addEventListener("click", function () {
+          window.location.href = "login.html";
+        });
+      }
       populate++;
     }
   });
-
-  // Fav button logic — runs AFTER all cards are in the DOM
-  let favselected = false;
-  document.querySelectorAll(".favbtn").forEach(function (btn) {
-    btn.addEventListener("click", function () { favClick(btn); });
-  });
-
-  function favClick(x) {
-    if (favselected == false) {
-      x.style.fill = "red";
-      x.style.stroke = "none";
-      favselected = true;
-    } else {
-      x.style.fill = "none";
-      x.style.stroke = "black";
-      favselected = false;
-    }
-    return x;
-  }
 }
 
 loadMainEvents();
 
-// Carousel drag to scroll
-function waitForElement(selector, callback) {
-  const interval = setInterval(() => {
-    const el = document.querySelector(selector);
-    if (el) {
-      clearInterval(interval);
-      callback(el);
-    }
-  }, 100);
-}
 
-waitForElement(".carousel", (slider) => {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
 
   slider.addEventListener("dragstart", (e) => e.preventDefault());
   slider.addEventListener("mousedown", (e) => {
@@ -194,22 +233,6 @@ waitForElement(".carousel", (slider) => {
     const walk = (x - startX) * 2;
     slider.scrollLeft = scrollLeft - walk;
   });
-});
 
-// Mark current page in navbar
-function currentPage() {
-  const links = document.querySelectorAll(".menuButton");
-  const currentPath = window.location.pathname;
-  links.forEach(link => {
-    if (link.parentElement.getAttribute("href") === currentPath) {
-      link.classList.add("bg-white", "shadow-2xl");
-      link.querySelector("svg").classList.remove("text-white");
-      link.querySelector("svg").classList.add("text-[var(--primary-green)]");
-      link.querySelector("svg").nextElementSibling.classList.remove("text-white");
-      link.querySelector("svg").nextElementSibling.classList.add("text-black");
-    }
-  });
-}
 
-currentPage();
 
