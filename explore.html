@@ -36,6 +36,36 @@
 
   <section class="max-w-6xl">
     <h1 class="text-5xl font-bold  px-4 py-5 ">All Events</h1>
+
+<div class="flex flex-wrap gap-3 px-4 pb-4">
+  <input 
+    id="searchInput"
+    type="text" 
+    placeholder="Search events..." 
+    class="border rounded-xl px-4 py-2 text-sm w-full md:w-64"
+    oninput="applyFilters()"/>
+
+  <select id="tagFilter" class="border rounded-xl px-4 py-2 text-sm" onchange="applyFilters()">
+    <!-- i need to simplify the tag system cuz this is some garbage -->
+    <option value="">All Tags</option>
+    <option value="E-Sport tournament">E-Sport tournament</option>
+    <option value="Fan Festival">Fan Festival</option>
+    <option value="Watch Party">Watch Party</option>
+    <option value="Water-Based Esports">Water-Based Esports</option>
+    <option value="Social">Social</option>
+    <option value="E-Sports Gala">E-Sports Gala</option>
+    <option value="MountainSoccer">MountainSoccer</option>
+    <option value="Amateur Tournament">Amateur Tournament</option>
+    <option value="Family">Family</option>
+    <option value="SoccerSkillsTrail">SoccerSkillsTrail</option>
+    <option value="BeachSoccerFest">BeachSoccerFest</option>
+    <option value="Fan Party">Fan Party</option>
+    <option value="FootballTalks">FootballTalks</option>
+    <option value="Meet & Greet">Meet & Greet</option>
+    <option value="test">test</option>
+  </select>
+</div>
+
 <div class="outercontainer flex flex-col justify-start items-center w-full p-4 lg:space-y-7">
     
   <div class="firstcontainer   flex lg:flex-row flex-col justify-center items-center gap-10">
@@ -49,10 +79,10 @@
  <div class="thirdcontainer flex lg:flex-row flex-col justify-center mt-5  w-full">
        
 
-          <!-- repeat from here -->
-          </div>
+  <!-- repeat from here -->
+  </div>
 
-          </div>
+  </div>
           
 </div>
 
@@ -80,9 +110,7 @@
 
     <!-- Link to scripts of your own -->
     
-    <script type="module" src="./src/explore.js"></script>
-    
-   
+    <script type="module" src="./src/explore.js"></script> 
 
 </body>
 
