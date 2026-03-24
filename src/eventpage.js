@@ -331,7 +331,32 @@ async function AddtoCalendar(id){
     
   } )
   
+// map - there is a free map version in JS that we can use- called leaflet.
+// check it out here :https://leafletjs.com/
 
+async function get_coordinates(id){
+// id comes from the getDocIDfromURL function
+  const ref = await getDoc(doc(db,"Events_2026", id))
+  const ref_data_lat = ref.data().latitude
+  const ref_data_long = ref.data().longitude
+   console.log("lat:", ref_data_lat, "long:", ref_data_long)
+
+
+// Create the map centered on the specific location by replacing the hardcoded stuff latitude and longitude from DB
+const map = L.map('map').setView([ref_data_lat, ref_data_long], 12);
+
+// this was part of the code in the website, no edit
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// put the latitude and longitude from DB here
+L.marker([ref_data_lat, ref_data_long])
+  .addTo(map)
+  // adjust the popup to be a link to google maps by putting the lat and long in the link, and show the event name and short answer in the pop up
+  .bindPopup( `<a href="https://www.google.com/maps?q=${ref_data_lat},${ref_data_long }" target="_blank"><b>${ref.data().address}</b><br>${ref.data().title}</a>`)
+  .openPopup();
   
-  
-  
+}
+get_coordinates(getDocIdFromUrl());
+

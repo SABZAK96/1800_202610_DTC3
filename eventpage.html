@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script type="module" src="./src/site-navbar.js"></script>
   <script type="module" src="./src/site-footer.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -127,7 +129,7 @@ Back to Events</a>
     </section>
 
     <!-- map goes here -->
-     <div class="rounded-2xl w-full h-[350px] bg-[url('./images/maps-placeholder.jpg')] pt-10 bg-cover bg-center bg-no-repeat relative">
+     <div  id="map" class="w-full h-96 rounded-xl">
      <div class="absolute bottom-4 left-4 bg-white rounded-2xl w-fit py-1 px-3"><button class="flex flex-row text-sm whitespace-nowrap justify-center items-center gap-1">Open in Google Maps <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
 </svg>
