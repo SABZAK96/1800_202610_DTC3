@@ -51,6 +51,7 @@ async function loadcards() {
   const ref = collection(db, "Events_2026");
   const docs = await getDocs(ref);
   let number = 0;
+  let relatedCount = 0;
   docs.forEach((eventdoc) => {
     const data = eventdoc.data();
 
@@ -145,7 +146,7 @@ async function loadcards() {
 
     }
     else {
-      if (number >0 && number < 4) {
+      if (eventdoc.id !== z && relatedCount < 3) {
         let result = `<div class="w-full lg:w-1/3 p-2">
           
           <div class="flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
@@ -285,7 +286,7 @@ async function loadcards() {
       });
     }
 
-        number++;
+        relatedCount++;
       }
     }
   });
