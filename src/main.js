@@ -43,6 +43,8 @@ function showDashboard() {
       return;
     } else{ 
       document.getElementById("unsigneduser").classList.toggle("hidden");
+      // the content should be loaded after auth resolves
+      loadMainEvents(user);
 
     }
     const name = user.displayName || user.email;
@@ -69,23 +71,32 @@ const locationSVG = `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width=
   <path class="cls-1" d="M97.01,3.7C55.25,3.7,21.39,37.55,21.39,79.31c0,66.2,75.62,112.28,75.62,112.28,0,0,75.62-46.08,75.62-112.28,0-41.76-33.85-75.62-75.62-75.62ZM97.01,109.34c-18.9,0-34.21-15.32-34.21-34.21s15.32-34.21,34.21-34.21,34.21,15.32,34.21,34.21-15.32,34.21-34.21,34.21Z"/>
 </svg>`;
 
-async function loadMainEvents() {
+// pass user into load events, because initially it was undefined inside this function and we couldnt access user's info
+async function loadMainEvents(user) {
   const ref = collection(db, "Events_2026");
   const snap = await getDocs(ref);
+  // the purpose of these 4 line is to get user favorited events
+  const ref_user = await getDoc(doc(db, "users", user.uid))
+  const user_data = ref_user.data()
+  const favoriteEvents = user_data.favorite_events || [];
+  // end of getting user info
   let populate = 0;
+  // initializing a new counter for favorite events
+  let favcount = 0;
 
   const carouselInner = document.querySelector(".carousel .flex.gap-4.w-max");
   const favouritesContainer = document.querySelector(".favourites-container");
 
   // Clear static hardcoded cards
   if (carouselInner) carouselInner.innerHTML = "";
-
+  // clear favorite container after each call before populating cards
+  if (favouritesContainer) favouritesContainer.innerHTML = "";
   snap.forEach((eventdoc) => {
     let data = eventdoc.data();
     let id = eventdoc.id;
 
     // First 4 events → carousel cards
-    if (populate < 4) {
+    if (populate < 4 ) {
       let carouselCard = `
         <a href="eventpage.html?docID=${id}&from=main.html" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
           <div class="flex rounded-l-4xl shadow-xl w-50">
@@ -114,7 +125,10 @@ async function loadMainEvents() {
     }
 
     // Next 3 events favourites grid cards
-    else if (populate >= 4 && populate < 8) {
+    // check if an eventid we get at each iteration of forEach(eventdoc) is in favorite or not
+    // we should have a new counter for this, cuz otherwise favorited stuff going into carousel would never appear here
+    
+    if(favoriteEvents.includes(id) && favcount < 3){
       let favCard = `
         <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
           <div class="rounded-t-4xl w-full relative">
@@ -133,6 +147,7 @@ async function loadMainEvents() {
             <a href="eventpage.html?docID=${id}&from=main.html" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</a>
           </div>
         </div>`;
+      
       const card = document.createElement("div");
       card.innerHTML = favCard;
       const each_card = favouritesContainer.appendChild(card.firstElementChild);
@@ -194,6 +209,19 @@ async function loadMainEvents() {
             await updateDoc(doc(db, "users", user.uid), {
               favorite_events : arrayRemove(id_fav),
             })
+            // remove each_card instantly when clicking on the heart
+            each_card.remove();
+            // after each removal recall this function again, because we want to load another card if exist after removing one
+            // favouritesContainer.innerHTML = "" i initially did this to empty the container before regenerating but it didnt work.
+            // because the container should be empty before cards start to populate again otherwise we'll have dupes
+              loadMainEvents(user);
+              // checking if the container becomes empty without refereshing the page, and display the message again
+              if (favouritesContainer.querySelectorAll(".favbtn").length === 0) {
+                let favCard = `<div class="col-span-full flex flex-col items-center justify-center gap-4 py-10 w-full"><p>No favorited events yet!</p><a href="explore.html" class="bg-black h-10 px-6 rounded-full text-white text-sm flex items-center justify-center">Go Explore</a></div>`;
+                const card = document.createElement("div");
+                card.innerHTML = favCard;
+                favouritesContainer.appendChild(card.firstElementChild);
+              }
           }
           return x;
         }
@@ -202,37 +230,28 @@ async function loadMainEvents() {
           window.location.href = "login.html";
         });
       }
-      populate++;
-    }
-  });
-}
+      favcount++;
+      }
+  }
+  )
+  // display a useful message if the container is empty. note this doesnt work if user unfavorite everything without refereshing the page
+  // this should be checked again whenever the event is removed from favorite list
+   if (favoriteEvents.length === 0) {
+    let favCard = `<div class="col-span-full flex flex-col items-center justify-center gap-4 py-10 w-full"><p>No favorited events yet!</p><a href="explore.html" class="bg-black h-10 px-6 rounded-full text-white text-sm flex items-center justify-center">Go Explore</a></div>`;
+    const card = document.createElement("div");
+    card.innerHTML = favCard;
+    favouritesContainer.appendChild(card.firstElementChild);
+  }
 
-loadMainEvents();
+
+    };
 
 
 
-  slider.addEventListener("dragstart", (e) => e.preventDefault());
-  slider.addEventListener("mousedown", (e) => {
-    e.preventDefault();
-    isDown = true;
-    slider.classList.add("cursor-grabbing");
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
-  slider.addEventListener("mouseleave", () => {
-    isDown = false;
-  });
-  slider.addEventListener("mouseup", () => {
-    isDown = false;
-    slider.classList.remove("cursor-grabbing");
-  });
-  slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    slider.scrollLeft = scrollLeft - walk;
-  });
+
+
+
+ 
 
 
 
