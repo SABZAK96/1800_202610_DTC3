@@ -343,7 +343,7 @@ async function remember_state_of_calendar(id) {
   if (user) {
     const ref = await getDoc(doc(db,"users",user.uid))
     const ref_data = ref.data()
-
+// maybe the calendar would be empty upon loading the page, not putting [] will cause an error
     const calendar = ref_data.calendar || [];
 
     if (calendar.includes(id)){
@@ -369,6 +369,7 @@ onAuthReady(async (user) => {
         await AddtoCalendar(eventId);
       });
     } else {
+      // redirect users to login when they try to click on add to calendar
       document.querySelector(".Btncalendar").addEventListener("click", () => {
         window.location.href = "login.html";
       });
