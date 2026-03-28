@@ -308,29 +308,75 @@ async function AddtoCalendar(id){
         await setDoc(doc(db, "users", user.uid),{
           calendar : new_calendar,
         }, {merge : true})
+
     }
+      //  check if it exist and when user clicks, we should remove it from DB
+      if (ref_data.calendar && ref_data.calendar.includes(id)){
+        await updateDoc(doc(db,"users", user.uid), {
+          calendar: arrayRemove(id)
+        })
+        // revert the look when its clicked again
+        document.querySelector(".calendarmsgcurrent").classList.remove("hidden");
+        document.querySelector(".calendarmsg").classList.add("hidden");
+        // events doesnt exist in calendar and we want to add it
+      } else {
         await setDoc(doc(db, "users", user.uid), {
-        calendar : arrayUnion(id)
-      }, {merge : true})
+          calendar : arrayUnion(id)
+        }, {merge : true})
+        //  change the look when its clicked
+        document.querySelector(".calendarmsgcurrent").classList.add("hidden")
+        document.querySelector(".calendarmsg").classList.remove("hidden")
+      }
   } else {
        // redirect the user to log in if they're not logged in already
     window.location.href ="login.html"
     }
-    // add the id to the collection, if button clicked
+    // add the id to the collection, if button its clicked
     
 
   
   }
 
+ 
+async function remember_state_of_calendar(id) {
+  const user = auth.currentUser;
+  if (user) {
+    const ref = await getDoc(doc(db,"users",user.uid))
+    const ref_data = ref.data()
 
-  document.querySelector(".Btncalendar").addEventListener("click",async ()=>{
-    await AddtoCalendar(getDocIdFromUrl());
-    // change the button text when its added to the calendar
-    document.querySelector(".calendarmsgcurrent").classList.toggle("hidden")
-    document.querySelector(".calendarmsg").classList.toggle("hidden")
-    
-  } )
+    const calendar = ref_data.calendar || [];
+
+    if (calendar.includes(id)){
+        document.querySelector(".calendarmsgcurrent").classList.add("hidden");
+        document.querySelector(".calendarmsg").classList.remove("hidden");
+    }
+    else {
+        document.querySelector(".calendarmsgcurrent").classList.remove("hidden");
+        document.querySelector(".calendarmsg").classList.add("hidden");
+    }
+  }
+}
+// calling remember_state_of_calendar(getdocidfromurl) after defining it doesnt work because it will run immidiately when the page gets loaded
+// onauthstatechanged will prevent this
+// onAuthStateChanged wait until the page get ready with the logged in user, then checks the state of calendar
+// and applies the css style based on the situation, then attach the event listener to it,
+// so auth.currentUser is available before calling functions that depend on it which is used in remember state of calendar 
+onAuthReady(async (user) => {
+    const eventId = getDocIdFromUrl();
+    if (user) {
+      await remember_state_of_calendar(eventId);
+      document.querySelector(".Btncalendar").addEventListener("click", async () => {
+        await AddtoCalendar(eventId);
+      });
+    } else {
+      document.querySelector(".Btncalendar").addEventListener("click", () => {
+        window.location.href = "login.html";
+      });
+    }
+  });
   
+
+
 // map - there is a free map version in JS that we can use- called leaflet.
 // check it out here :https://leafletjs.com/
 
