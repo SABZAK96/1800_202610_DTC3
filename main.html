@@ -9,10 +9,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script type="module" src="./src/site-navbar.js"></script>
     <script type="module" src="./src/site-footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    
 
     <!-- Other libraries go here -->
 
@@ -24,7 +26,7 @@
     
 <main class="max-w-7xl mx-auto relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
 <!-- fix heights are the temporary changes -->
-<div class="absolute top-0 w-full md:h-80   h-45 rounded-t-2xl -ml-10 bg-[#d8d4da] z-0"></div>
+<div class="absolute top-0 w-full h-80 md:h-80    rounded-t-2xl -ml-10 bg-[#d8d4da] z-0"></div>
 <div class="mx-auto z-10 relative">
 
     <!--Header Search and login-->
@@ -58,190 +60,130 @@
     <!--Upcoming events-->
     <h1 style="margin-bottom: 40px; ">Upcoming events</h1>
     <div class="carousel overflow-x-auto no-scrollbar cursor-grab select-none flex gap-4 p-4  -ml-10 -mr-10 pl-10 pb-15">
-        <div class="flex gap-4 w-max p-0">
+        <div id="upcomingEvents" class="flex gap-4 w-max p-0">
 
-            <!--Wide Featured Event Card-->
             <div class="flex bg-white rounded-4xl shadow-2xl h-50 w-150">
-            <!--Image-->
+                <!--Image-->
                 <div class="flex rounded-l-4xl shadow-xl w-50">
-                    <img src="/images/ET-IMG-004.jpg" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
+                    <img src="/images/plus-background.jpg" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
                 </div>
                 <!--Text-->
                 <div class="flex-1 flex flex-col justify-between py-5 px-10">
                     <div>
-                        <h2>Vancouver Legends Breakfast</h2>
+                        <h2>Add events to your calendar to see upcoming events</h2>
                     </div>  
-                    <div class="">
-                        <!--Item 1-->
-                        <div class="flex flex-1 items-center gap-2 mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="24" height="24" data-name="Layer 1" viewBox="0 0 200 200">
-                            <g>
-                                <path class="cls-1" d="M16.96,82.4v79.14c0,17.59,14.26,31.85,31.85,31.85h104.71c17.59,0,31.85-14.26,31.85-31.85v-79.14H16.96ZM68.33,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM68.33,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63Z"/>
-                                <path class="cls-1" d="M185.37,65.28v-8.46c0-17.59-14.26-31.85-31.85-31.85H48.81c-17.59,0-31.85,14.26-31.85,31.85v8.46h168.41Z"/>
-                            </g>
-                            <rect class="cls-1" x="47.38" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
-                            <rect class="cls-1" x="132.79" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
-                            </svg>
-                            <p class="text-black">Monday, June 30, 20:00</p>
-                        </div>
-                        <!--Item 2-->
-                        <div class="flex flex-1 items-center gap-2 mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="24" height="24" data-name="Layer 1" viewBox="0 0 200 200">
-                                <path class="cls-1" d="M97.01,3.7C55.25,3.7,21.39,37.55,21.39,79.31c0,66.2,75.62,112.28,75.62,112.28,0,0,75.62-46.08,75.62-112.28,0-41.76-33.85-75.62-75.62-75.62ZM97.01,109.34c-18.9,0-34.21-15.32-34.21-34.21s15.32-34.21,34.21-34.21,34.21,15.32,34.21,34.21-15.32,34.21-34.21,34.21Z"/>
-                            </svg>
-                            <p class="text-black">Grouse Mountain Summit</p>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
 
-            <!--Wide Featured Event Card-->
-            <div class="flex bg-white rounded-4xl shadow-2xl h-50 w-150">
-            <!--Image-->
-                <div class="flex rounded-l-4xl shadow-xl w-50">
-                    <img src="/images/ET-IMG-004.jpg" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
-                </div>
-                <!--Text-->
-                <div class="flex-1 flex flex-col justify-between py-5 px-10">
-                    <div>
-                        <h2>Vancouver Legends Breakfast</h2>
-                    </div>  
-                    <div class="">
-                        <!--Item 1-->
-                        <div class="flex flex-1 items-center gap-2 mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="24" height="24" data-name="Layer 1" viewBox="0 0 200 200">
-                            <g>
-                                <path class="cls-1" d="M16.96,82.4v79.14c0,17.59,14.26,31.85,31.85,31.85h104.71c17.59,0,31.85-14.26,31.85-31.85v-79.14H16.96ZM68.33,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM68.33,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63Z"/>
-                                <path class="cls-1" d="M185.37,65.28v-8.46c0-17.59-14.26-31.85-31.85-31.85H48.81c-17.59,0-31.85,14.26-31.85,31.85v8.46h168.41Z"/>
-                            </g>
-                            <rect class="cls-1" x="47.38" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
-                            <rect class="cls-1" x="132.79" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
-                            </svg>
-                            <p class="text-black">Monday, June 30, 20:00</p>
-                        </div>
-                        <!--Item 2-->
-                        <div class="flex flex-1 items-center gap-2 mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="24" height="24" data-name="Layer 1" viewBox="0 0 200 200">
-                                <path class="cls-1" d="M97.01,3.7C55.25,3.7,21.39,37.55,21.39,79.31c0,66.2,75.62,112.28,75.62,112.28,0,0,75.62-46.08,75.62-112.28,0-41.76-33.85-75.62-75.62-75.62ZM97.01,109.34c-18.9,0-34.21-15.32-34.21-34.21s15.32-34.21,34.21-34.21,34.21,15.32,34.21,34.21-15.32,34.21-34.21,34.21Z"/>
-                            </svg>
-                            <p class="text-black">Grouse Mountain Summit</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Wide Featured Event Card-->
-            <div class="flex bg-white rounded-4xl shadow-2xl h-50 w-150">
-            <!--Image-->
-                <div class="flex rounded-l-4xl shadow-xl w-50">
-                    <img src="/images/ET-IMG-004.jpg" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
-                </div>
-                <!--Text-->
-                <div class="flex-1 flex flex-col justify-between py-5 px-10">
-                    <div>
-                        <h2>Vancouver Legends Breakfast</h2>
-                    </div>  
-                    <div class="">
-                        <!--Item 1-->
-                        <div class="flex flex-1 items-center gap-2 mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="24" height="24" data-name="Layer 1" viewBox="0 0 200 200">
-                            <g>
-                                <path class="cls-1" d="M16.96,82.4v79.14c0,17.59,14.26,31.85,31.85,31.85h104.71c17.59,0,31.85-14.26,31.85-31.85v-79.14H16.96ZM68.33,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM68.33,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM112.87,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,164.27c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63ZM157.04,120.1c0,4-3.24,7.24-7.24,7.24h-12.63c-4,0-7.24-3.24-7.24-7.24v-12.63c0-4,3.24-7.24,7.24-7.24h12.63c4,0,7.24,3.24,7.24,7.24v12.63Z"/>
-                                <path class="cls-1" d="M185.37,65.28v-8.46c0-17.59-14.26-31.85-31.85-31.85H48.81c-17.59,0-31.85,14.26-31.85,31.85v8.46h168.41Z"/>
-                            </g>
-                            <rect class="cls-1" x="47.38" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
-                            <rect class="cls-1" x="132.79" y="5.19" width="20.27" height="39.09" rx="1.79" ry="1.79"/>
-                            </svg>
-                            <p class="text-black">Monday, June 30, 20:00</p>
-                        </div>
-                        <!--Item 2-->
-                        <div class="flex flex-1 items-center gap-2 mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="24" height="24" data-name="Layer 1" viewBox="0 0 200 200">
-                                <path class="cls-1" d="M97.01,3.7C55.25,3.7,21.39,37.55,21.39,79.31c0,66.2,75.62,112.28,75.62,112.28,0,0,75.62-46.08,75.62-112.28,0-41.76-33.85-75.62-75.62-75.62ZM97.01,109.34c-18.9,0-34.21-15.32-34.21-34.21s15.32-34.21,34.21-34.21,34.21,15.32,34.21,34.21-15.32,34.21-34.21,34.21Z"/>
-                            </svg>
-                            <p class="text-black">Grouse Mountain Summit</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </div>
 
-  <h2 style="margin-bottom: 50px;">Top categories</h2>
-  <!--Categories-->
-  <div class=" carousel overflow-x-auto no-scrollbar cursor-grab md:-ml-10 -mr-10 select-none md:mb-20">
-
+    <h2 style="margin-bottom: 50px;">Event Categories</h2>
     <!--Category buttons-->
-    <div class="flex items-start gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mb-30">
 
-      <!--Music-->
-      <div class="flex flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Watch Party-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">videocam</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Watch Party</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Music</p>
-      </div>
+        </a>
 
-      <!--Sports-->
-      <div class="flex flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Esports-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">computer</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">E-Sports</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Sports</p>
-      </div>
+        </a>
 
-      <!--Outdoors-->
-      <div class="flex flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Outdoors-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">nature</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Outdoors</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Outdoors</p>
-      </div>
+        </a>
 
-      <!--Nightlife-->
-      <div class="flex flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Indoors-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">cottage</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Indoors</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Nightlife</p>
-      </div>
+        </a>
 
-      <!--Family-->
-      <div class="flex flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Tournaments-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">trophy</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Tournaments</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Family</p>
-      </div>
+        </a>
 
-      <!--Watch parties-->
-      <div class="flex flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Family-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">family_group</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Family</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Viewings</p>
-      </div>
+        </a>
 
-      <!--Art-->
-      <div class="flex flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Nightlife-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">wine_bar</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Nightlife</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Art</p>
-      </div>
-      
-      <!--Talks-->
-      <div class="flex flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        </a>
+        
+        <!--Meet & Greet-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">face</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Meet & Greet</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Talks</p>
-      </div>
+        </a>
+
+        <!--Music-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">music_note</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Music</p>
+        </div>
+        </a>
+
+        <!--Arts-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">image</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Arts</p>
+        </div>
+        </a>
 
     </div>
-  </div>
+
 
 
   <!--Your Favourites-->
@@ -270,6 +212,7 @@
 <!-- Link to scripts of your own -->
 <script type="module" src="./src/main.js"></script>
 <script type="module" src="./src/main-carousel.js"></script>
+<script type="module" src="./src/upcomingEvents.js"></script>
 
 </body>
 
