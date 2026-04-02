@@ -56,9 +56,9 @@ async function favClick(favBtn, user, eventId) {
 function attachFavBtn(favBtn, user, eventId) {
   if (user) {
     remember_heart_color(favBtn, user, eventId);
-    favBtn.addEventListener("click", () => favClick(favBtn, user, eventId));
+    favBtn.parentElement.addEventListener("click", () => favClick(favBtn, user, eventId));
   } else {
-    favBtn.addEventListener("click", () => { window.location.href = "login.html"; });
+    favBtn.parentElement.addEventListener("click", () => { window.location.href = "login.html"; });
   }
 }
  

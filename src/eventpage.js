@@ -105,7 +105,7 @@ async function loadcards() {
         }
 
         remember_heart_color_main(favBtn);
-        favBtn.addEventListener("click", function () {
+        favBtn.parentElement.addEventListener("click", function () {
           favClick_main(favBtn);
         });
 
@@ -139,7 +139,7 @@ async function loadcards() {
           return x;
         }
     } else {
-      favBtn.addEventListener("click", function () {
+      favBtn.parentElement.addEventListener("click", function () {
         window.location.href = "login.html";
       });
     }
@@ -235,7 +235,7 @@ async function loadcards() {
   //  load the current heart color status from firestore and then handle clicking
   // this eventlistener should be added inside if(user) because it should only work for authenticated users
         remember_heart_color(favBtn);
-        favBtn.addEventListener("click", function () {
+        favBtn.parentElement.addEventListener("click", function () {
           favClick(favBtn);
         });
 
@@ -281,7 +281,7 @@ async function loadcards() {
         }
 
     } else {
-      favBtn.addEventListener("click", function () {
+      favBtn.parentElement.addEventListener("click", function () {
         window.location.href = "login.html";
       });
     }
