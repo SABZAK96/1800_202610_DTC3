@@ -390,7 +390,7 @@ async function get_coordinates(id){
 
 
 // Create the map centered on the specific location by replacing the hardcoded stuff latitude and longitude from DB
-const map = L.map('map').setView([ref_data_lat, ref_data_long], 12);
+const map = L.map('map', { scrollWheelZoom: false }).setView([ref_data_lat, ref_data_long], 12);
 
 // this was part of the code in the website, no edit
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

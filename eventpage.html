@@ -13,13 +13,17 @@
   <script type="module" src="./src/site-footer.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-     <style>      
+     <style>
       .current-page {
             background-color: #f4f1ea;
         }
     button {
             cursor: pointer;
         }
+    #map {
+      position: relative;
+      z-index: 0;
+    }
         </style>
 </head>
 
@@ -129,7 +133,7 @@ Back to Events</a>
     </section>
 
     <!-- map goes here -->
-     <div  id="map" class="w-full h-96 rounded-xl">
+     <div  id="map" class="w-full h-96 rounded-xl overflow-hidden">
      <div class="absolute bottom-4 left-4 bg-white rounded-2xl w-fit py-1 px-3"><button class="flex flex-row text-sm whitespace-nowrap justify-center items-center gap-1">Open in Google Maps <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
 </svg>
