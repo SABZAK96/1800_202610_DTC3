@@ -8,7 +8,7 @@ const params = new URL(window.location.href).searchParams;
 const previousPage = params.get("from");
 if (previousPage) {
     document.getElementById("backbutton").setAttribute("href", previousPage);
-}
+} else{document.getElementById("backbutton").setAttribute("href", "explore.html");}
 
 function getDocIdFromUrl() {
   const params = new URL(window.location.href).searchParams;
