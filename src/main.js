@@ -79,6 +79,78 @@ const locationSVG = `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width=
   <path class="cls-1" d="M97.01,3.7C55.25,3.7,21.39,37.55,21.39,79.31c0,66.2,75.62,112.28,75.62,112.28,0,0,75.62-46.08,75.62-112.28,0-41.76-33.85-75.62-75.62-75.62ZM97.01,109.34c-18.9,0-34.21-15.32-34.21-34.21s15.32-34.21,34.21-34.21,34.21,15.32,34.21,34.21-15.32,34.21-34.21,34.21Z"/>
 </svg>`;
 
+//  this is used for "view more" button in favorites, the content of this will be checked everytime.
+let favesshown = [];
+
+// reusable fav button logic for favorite cards, originally this logic was inside loadevents after appending each favorite card
+async function attachFavBtn(favBtn, user, eventId, each_card) {
+  const favouritesContainer = document.querySelector(".favourites-container");
+  if (user) {
+    async function check_fav_field(){
+      const ref = await getDoc(doc(db, "users", user.uid))
+      const user_data = ref.data()
+      if (!user_data.favorite_events){
+        let saved_events = []
+        await setDoc(doc(db, "users", user.uid), { favorite_events: saved_events }, { merge: true })
+        return saved_events
+      } else {
+        return user_data.favorite_events
+      }
+    }
+    async function remember_heart_color(x){
+      await check_fav_field();
+      const ref = await getDoc(doc(db, "users", user.uid));
+      const ref_data_event = ref.data().favorite_events;
+      if (ref_data_event.includes(eventId)){
+        x.style.fill = "red";
+        x.style.stroke = "none";
+      } else {
+        x.style.fill = "black";
+        x.style.stroke = "black";
+      }
+    }
+    remember_heart_color(favBtn);
+    favBtn.parentElement.addEventListener("click", function () {
+      favClick(favBtn);
+    });
+    async function favClick(x) {
+      await check_fav_field();
+      let favselected = false;
+      const ref = await getDoc(doc(db, "users", user.uid));
+      const ref_data = ref.data();
+      if (!ref_data.favorite_events.includes(eventId)){
+        favselected = false;
+      } else {
+        favselected = true;
+      }
+      if (favselected == false) {
+        x.style.fill = "red";
+        x.style.stroke = "none";
+        favselected = true;
+        await updateDoc(doc(db, "users", user.uid), { favorite_events: arrayUnion(eventId) })
+      } else {
+        favselected = false;
+        x.style.fill = "black";
+        x.style.stroke = "black";
+        await updateDoc(doc(db, "users", user.uid), { favorite_events: arrayRemove(eventId) })
+        each_card.remove();
+        favesshown.splice(favesshown.indexOf(eventId), 1);
+        loadMainEvents(user);
+        if (favouritesContainer.querySelectorAll(".favbtn").length === 0) {
+          let emptyMsg = `<div class="col-span-full flex flex-col items-center justify-center gap-4 py-10 w-full"><p>No favorited events yet!</p><a href="explore.html" class="bg-black h-10 px-6 rounded-full text-white text-sm flex items-center justify-center">Go Explore</a></div>`;
+          const card = document.createElement("div");
+          card.innerHTML = emptyMsg;
+          favouritesContainer.appendChild(card.firstElementChild);
+        }
+      }
+      return x;
+    }
+  } else {
+    favBtn.parentElement.addEventListener("click", function () {
+      window.location.href = "login.html";
+    });
+  }
+}
 // pass user into load events, because initially it was undefined inside this function and we couldnt access user's info
 async function loadMainEvents(user) {
   const ref = collection(db, "Events_2026");
@@ -98,7 +170,10 @@ async function loadMainEvents(user) {
   // Clear static hardcoded cards
   if (carouselInner) carouselInner.innerHTML = "";
   // clear favorite container after each call before populating cards
-  if (favouritesContainer) favouritesContainer.innerHTML = "";
+  if (favouritesContainer) {
+    favouritesContainer.innerHTML = "";
+    favesshown = [];  // everything should reset when container clears
+  }
   snap.forEach((eventdoc) => {
     let data = eventdoc.data();
     let id = eventdoc.id;
@@ -157,89 +232,15 @@ async function loadMainEvents(user) {
           </div>
           </a>
         </div>`;
-      
+
+
       const card = document.createElement("div");
       card.innerHTML = favCard;
       const each_card = favouritesContainer.appendChild(card.firstElementChild);
+      favesshown.push(id);
       const favBtn = each_card.querySelector(".favbtn");
-      const user = auth.currentUser;
-      if (user) {
-        async function check_fav_field(){
-          const ref = await getDoc(doc(db, "users", user.uid))
-          const user_data = ref.data()
-          if (!user_data.favorite_events){
-            let saved_events = []
-            await setDoc(doc(db, "users", user.uid), {
-              favorite_events: saved_events,
-            },{ merge: true })
-            return saved_events
-          } else {
-            return user_data.favorite_events
-          }
-        }
-        async function remember_heart_color(x){
-          await check_fav_field();
-          const ref = await getDoc(doc(db, "users", user.uid));
-          const ref_data_event = ref.data().favorite_events;
-          if (ref_data_event.includes(eventdoc.id)){
-            x.style.fill = "red";
-            x.style.stroke = "none";
-          } else {
-            x.style.fill = "black";
-            x.style.stroke = "black";
-          }
-        }
-        remember_heart_color(favBtn);
-        favBtn.parentElement.addEventListener("click", function () {
-          favClick(favBtn);
-        });
-        async function favClick(x) {
-          await check_fav_field();
-          let favselected = false;
-          const ref = await getDoc(doc(db, "users", user.uid));
-          const ref_data = ref.data();
-          if (!ref_data.favorite_events.includes(eventdoc.id)){
-            favselected = false;
-          } else {
-            favselected = true;
-          }
-          if (favselected == false) {
-            x.style.fill = "red";
-            x.style.stroke = "none";
-            favselected = true;
-            const id_fav = eventdoc.id
-            await updateDoc(doc(db, "users", user.uid), {
-              favorite_events : arrayUnion(id_fav),
-            })
-          } else {
-            favselected = false;
-            x.style.fill = "black";
-            x.style.stroke = "black";
-            const id_fav = eventdoc.id;
-            await updateDoc(doc(db, "users", user.uid), {
-              favorite_events : arrayRemove(id_fav),
-            })
-            // remove each_card instantly when clicking on the heart
-            each_card.remove();
-            // after each removal recall this function again, because we want to load another card if exist after removing one
-            // favouritesContainer.innerHTML = "" i initially did this to empty the container before regenerating but it didnt work.
-            // because the container should be empty before cards start to populate again otherwise we'll have dupes
-              loadMainEvents(user);
-              // checking if the container becomes empty without refereshing the page, and display the message again
-              if (favouritesContainer.querySelectorAll(".favbtn").length === 0) {
-                let favCard = `<div class="col-span-full flex flex-col items-center justify-center gap-4 py-10 w-full"><p>No favorited events yet!</p><a href="explore.html" class="bg-black h-10 px-6 rounded-full text-white text-sm flex items-center justify-center">Go Explore</a></div>`;
-                const card = document.createElement("div");
-                card.innerHTML = favCard;
-                favouritesContainer.appendChild(card.firstElementChild);
-              }
-          }
-          return x;
-        }
-      } else {
-        favBtn.parentElement.addEventListener("click", function () {
-          window.location.href = "login.html";
-        });
-      }
+      // this replaced the original functions, I wanted them to be reusable for loadmorefavorites function so i moved it outside, and called it here
+      attachFavBtn(favBtn, auth.currentUser, id, each_card);
       favcount++;
       }
   }
@@ -252,9 +253,91 @@ async function loadMainEvents(user) {
     card.innerHTML = favCard;
     favouritesContainer.appendChild(card.firstElementChild);
   }
-
-
+  // nly add this button if the favorite cards are more than 4
+  if (user_data.favorite_events.length > 3){
+          // adding a button to favorite cards
+      let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
+      const viewBtn = document.createElement("div")
+      viewBtn.innerHTML = viewBtncontent
+      document.querySelector(".favourites-container").appendChild(viewBtn.firstElementChild)
+      // enf of button code
+      // attach a listener for removing button itself, loading data and adding the button again
+      document.getElementById("viewM").addEventListener("click", ()=> {
+        loadMoreFavorites(user);
+      })
+    
+      }
     };
+
+     async function loadMoreFavorites(user) {
+          const ref = collection(db, "Events_2026");
+          const snap = await getDocs(ref);
+          // the purpose of these 4 line is to get user favorited events
+          const ref_user = await getDoc(doc(db, "users", user.uid))
+          const user_data = ref_user.data()
+          const favoriteEvents = user_data.favorite_events || [];
+          // remove the old button, will add it again after loading more content. the button is inside a div, so the div should be removed
+          document.getElementById("viewM").parentElement.remove();
+          const favouritesContainer = document.querySelector(".favourites-container");
+          // we want to load 3 cards with each click
+          let counter = 0;
+          snap.forEach((eventdoc)=>{
+            let data = eventdoc.data();
+            let id = eventdoc.id; 
+            if(favoriteEvents.includes(id) && !favesshown.includes(id) && counter < 3){
+                    let favCard = `
+        <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
+          <div class="rounded-t-4xl w-full relative">
+            <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl z-10">
+              <svg class="favbtn" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 200 200">
+                <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
+              </svg>
+            </div>
+            <img src="./images/${id}.png" class="w-full rounded-t-4xl h-50 object-cover object-center">
+          </div>
+          <a href="eventpage.html?docID=${id}&from=main.html" class="flex flex-col flex-1">
+          <div class="flex flex-col flex-1 justify-between py-8 px-8">
+            <div>
+              <p class="text-sm text-gray-500">${data.date}</p>
+              <h2>${data.title}</h2>
+            </div>
+            <span class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</span>
+          </div>
+          </a>
+        </div>`;
+
+
+      const card = document.createElement("div");
+      card.innerHTML = favCard;
+      const each_card = favouritesContainer.appendChild(card.firstElementChild);
+      favesshown.push(id);
+      const favBtn = each_card.querySelector(".favbtn");
+      // this replaced the original functions, I wanted them to be reusable for loadmorefavorites function so i moved it outside, and called it here
+      attachFavBtn(favBtn, user, id, each_card);
+      counter ++;
+
+
+            }
+          }
+            
+          )
+          // now we need to add the button back and attach event listener to it to load this function again and repeat the process, basically using the logic used in line 257
+          // if the length of favorite events in the db and the length of the array that stores the event id shown is equal, this button should be removed
+          if (favesshown.length < favoriteEvents.length){
+          // adding a button to favorite cards
+          let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
+          const viewBtn = document.createElement("div")
+          viewBtn.innerHTML = viewBtncontent
+          document.querySelector(".favourites-container").appendChild(viewBtn.firstElementChild)
+          // enf of button code
+          // attach a listener for removing button itself, loading data and adding the button again
+          document.getElementById("viewM").addEventListener("click", ()=> {
+            loadMoreFavorites(user);
+          })
+    
+      }
+          
+      }
 
 
 
