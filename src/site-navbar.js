@@ -145,7 +145,7 @@ class SiteNavbar extends HTMLElement {
 tabeffects(){
         // for checking if the url contains the name of the tabs that we already have
     const params = new URL(window.location.href).pathname;
-    if (params.includes("settings.html")){
+    if (params.includes("settings")){
         // fixing desktop navbar effect for settings, also document. doesnt work here because the navbar is inside renderNavbar and we have to user this.
         const setbtnd = this.querySelector(".btnsetting");
         const seticond = this.querySelector(".settingicon");
@@ -162,7 +162,7 @@ tabeffects(){
         seticonm.classList.remove("text-[#ccc5b6]");
         seticonm.classList.add("text-[#74af27]");
     }
-    else if (params.includes("explore.html")){
+    else if (params.includes("explore")){
         // fixing desktop navbar effect for explore, also document. doesnt work here because the navbar is inside renderNavbar and we have to user this.
         const expbtnd = this.querySelector(".btnexplored");
         const expicond = this.querySelector(".expoloreicond");
@@ -179,7 +179,7 @@ tabeffects(){
         expiconm.classList.remove("text-[#ccc5b6]");
         expiconm.classList.add("text-[#74af27]");
     }
-    else if (params.includes("calendar.html")){
+    else if (params.includes("calendar")){
         // fixing desktop navbar effect for calendar
         const calbtnd = this.querySelector(".btncalendard");
         const calicond = this.querySelector(".calendaricond");
@@ -196,7 +196,7 @@ tabeffects(){
         caliconm.classList.remove("text-[#ccc5b6]");
         caliconm.classList.add("text-[#74af27]");
     }
-    else if (params.includes("friends.html")){
+    else if (params.includes("friends")){
         // fixing desktop navbar effect for friends
         const fribtnd = this.querySelector(".btnfriendsd");
         const friicond = this.querySelector(".friendsicond");
@@ -214,7 +214,7 @@ tabeffects(){
         friiiconm.classList.add("text-[#74af27]");
     }
     // this should work for both main and index
-    else if (params.includes("main.html") || params.includes("index.html") ){
+    else if (params.includes("main") || params.includes("index") ){
         // fixing desktop navbar effect for home
         const homebtnd = this.querySelector(".btnhomed");
         const homeicond = this.querySelector(".homeicond");
