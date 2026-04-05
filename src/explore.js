@@ -56,9 +56,9 @@ async function favClick(favBtn, user, eventId) {
 function attachFavBtn(favBtn, user, eventId) {
   if (user) {
     remember_heart_color(favBtn, user, eventId);
-    favBtn.addEventListener("click", () => favClick(favBtn, user, eventId));
+    favBtn.parentElement.addEventListener("click", () => favClick(favBtn, user, eventId));
   } else {
-    favBtn.addEventListener("click", () => { window.location.href = "login.html"; });
+    favBtn.parentElement.addEventListener("click", () => { window.location.href = "login.html"; });
   }
 }
  
@@ -71,24 +71,26 @@ function heartSVG() {
 function createListCard(data, id) {
   const div = document.createElement("div");
   div.innerHTML = `
-    <div class="explorecards flex flex-col lg:flex-row lg:w-1/2 w-full gap-5 bg-white rounded-xl shadow-md mb-4 items-stretch lg:min-h-[300px]">
-      <div class="lg:w-1/2 w-full h-auto relative">
-        <img id="evntimglist" class="w-full h-full object-cover rounded-l-xl" src="./images/${id}.png" alt="Event">
-        <div class="flex flex-row flex-wrap gap-2 pb-4 absolute bottom-0 left-1">
-          <span class="bg-[var(--light-blue)] whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs">
-            <span class="evnttag">${data.tags[0]}</span>
-          </span>
-          <span class="bg-[var(--light-pink)] whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs">
-            <span class="evnttype">${data.tags[1]}</span>
-          </span>
-        </div>
-        <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2">${heartSVG()}</button>
+    <div class="explorecards flex flex-col lg:flex-row lg:w-1/2 w-full bg-white rounded-xl shadow-md mb-4 items-stretch lg:min-h-[300px]">
+      <div class="lg:w-1/2 w-full h-48 lg:h-auto relative">
+        <a href="eventpage.html?docID=${id}&from=explore.html" class="block w-full h-full">
+          <img id="evntimglist" class="w-full h-full object-cover rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none" src="./images/${id}.png" alt="Event">
+          <div class="flex flex-row flex-wrap gap-2 pb-4 absolute bottom-0 left-1">
+            <span class="bg-[var(--light-blue)] whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs">
+              <span class="evnttag">${data.tags[0]}</span>
+            </span>
+            <span class="bg-[var(--light-pink)] whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs">
+              <span class="evnttype">${data.tags[1]}</span>
+            </span>
+          </div>
+        </a>
+        <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">${heartSVG()}</button>
       </div>
-      <div class="p-6 lg:w-1/2 flex flex-col justify-center">
+      <a href="eventpage.html?docID=${id}&from=explore.html" class="flex flex-col flex-1 p-6 justify-center">
         <h2 class="evnttitle text-xl font-bold text-[#445629] mb-2">${data.title}</h2>
         <p class="text-gray-700 text-sm pb-4 evntdesclist">${data.shortest_summary}</p>
-        <a href="eventpage.html?docID=${id}&from=explore.html" class="w-fit bg-black text-white text-sm py-1 px-3 rounded-lg hover:opacity-90 transition-opacity">Go to Event</a>
-      </div>
+        <span class="w-fit bg-black text-white text-sm py-1 px-3 rounded-lg">Go to Event</span>
+      </a>
     </div>`;
   return div.firstElementChild;
 }
@@ -99,20 +101,20 @@ function createGridCard(data, id) {
     <div class="w-full lg:w-1/3 p-2">
       <div class="flex flex-col rounded-2xl h-full shadow-md border-0 bg-white">
         <div class="w-full relative">
-          <div class="relative">
+          <a href="eventpage.html?docID=${id}&from=explore.html" class="block">
             <img class="h-48 w-full object-cover rounded-t-xl" src="./images/${id}.png" alt="">
             <div class="flex flex-row gap-2 pb-4 absolute bottom-0 left-1">
               <span class="bg-[var(--light-blue)] w-fit flex-nowrap text-white py-1 px-2 rounded-full text-xs"><span>${data.tags[0]}</span></span>
               <span class="bg-[var(--light-pink)] flex-nowrap whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs"><span>${data.tags[1]}</span></span>
             </div>
-          </div>
-          <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2">${heartSVG()}</button>
+          </a>
+          <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">${heartSVG()}</button>
         </div>
-        <div class="p-4">
+        <a href="eventpage.html?docID=${id}&from=explore.html" class="flex flex-col flex-1 p-4">
           <h3 class="font-semibold text-sm text-[var(--medium-grey)] pt-2">${data.date}</h3>
           <p class="font-bold text-md pt-3 pb-8">${data.title}</p>
-          <a href="eventpage.html?docID=${id}&from=eventlist.html" class="bg-black rounded-xl text-white text-center mt-8 px-2 py-2 text-xs cursor-pointer focus:outline-none">View Details</a>
-        </div>
+          <span class="w-fit bg-black text-white text-sm py-1 px-3 rounded-lg">View Details</span>
+        </a>
       </div>
     </div>`;
   return div.firstElementChild;

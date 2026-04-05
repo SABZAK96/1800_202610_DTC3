@@ -4,6 +4,38 @@ import { onAuthStateChanged, signOut } from "firebase/auth"
 import { db } from "./firebaseConfig.js";
 import { collection, getDoc, doc, getDocs, updateDoc, setDoc, onSnapshot } from "firebase/firestore";
 
+const usernameDisplay = document.getElementById("username-display");
+const authBtn = document.getElementById("auth-btn");
+const signedInUserSection = document.querySelector(".signedinuser");
+
+onAuthStateChanged(auth, async (user) => {
+    if (signedInUserSection) {
+        signedInUserSection.classList.remove("hidden");
+    }
+    if (user) {
+         const nameElement = document.getElementById("username-display"); 
+         const name = user.displayName || user.email;
+        if (nameElement) {
+              nameElement.textContent = `${name}!`;
+               }
+        // adding profile image just like main.js
+        const userSnap = await getDoc(doc(db, "users", user.uid));
+        if (userSnap.exists() && userSnap.data().profileImage) {
+            document.getElementById("profile-img").src = "data:image/png;base64," + userSnap.data().profileImage;
+        }
+        authBtn.onclick = async () => {
+            try {
+                await signOut(auth);
+                window.location.href = "index.html";
+            } catch (error) {
+                console.log("Logout error");
+            }
+        };
+    } else {
+        authBtn.onclick = () => { window.location.href = "login.html"; };
+    }
+});
+
 
 async function sortEvents() {
   onAuthStateChanged(auth, async (user) => {

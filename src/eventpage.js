@@ -8,7 +8,7 @@ const params = new URL(window.location.href).searchParams;
 const previousPage = params.get("from");
 if (previousPage) {
     document.getElementById("backbutton").setAttribute("href", previousPage);
-}
+} else{document.getElementById("backbutton").setAttribute("href", "explore.html");}
 
 function getDocIdFromUrl() {
   const params = new URL(window.location.href).searchParams;
@@ -105,7 +105,7 @@ async function loadcards() {
         }
 
         remember_heart_color_main(favBtn);
-        favBtn.addEventListener("click", function () {
+        favBtn.parentElement.addEventListener("click", function () {
           favClick_main(favBtn);
         });
 
@@ -139,7 +139,7 @@ async function loadcards() {
           return x;
         }
     } else {
-      favBtn.addEventListener("click", function () {
+      favBtn.parentElement.addEventListener("click", function () {
         window.location.href = "login.html";
       });
     }
@@ -149,7 +149,13 @@ async function loadcards() {
       if (eventdoc.id !== z && relatedCount < 3) {
         let result = `<div class="w-full lg:w-1/3 p-2">
           
-          <div class="flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
+          <div class="relative flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
+                    <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">
+                      <svg class="favbtn fill-black w-6 h-6 stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+          <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
+        </svg>
+                    </button>
+            <a href="eventpage.html?docID=${eventdoc.id}" class="flex flex-col flex-1">
             <div class="w-full relative">
               <div class="relative">
                 <img class="h-48 w-full object-cover rounded-t-xl " src="./images/${eventdoc.id}.png" alt="">
@@ -162,28 +168,14 @@ async function loadcards() {
         </span>
       </div>
               </div>
-                  
-              <div >
-                    <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2">
-                      <svg class="favbtn fill-black w-6 h-6 stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-
-          <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-        </svg>
-                    </button>
-
-            </div>
-
           </div>
             <div class="p-4">
               <h3 id="" class="font-semibold text-sm  text-[var(--medium-grey)] pt-2">${data.date}</h3>
                
             <p id="" class=" font-bold text-xl pt-3 pb-8">${data.title}</p>
-            <a href="eventpage.html?docID=${eventdoc.id}" 
-              type="button"  
-              class="bg-black rounded-xl text-white text-center  mt-8 px-2 py-2 text-xs cursor-pointer focus:outline-none">
-              View Details
-            </a>
+            <span class="bg-black rounded-xl text-white text-center mt-8 px-2 py-2 text-xs w-fit">View Details</span>
             </div>
+            </a>
           </div>
           </div>`;
 
@@ -235,7 +227,7 @@ async function loadcards() {
   //  load the current heart color status from firestore and then handle clicking
   // this eventlistener should be added inside if(user) because it should only work for authenticated users
         remember_heart_color(favBtn);
-        favBtn.addEventListener("click", function () {
+        favBtn.parentElement.addEventListener("click", function () {
           favClick(favBtn);
         });
 
@@ -281,7 +273,7 @@ async function loadcards() {
         }
 
     } else {
-      favBtn.addEventListener("click", function () {
+      favBtn.parentElement.addEventListener("click", function () {
         window.location.href = "login.html";
       });
     }
@@ -390,7 +382,7 @@ async function get_coordinates(id){
 
 
 // Create the map centered on the specific location by replacing the hardcoded stuff latitude and longitude from DB
-const map = L.map('map').setView([ref_data_lat, ref_data_long], 12);
+const map = L.map('map', { scrollWheelZoom: false }).setView([ref_data_lat, ref_data_long], 12);
 
 // this was part of the code in the website, no edit
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

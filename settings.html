@@ -28,7 +28,17 @@
 
   <main class="w-full pt-5 px-10 pb-32 md:pb-0 ml-0 md:ml-50 mx-auto bg-[var(--light-grey)] rounded-0 md:rounded-tl-[40px] md:rounded-bl-[40px]">
     <section class="max-w-6xl">
-      <h1 class="border-b border-gray-900/10 pb-10 mt-20">Settings</h1>
+      <div class="flex items-center justify-between border-b border-gray-900/10 pb-10 mt-20">
+        <h1>Settings</h1>
+        <div class="flex items-center gap-x-6">
+          <!-- edit -->
+            <button  type="button" id="editButton" class="rounded-md bg-[var(--medium-grey)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[#6b6c6a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]">Edit</button>
+          <!-- save -->
+            <button id="submit" type="submit" class="rounded-md bg-[var(--primary-green)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[#6a9a33]  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]">Save</button>
+          <!-- cancel -->
+            <button type="button" class="text-sm/6 font-semibold text-gray-900 ">Cancel</button>
+        </div>
+      </div>
 
       <fieldset id="personalInfoFields" disabled>
         <form id="settings-form">
@@ -48,12 +58,15 @@
 
               <div class="col-span-full">
                 <label for="photo" class="block text-sm/6 font-medium text-gray-900">Photo</label>
-                <div class="mt-2 flex items-center gap-x-3">
-                  <svg viewBox="0 0 24 24" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-12 text-gray-300">
-                    <path d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" fill-rule="evenodd" />
-                  </svg>
-                  <button type="button" class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300 hover:bg-gray-50">Change</button>
-                </div>
+                <!-- merge class code for profile with the initial design -->
+                 <div class="mt-2 flex items-center gap-x-3">
+                      <img id="profileImage" src="images/profile-image-sample.jpg" 
+                          class="size-12 rounded-full object-cover">
+                      <label class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300 hover:bg-gray-50 cursor-pointer">
+                        Change
+                        <input type="file" id="inputImage" accept="image/*" class="hidden">
+                      </label>
+                    </div>
               </div>
             </div>
           </div>
@@ -304,96 +317,6 @@
                   </div>
 
                 </div>
-              
-
-             
-                <legend class="text-sm/6 font-semibold text-gray-900">Transportation Methods</legend>
-                <div class="mt-6 space-y-6">
-
-                  <div class="flex gap-3">
-                    <div class="flex h-6 shrink-0 items-center">
-                      <div class="group grid size-4 grid-cols-1">
-                        <input id="walk" type="checkbox" name="transport" checked aria-describedby="walk-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
-                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
-                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
-                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text-sm/6">
-                      <label for="walk" class="font-medium text-gray-900">Walk</label>
-                    </div>
-                  </div>
-
-                  <div class="flex gap-3">
-                    <div class="flex h-6 shrink-0 items-center">
-                      <div class="group grid size-4 grid-cols-1">
-                        <input id="bike" type="checkbox" name="transport" aria-describedby="bike-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
-                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
-                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
-                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text-sm/6">
-                      <label for="bike" class="font-medium text-gray-900">Bike</label>
-                    </div>
-                  </div>
-
-                  <div class="flex gap-3">
-                    <div class="flex h-6 shrink-0 items-center">
-                      <div class="group grid size-4 grid-cols-1">
-                        <input id="car" type="checkbox" name="transport" aria-describedby="car-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
-                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
-                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
-                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text-sm/6">
-                      <label for="car" class="font-medium text-gray-900">Car</label>
-                    </div>
-                  </div>
-
-                  <div class="flex gap-3">
-                    <div class="flex h-6 shrink-0 items-center">
-                      <div class="group grid size-4 grid-cols-1">
-                        <input id="public-transport" type="checkbox" name="transport" checked aria-describedby="public-transport-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
-                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
-                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
-                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text-sm/6">
-                      <label for="public-transport" class="font-medium text-gray-900">Public Transport</label>
-                    </div>
-                  </div>
-
-                </div>
-
-                <legend class="text-sm/6 font-semibold text-gray-900">Distance</legend>
-                <p class="mt-1 text-sm/6 text-gray-600">Select a range</p>
-                <div class="mt-6 space-y-6">
-                  <div class="flex items-center gap-x-3">
-                    <input id="distance-10" type="radio" name="distance" value="under10" checked class="rounded-full border border-gray-300 accent-indigo-600" />
-                    <label for="distance-10" class="block text-sm/6 font-medium text-gray-900">Less than 10KM</label>
-                  </div>
-                  <div class="flex items-center gap-x-3">
-                    <input id="distance-20" type="radio" name="distance" value="10to20" class="rounded-full border border-gray-300 accent-indigo-600" />
-                    <label for="distance-20" class="block text-sm/6 font-medium text-gray-900">10 to 20 KM</label>
-                  </div>
-                  <div class="flex items-center gap-x-3">
-                    <input id="distance-25" type="radio" name="distance" value="20to25" class="rounded-full border border-gray-300 accent-indigo-600" />
-                    <label for="distance-25" class="block text-sm/6 font-medium text-gray-900">20 to 25 KM</label>
-                  </div>
-                  <div class="flex items-center gap-x-3">
-                    <input id="distance-nolimit" type="radio" name="distance" value="nolimit" class="rounded-full border border-gray-300 accent-indigo-600" />
-                    <label for="distance-nolimit" class="block text-sm/6 font-medium text-gray-900">No limit</label>
-                  </div>
-                </div>
-              
-
             </div>
           </div>
         </div>
@@ -401,14 +324,6 @@
 
       </form>
       </fieldset>
-        <div class="mt-6 mb-20 flex items-center justify-start gap-x-6">
-          <!-- edit -->
-            <button  type="button" id="editButton" class="rounded-md bg-[var(--medium-grey)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[#6b6c6a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]">Edit</button>
-          <!-- save -->
-            <button id="submit" type="submit" class="rounded-md bg-[var(--primary-green)] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[#6a9a33]  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]">Save</button>
-          <!-- cancel -->
-            <button type="button" class="text-sm/6 font-semibold text-gray-900 ">Cancel</button>
-        </div>
     </section>
 
     <site-footer></site-footer>

@@ -12,13 +12,21 @@ const authBtn = document.getElementById("auth-btn");
 const signedInUserSection = document.querySelector(".signedinuser");
 
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (signedInUserSection) {
         signedInUserSection.classList.remove("hidden");
+      
     }
 
     if (user) {
         usernameDisplay.textContent = user.displayName || user.email || "User";
+        // load image from fire-store
+        // should use userSnap to avoid shadowing the user parameter
+        const userSnap = await getDoc(doc(db, "users", user.uid))
+        const data = userSnap.data();
+        if (userSnap.exists() && data.profileImage){
+          document.getElementById("profile-img").src = "data:image/png;base64," + data.profileImage;
+        }
         authBtn.onclick = async () => {
             try {
                 await signOut(auth);
@@ -132,20 +140,22 @@ async function loadMainEvents(user) {
       let favCard = `
         <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
           <div class="rounded-t-4xl w-full relative">
-            <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl">
+            <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl z-10">
               <svg class="favbtn" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 200 200">
                 <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
               </svg>
             </div>
             <img src="./images/${id}.png" class="w-full rounded-t-4xl h-50 object-cover object-center">
           </div>
+          <a href="eventpage.html?docID=${id}&from=main.html" class="flex flex-col flex-1">
           <div class="flex flex-col flex-1 justify-between py-8 px-8">
             <div>
               <p class="text-sm text-gray-500">${data.date}</p>
               <h2>${data.title}</h2>
             </div>
-            <a href="eventpage.html?docID=${id}&from=main.html" type="button" class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</a>
+            <span class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</span>
           </div>
+          </a>
         </div>`;
       
       const card = document.createElement("div");
@@ -180,7 +190,7 @@ async function loadMainEvents(user) {
           }
         }
         remember_heart_color(favBtn);
-        favBtn.addEventListener("click", function () {
+        favBtn.parentElement.addEventListener("click", function () {
           favClick(favBtn);
         });
         async function favClick(x) {
@@ -226,7 +236,7 @@ async function loadMainEvents(user) {
           return x;
         }
       } else {
-        favBtn.addEventListener("click", function () {
+        favBtn.parentElement.addEventListener("click", function () {
           window.location.href = "login.html";
         });
       }
