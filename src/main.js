@@ -182,7 +182,7 @@ async function loadMainEvents(user) {
           }
         }
         remember_heart_color(favBtn);
-        favBtn.addEventListener("click", function () {
+        favBtn.parentElement.addEventListener("click", function () {
           favClick(favBtn);
         });
         async function favClick(x) {
@@ -228,7 +228,7 @@ async function loadMainEvents(user) {
           return x;
         }
       } else {
-        favBtn.addEventListener("click", function () {
+        favBtn.parentElement.addEventListener("click", function () {
           window.location.href = "login.html";
         });
       }

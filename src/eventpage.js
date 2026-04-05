@@ -149,7 +149,12 @@ async function loadcards() {
       if (eventdoc.id !== z && relatedCount < 3) {
         let result = `<div class="w-full lg:w-1/3 p-2">
           
-          <div class="flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
+          <div class="relative flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
+                    <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">
+                      <svg class="favbtn fill-black w-6 h-6 stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+          <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
+        </svg>
+                    </button>
             <a href="eventpage.html?docID=${eventdoc.id}" class="flex flex-col flex-1">
             <div class="w-full relative">
               <div class="relative">
@@ -163,17 +168,6 @@ async function loadcards() {
         </span>
       </div>
               </div>
-                  
-              <div >
-                    <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2">
-                      <svg class="favbtn fill-black w-6 h-6 stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-
-          <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-        </svg>
-                    </button>
-
-            </div>
-
           </div>
             <div class="p-4">
               <h3 id="" class="font-semibold text-sm  text-[var(--medium-grey)] pt-2">${data.date}</h3>

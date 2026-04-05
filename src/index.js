@@ -65,7 +65,7 @@ populate++
     container.innerHTML = other_result;
     const each_card = document.querySelector(".thisweek-container").appendChild(container.firstElementChild);
     const favBtn = each_card.querySelector(".favbtn");
-    favBtn.addEventListener("click", function () {
+    favBtn.parentElement.addEventListener("click", function () {
       window.location.href = "login.html";
     });
     populate++;}
