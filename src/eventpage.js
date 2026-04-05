@@ -150,6 +150,7 @@ async function loadcards() {
         let result = `<div class="w-full lg:w-1/3 p-2">
           
           <div class="flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
+            <a href="eventpage.html?docID=${eventdoc.id}" class="flex flex-col flex-1">
             <div class="w-full relative">
               <div class="relative">
                 <img class="h-48 w-full object-cover rounded-t-xl " src="./images/${eventdoc.id}.png" alt="">
@@ -178,12 +179,9 @@ async function loadcards() {
               <h3 id="" class="font-semibold text-sm  text-[var(--medium-grey)] pt-2">${data.date}</h3>
                
             <p id="" class=" font-bold text-xl pt-3 pb-8">${data.title}</p>
-            <a href="eventpage.html?docID=${eventdoc.id}" 
-              type="button"  
-              class="bg-black rounded-xl text-white text-center  mt-8 px-2 py-2 text-xs cursor-pointer focus:outline-none">
-              View Details
-            </a>
+            <span class="bg-black rounded-xl text-white text-center mt-8 px-2 py-2 text-xs w-fit">View Details</span>
             </div>
+            </a>
           </div>
           </div>`;
 
