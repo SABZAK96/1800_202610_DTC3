@@ -12,13 +12,21 @@ const authBtn = document.getElementById("auth-btn");
 const signedInUserSection = document.querySelector(".signedinuser");
 
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (signedInUserSection) {
         signedInUserSection.classList.remove("hidden");
+      
     }
 
     if (user) {
         usernameDisplay.textContent = user.displayName || user.email || "User";
+        // load image from fire-store
+        // should use userSnap to avoid shadowing the user parameter
+        const userSnap = await getDoc(doc(db, "users", user.uid))
+        const data = userSnap.data();
+        if (userSnap.exists() && data.profileImage){
+          document.getElementById("profile-img").src = "data:image/png;base64," + data.profileImage;
+        }
         authBtn.onclick = async () => {
             try {
                 await signOut(auth);
