@@ -1,5 +1,6 @@
-import { doc } from "firebase/firestore"
-import { auth } from "./firebaseConfig.js"; 
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "./firebaseConfig.js";
+import { auth } from "./firebaseConfig.js";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { onAuthReady } from "./authentication.js";
 // this is for the logout and name at the top of screen to work
@@ -9,13 +10,17 @@ const authBtn = document.getElementById("auth-btn");
 const signedInUserSection = document.querySelector(".signedinuser");
 
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (signedInUserSection) {
         signedInUserSection.classList.remove("hidden");
     }
 
     if (user) {
         usernameDisplay.textContent = user.displayName || user.email || "User";
+        const userSnap = await getDoc(doc(db, "users", user.uid));
+        if (userSnap.exists() && userSnap.data().profileImage) {
+            document.getElementById("profile-img").src = "data:image/png;base64," + userSnap.data().profileImage;
+        }
         authBtn.onclick = async () => {
             try {
                 await signOut(auth);
