@@ -13,7 +13,7 @@
     <script type="module" src="./src/site-footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <!-- Other libraries go here -->
 
   </head>
@@ -53,77 +53,110 @@
 
   <h2 style="margin-bottom: 50px;">Top categories</h2>
   <!--Categories-->
-  <div class="carousel overflow-x-auto no-scrollbar cursor-grab select-none mb-20">
+  <!--Category buttons-->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mb-30">
 
-    <!--Category buttons-->
-    <div class="flex bg-none lg:gap-0 md:gap-3 gap-4 justify-between p-4  md:-ml-10 -mr-10 items-start">
+        <!--Watch Party-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">videocam</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Watch Party</p>
+        </div>
+        </a>
 
-      <!--Music-->
-      <div class="flex flex-1 flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Esports-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">computer</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">E-Sports</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Music</p>
-      </div>
+        </a>
 
-      <!--Sports-->
-      <div class="flex flex-1 flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Outdoors-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">nature</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Outdoors</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Sports</p>
-      </div>
+        </a>
 
-      <!--Outdoors-->
-      <div class="flex flex-1 flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Indoors-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">cottage</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Indoors</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Outdoors</p>
-      </div>
+        </a>
 
-      <!--Nightlife-->
-      <div class="flex flex-1 flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Tournaments-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">trophy</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Tournaments</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Nightlife</p>
-      </div>
+        </a>
 
-      <!--Family-->
-      <div class="flex flex-1 flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Family-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">family_group</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Family</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Family</p>
-      </div>
+        </a>
 
-      <!--Watch parties-->
-      <div class="flex flex-1 flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Nightlife-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">wine_bar</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Nightlife</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Viewings</p>
-      </div>
+        </a>
+        
+        <!--Meet & Greet-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">face</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Meet & Greet</p>
+        </div>
+        </a>
 
-      <!--Art-->
-      <div class="flex flex-1 flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        <!--Music-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">music_note</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Music</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Art</p>
-      </div>
-      
-      <!--Talks-->
-      <div class="flex flex-1 flex-col justify-center items-center w-20">
-        <div class="flex justify-center items-center w-15 h-15 mb-2 rounded-full bg-white hover:bg-[var(--orange)] md:shadow-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+        </a>
+
+        <!--Arts-->
+        <a href="/explore">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">image</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Arts</p>
         </div>
-        <p class="text-xs" style="text-align: center;">Talks</p>
-      </div>
+        </a>
 
     </div>
-  </div>
 
   <!--Featured / For you-->
   <h1 style="margin-bottom: 50px;">Featured</h1>

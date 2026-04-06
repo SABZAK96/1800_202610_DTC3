@@ -170,11 +170,28 @@ async function loadevents() {
   allEvents = snap.docs.map(eventdoc => ({ id: eventdoc.id, ...eventdoc.data() }));
   console.log("Total events loaded:", allEvents.length);
 }
+
+function applyQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  const tag = params.get("tag");
+  const search = params.get("search");
+
+  if (tag) {
+    const tagFilter = document.getElementById("tagFilter");
+    if (tagFilter) tagFilter.value = tag;
+  }
+
+  if (search) {
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) searchInput.value = search;
+  }
+}
  
 onAuthStateChanged(auth, async (user) => {
   currentUser = user; 
   if (allEvents.length === 0) {
     await loadevents();
   }
-  renderEvents(allEvents, user);
+  applyQueryParams();
+  applyFilters();
 });
