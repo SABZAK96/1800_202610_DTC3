@@ -142,100 +142,6 @@ class SiteNavbar extends HTMLElement {
     </nav>`;
 
     }
-tabeffects(){
-        // for checking if the url contains the name of the tabs that we already have
-    const params = new URL(window.location.href).pathname;
-    if (params.includes("settings")){
-        // fixing desktop navbar effect for settings, also document. doesnt work here because the navbar is inside renderNavbar and we have to user this.
-        const setbtnd = this.querySelector(".btnsetting");
-        const seticond = this.querySelector(".settingicon");
-        const settextd = this.querySelector(".settext")
-        setbtnd.classList.add("bg-white");
-        seticond.classList.remove("text-white");
-        seticond.classList.add("text-[#74af27]");
-        settextd.classList.add("text-black");
-        // fixing mobile avbar effect for settings, method is the same as desktop
-        const setbtnm = this.querySelector(".btnsettingm");
-        const seticonm = this.querySelector(".settingiconm");
-        setbtnm.classList.remove("bg-white");
-        setbtnm.classList.add("bg-[#f4f1ea]");
-        seticonm.classList.remove("text-[#ccc5b6]");
-        seticonm.classList.add("text-[#74af27]");
-    }
-    else if (params.includes("explore")){
-        // fixing desktop navbar effect for explore, also document. doesnt work here because the navbar is inside renderNavbar and we have to user this.
-        const expbtnd = this.querySelector(".btnexplored");
-        const expicond = this.querySelector(".expoloreicond");
-        const exptextd = this.querySelector(".exptext")
-        expbtnd.classList.add("bg-white");
-        exptextd.classList.add("text-black");
-        expicond.classList.remove("text-white");
-        expicond.classList.add("text-[#74af27]");
-        // fixing mobile avbar effect for explore, method is the same as desktop
-        const expbtnm = this.querySelector(".btnexplorem");
-        const expiconm = this.querySelector(".expoloreiconm");
-        expbtnm.classList.remove("bg-white");
-        expbtnm.classList.add("bg-[#f4f1ea]");
-        expiconm.classList.remove("text-[#ccc5b6]");
-        expiconm.classList.add("text-[#74af27]");
-    }
-    else if (params.includes("calendar")){
-        // fixing desktop navbar effect for calendar
-        const calbtnd = this.querySelector(".btncalendard");
-        const calicond = this.querySelector(".calendaricond");
-        const caltextd = this.querySelector(".caltext")
-        calbtnd.classList.add("bg-white");
-        calicond.classList.remove("text-white");
-        calicond.classList.add("text-[#74af27]");
-        caltextd.classList.add("text-black");
-        // fixing mobile navbar effect for calendar
-        const calbtnm = this.querySelector(".btncalendarm");
-        const caliconm = this.querySelector(".calendariconm");
-        calbtnm.classList.remove("bg-white");
-        calbtnm.classList.add("bg-[#f4f1ea]");
-        caliconm.classList.remove("text-[#ccc5b6]");
-        caliconm.classList.add("text-[#74af27]");
-    }
-    else if (params.includes("friends")){
-        // fixing desktop navbar effect for friends
-        const fribtnd = this.querySelector(".btnfriendsd");
-        const friicond = this.querySelector(".friendsicond");
-        const fritextd = this.querySelector(".friendstext")
-        fribtnd.classList.add("bg-white");
-        friicond.classList.remove("text-white");
-        friicond.classList.add("text-[#74af27]");
-        fritextd.classList.add("text-black");
-        // fixing mobile navbar effect for friends
-        const fribtnm = this.querySelector(".btnfriendsm");
-        const friiiconm = this.querySelector(".friendsiconm");
-        fribtnm.classList.remove("bg-white")
-        fribtnm.classList.add("bg-[#f4f1ea]");
-        friiiconm.classList.remove("text-[#ccc5b6]");
-        friiiconm.classList.add("text-[#74af27]");
-    }
-    // this should work for both main and index
-    else if (params.includes("main") || params.includes("index") ){
-        // fixing desktop navbar effect for home
-        const homebtnd = this.querySelector(".btnhomed");
-        const homeicond = this.querySelector(".homeicond");
-        const hometextd = this.querySelector(".hometext")
-        homebtnd.classList.add("bg-white");
-        homeicond.classList.remove("text-white");
-        homeicond.classList.add("text-[#74af27]");
-        hometextd.classList.remove("text-white");
-        hometextd.classList.add("text-black");
-        // fixing mobile navbar effect for home
-        const homebtnm = this.querySelector(".btnhomem");
-        const homeiconm = this.querySelector(".homeiconm");
-        homebtnm.classList.remove("bg-white")
-        homebtnm.classList.add("bg-[#f4f1ea]");
-        homeiconm.classList.remove("text-[#ccc5b6]");
-        homeiconm.classList.add("text-[#74af27]");
-    }
-
-}
-
-
 }
 
 customElements.define('site-navbar', SiteNavbar);
@@ -243,17 +149,30 @@ customElements.define('site-navbar', SiteNavbar);
 
 // Mark current page in navbar
 function currentPage() {
-  const links = document.querySelectorAll(".menuButton");
-  const currentPath = window.location.pathname;
-  links.forEach(link => {
-    if (link.parentElement.getAttribute("href") === currentPath) {
-      link.classList.add("bg-white", "shadow-2xl");
-      link.querySelector("svg").classList.remove("text-white");
-      link.querySelector("svg").classList.add("text-[var(--primary-green)]");
-      link.querySelector("svg").nextElementSibling.classList.remove("text-white");
-      link.querySelector("svg").nextElementSibling.classList.add("text-black");
-    }
-  });
+    const links = document.querySelectorAll(".menuButton");
+    const currentPath = window.location.href;
+    const isHome = currentPath.endsWith("/index.html") || currentPath.endsWith("/main.html");
+    console.log(currentPath)
+  
+    links.forEach(link => {
+        const href = link.parentElement.getAttribute("href");
+        if ((isHome && (href === "/index.html" || href === "/main.html")) || currentPath.endsWith(href)) {
+            link.classList.add("bg-white", "shadow-2xl");
+            link.classList.remove("hover:bg-[#aaa9bc]");
+            link.querySelector("svg").classList.remove("text-white");
+            link.querySelector("svg").classList.add("text-[var(--primary-green)]");
+            link.querySelector("svg").nextElementSibling.classList.remove("text-white");
+            link.querySelector("svg").nextElementSibling.classList.add("text-black");
+        }
+        else if (currentPath.includes(href.slice(1))) {
+            link.classList.add("bg-white", "shadow-2xl");
+            link.classList.remove("hover:bg-[#aaa9bc]");
+            link.querySelector("svg").classList.remove("text-white");
+            link.querySelector("svg").classList.add("text-[var(--primary-green)]");
+            link.querySelector("svg").nextElementSibling.classList.remove("text-white");
+            link.querySelector("svg").nextElementSibling.classList.add("text-black");
+        }
+    });
 }
 
 currentPage();
