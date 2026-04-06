@@ -253,7 +253,7 @@ async function loadMainEvents(user) {
     card.innerHTML = favCard;
     favouritesContainer.appendChild(card.firstElementChild);
   }
-  // nly add this button if the favorite cards are more than 4
+  // only add this button if the favorite cards are more than 4
   if (user_data.favorite_events.length > 3){
           // adding a button to favorite cards
       let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
