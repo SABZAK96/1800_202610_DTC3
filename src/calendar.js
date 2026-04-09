@@ -157,7 +157,7 @@ async function sortEvents() {
                     
                     <!--Image-->
                     <div class="flex-2 md:hidden lg:flex rounded-3xl w-full relative">
-                        <img src="images/${eventId}.png" class="w-full rounded-3xl h-50 object-cover object-center">
+                        <img src="images/${eventId}.jpg" class="w-full rounded-3xl h-50 object-cover object-center">
                     </div> 
 
                     <!--Buttons-->

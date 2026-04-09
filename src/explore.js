@@ -37,7 +37,7 @@ async function remember_heart_color(favBtn, user, eventId) {
     favBtn.style.stroke = "black";
   }
 }
- 
+
 async function favClick(favBtn, user, eventId) {
   await check_fav_field(user);
   const ref = await getDoc(doc(db, "users", user.uid));
@@ -74,7 +74,7 @@ function createListCard(data, id) {
     <div class="explorecards flex flex-col lg:flex-row lg:w-1/2 w-full bg-white rounded-xl shadow-md mb-4 items-stretch lg:min-h-[300px]">
       <div class="lg:w-1/2 w-full h-48 lg:h-auto relative">
         <a href="eventpage.html?docID=${id}&from=explore.html" class="block w-full h-full">
-          <img id="evntimglist" class="w-full h-full object-cover rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none" src="./images/${id}.png" alt="Event">
+          <img id="evntimglist" class="w-full h-full object-cover rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none" src="./images/${id}.jpg" alt="Event">
           <div class="flex flex-row flex-wrap gap-2 pb-4 absolute bottom-0 left-1">
             <span class="bg-[var(--light-blue)] whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs">
               <span class="evnttag">${data.tags[0]}</span>
@@ -102,7 +102,7 @@ function createGridCard(data, id) {
       <div class="flex flex-col rounded-2xl h-full shadow-md border-0 bg-white">
         <div class="w-full relative">
           <a href="eventpage.html?docID=${id}&from=explore.html" class="block">
-            <img class="h-48 w-full object-cover rounded-t-xl" src="./images/${id}.png" alt="">
+            <img class="h-48 w-full object-cover rounded-t-xl" src="./images/${id}.jpg" alt="">
             <div class="flex flex-row gap-2 pb-4 absolute bottom-0 left-1">
               <span class="bg-[var(--light-blue)] w-fit flex-nowrap text-white py-1 px-2 rounded-full text-xs"><span>${data.tags[0]}</span></span>
               <span class="bg-[var(--light-pink)] flex-nowrap whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs"><span>${data.tags[1]}</span></span>
