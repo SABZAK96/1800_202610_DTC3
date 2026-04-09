@@ -50,21 +50,23 @@
         </div>
     </div>
 
+
     <!--Banner-->
-    <div id="calendar-empty-state" class="hidden flex flex-col md:flex-row p-10 w-full max-h-125 mb-20 text-white rounded-4xl bg-[#4e6d4e] justify-between">
+    <div class="flex flex-col md:flex-row p-10 w-full md:max-h-100 mb-20 text-white rounded-4xl bg-[#4e6d4e] md:justify-between">
         <!--Left Side-->
-        <div class="flex flex-col justify-between w-full md:w-[40%]">
+        <div class="flex flex-1 flex-col md:justify-between w-full md:w-[40%] mb-10 md:mb-0">
             <div>
-                <h1 class="" style="color:white">There are no events in your calendar right now.</h1>
-        <p class="text-white mb-20">Explore events and then add them to your calendar to see them here!</p>
+                <h1 style="color:white">There are no events in your calendar right now.</h1>
+                <p class="text-white mb-7">Explore events and then add them to your calendar to see them here!</p>
             </div>
-        <a href="/explore.html"><button type="button" class="bg-[var(--primary-green)]  h-10 px-6 mr-4 mb-10 md:mb-0  rounded-full text-sm">Explore Events</button></a>
+            <a href="login.html"><button id="Loginbtn" type="button" class="bg-[var(--primary-green)]  h-10 px-6 mr-4 mb-10 md:mb-0 rounded-full text-sm">Login</button></a>
         </div>
         <!--Right Side-->
-        <div class="w-full md:w-[60%] -mr-10">
-        <img src="./images/empty-calendar.png" alt="FIFA Fan Festival 2026" class="w-full h-full object-cover object-left ">
+        <div class="w-full md:w-[60%] -mr-10 -mt-10 -mb-10 rounded-4xl">
+            <img src="./images/empty-calendar.png" alt="FIFA Fan Festival 2026" class="w-full h-full object-cover object-left rounded-4xl">
         </div>
     </div>
+
 
     <div id="userCalendar">
     </div>
@@ -90,7 +92,6 @@
     <!-- Link to scripts of your own -->
     <script type="module" src="./src/calendar.js"></script>
     
-
 </body>
 
 </html>
