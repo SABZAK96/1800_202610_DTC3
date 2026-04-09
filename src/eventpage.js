@@ -60,7 +60,7 @@ async function loadcards() {
     if( z == eventdoc.id && number ==0 ){
       number ++;
     const result_html = `<div class ="relative">
-    <div id="evntimgpage" class=" bg-[url('./images/${eventdoc.id}.png')] rounded-2xl mb-3 bg-center bg-cover " style="height: 350px;"></div>
+    <div id="evntimgpage" class=" bg-[url('./images/${eventdoc.id}.jpg')] rounded-2xl mb-3 bg-center bg-cover " style="height: 350px;"></div>
         <!-- fav button -->
         <div class="absolute top-4 right-4 bg-white rounded-2xl w-fit py-1 px-3"><button class="flex flex-row text-sm whitespace-nowrap justify-center items-center gap-1">
         <svg class=" favbtn w-6 h-6 fill-none stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
@@ -158,7 +158,7 @@ async function loadcards() {
             <a href="eventpage.html?docID=${eventdoc.id}" class="flex flex-col flex-1">
             <div class="w-full relative">
               <div class="relative">
-                <img class="h-48 w-full object-cover rounded-t-xl " src="./images/${eventdoc.id}.png" alt="">
+                <img class="h-48 w-full object-cover rounded-t-xl " src="./images/${eventdoc.id}.jpg" alt="">
                 <div class="flex  flex-wrap gap-2 pb-4 absolute bottom-0 left-1  ">
         <span class=" bg-[var(--light-blue)] whitespace-nowrap w-fit  text-white py-1 px-2 rounded-full text-xs">
            <span id="">${data.tags[0]}</span>
