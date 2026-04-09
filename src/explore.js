@@ -71,80 +71,72 @@ function heartSVG() {
 function createListCard(data, id) {
   const div = document.createElement("div");
   div.innerHTML = `
-    <div class="explorecards flex flex-col lg:flex-row lg:w-1/2 w-full bg-white rounded-xl shadow-md mb-4 items-stretch lg:min-h-[300px]">
-      <div class="lg:w-1/2 w-full h-48 lg:h-auto relative">
-        <a href="eventpage.html?docID=${id}&from=explore.html" class="block w-full h-full">
-          <img id="evntimglist" class="w-full h-full object-cover rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none" src="./images/${id}.jpg" alt="Event">
-          <div class="flex flex-row flex-wrap gap-2 pb-4 absolute bottom-0 left-1">
-            <span class="bg-[var(--light-blue)] whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs">
-              <span class="evnttag">${data.tags[0]}</span>
-            </span>
-            <span class="bg-[var(--light-pink)] whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs">
-              <span class="evnttype">${data.tags[1]}</span>
-            </span>
+    <div class="w-full  p-2">
+      <div class="flex flex-col rounded-4xl h-full shadow-2xl border-0 bg-white">
+        <div class="w-full relative">
+          <a href="eventpage.html?docID=${id}&from=explore.html" class="block">
+            <img class="h-48 w-full object-cover rounded-t-4xl" src="./images/${id}.jpg" alt="">
+         
+          </a>
+          <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">${heartSVG()}</button>
+        </div>
+        <a href="eventpage.html?docID=${id}&from=main.html" class="flex flex-col flex-1">
+          <div class="flex flex-col flex-1 justify-between py-8 px-8">
+            <div>
+              <p class="text-sm text-gray-500">${data.date}</p>
+              <h2>${data.title}</h2>
+            </div>
+            <span class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</span>
           </div>
-        </a>
-        <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">${heartSVG()}</button>
+          </a>
+        
       </div>
-      <a href="eventpage.html?docID=${id}&from=explore.html" class="flex flex-col flex-1 p-6 justify-center">
-        <h2 class="evnttitle text-xl font-bold text-[#445629] mb-2">${data.title}</h2>
-        <p class="text-gray-700 text-sm pb-4 evntdesclist">${data.shortest_summary}</p>
-        <span class="w-fit bg-black text-white text-sm py-1 px-3 rounded-lg">Go to Event</span>
-      </a>
-    </div>`;
+    </div>
+    `;
   return div.firstElementChild;
 }
  
 function createGridCard(data, id) {
   const div = document.createElement("div");
   div.innerHTML = `
-    <div class="w-full lg:w-1/3 p-2">
-      <div class="flex flex-col rounded-2xl h-full shadow-md border-0 bg-white">
+    <div class="w-full">
+      <div class="flex flex-col rounded-4xl h-full shadow-2xl border-0 bg-white">
         <div class="w-full relative">
           <a href="eventpage.html?docID=${id}&from=explore.html" class="block">
-            <img class="h-48 w-full object-cover rounded-t-xl" src="./images/${id}.jpg" alt="">
-            <div class="flex flex-row gap-2 pb-4 absolute bottom-0 left-1">
-              <span class="bg-[var(--light-blue)] w-fit flex-nowrap text-white py-1 px-2 rounded-full text-xs"><span>${data.tags[0]}</span></span>
-              <span class="bg-[var(--light-pink)] flex-nowrap whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs"><span>${data.tags[1]}</span></span>
-            </div>
+            <img class="h-48 w-full object-cover rounded-t-4xl" src="./images/${id}.jpg" alt="">
+         
           </a>
           <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">${heartSVG()}</button>
         </div>
-        <a href="eventpage.html?docID=${id}&from=explore.html" class="flex flex-col flex-1 p-4">
-          <h3 class="font-semibold text-sm text-[var(--medium-grey)] pt-2">${data.date}</h3>
-          <p class="font-bold text-md pt-3 pb-8">${data.title}</p>
-          <span class="w-fit bg-black text-white text-sm py-1 px-3 rounded-lg">View Details</span>
-        </a>
+        <a href="eventpage.html?docID=${id}&from=main.html" class="flex flex-col flex-1">
+          <div class="flex flex-col flex-1 justify-between py-8 px-8">
+            <div>
+              <p class="text-sm text-gray-500">${data.date}</p>
+              <h2>${data.title}</h2>
+            </div>
+            <span class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</span>
+          </div>
+          </a>
+        
       </div>
     </div>`;
   return div.firstElementChild;
 }
- 
+
 function renderEvents(events, user) {
   console.log("Rendering events:", events.length);
  
-  document.querySelector(".firstcontainer").innerHTML = "";
-  document.querySelector(".secondcontainer").innerHTML = "";
-  document.querySelector(".thirdcontainer").innerHTML = "";
+
+  document.querySelector(".exploreContainer").innerHTML = "";
  
   let populate = 0;
  
   events.forEach((event) => {
     let card;
- 
-    if (populate < 2) {
-      card = createListCard(event, event.id);
-      document.querySelector(".firstcontainer").appendChild(card);
-    } else if (populate < 4) {
-      card = createListCard(event, event.id);
-      document.querySelector(".secondcontainer").appendChild(card);
-    } else if (populate < 7) {
-      card = createGridCard(event, event.id);
-      document.querySelector(".thirdcontainer").appendChild(card);
-    } else {
-      return;
-    }
- 
+
+    card = createGridCard(event, event.id);
+    document.querySelector(".exploreContainer").appendChild(card);
+  
     const favBtn = card.querySelector(".favbtn");
     attachFavBtn(favBtn, user, event.id); 
     populate++;
