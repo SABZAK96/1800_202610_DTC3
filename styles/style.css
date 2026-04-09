@@ -248,3 +248,12 @@ button {
 
 }
 
+
+@media (min-width: 991px) {
+  
+    h1 {
+        font-size: 40px;
+        line-height: 3rem;
+    }
+
+}

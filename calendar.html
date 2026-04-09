@@ -23,7 +23,7 @@
 <site-navbar></site-navbar>
     
 <main class="max-w-7xl mx-auto relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 mx-auto bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
-<div class="absolute top-0 w-full h-75 rounded-t-2xl -ml-10 bg-[#d8d4da] z-0"></div>
+<div class="absolute top-0 w-full h-75 rounded-2xl -ml-10 bg-[#d8d4da] z-0"></div>
 <div class="mx-auto z-10 relative">
 
     <!--Header Search and login-->
@@ -37,11 +37,6 @@
         </div>
         <!--Right side-->
         <div id="" class="signedinuser flex gap-5">
-            <!--Friend Requests-->
-            <div class="hidden lg:flex lg:justify-center lg:items-center">
-                <button class="bg-[var(--primary-green)] h-10 px-4 rounded-full text-white text-sm font-bold mr-3">3</button>
-                <p class="text-xs font-bold">Friend requests</p>
-            </div>
             <!--Profile image-->
             <div class="flex justify-center  gap-2 items-center">
 
@@ -55,16 +50,29 @@
         </div>
     </div>
 
-    <div id="userCalendar">
-    
+    <!--Banner-->
+    <div id="calendar-empty-state" class="hidden flex flex-col md:flex-row p-10 w-full max-h-125 mb-20 text-white rounded-4xl bg-[#4e6d4e] justify-between">
+        <!--Left Side-->
+        <div class="flex flex-col justify-between w-full md:w-[40%]">
+            <div>
+                <h1 class="" style="color:white">There are no events in your calendar right now.</h1>
+        <p class="text-white mb-20">Explore events and then add them to your calendar to see them here!</p>
+            </div>
+        <a href="/explore.html"><button type="button" class="bg-[var(--primary-green)]  h-10 px-6 mr-4 mb-10 md:mb-0  rounded-full text-sm">Explore Events</button></a>
+        </div>
+        <!--Right Side-->
+        <div class="w-full md:w-[60%] -mr-10">
+        <img src="./images/empty-calendar.png" alt="FIFA Fan Festival 2026" class="w-full h-full object-cover object-left ">
+        </div>
+    </div>
 
+    <div id="userCalendar">
     </div>
     
   <footer class="flex flex-col sm:flex-row justify-between border-t-1 border-gray-400 pt-10 pb-50 md:pb-10">
     <div><p style="font-weight: bold;">Copyright FIFA 2026</p></div>
     <div class="flex gap-5">
-      <p>Help</p>
-      <p>Contact</p>
+      <p>contact@extratime.com</p>
     </div>
   </footer>
 

@@ -2,7 +2,7 @@ class SiteNavbar extends HTMLElement {
     constructor() {
         super();
         this.renderNavbar();
-        this.tabeffects();
+        //this.tabeffects();
         // this.renderAuthControls();
     }
 
@@ -152,7 +152,6 @@ function currentPage() {
     const links = document.querySelectorAll(".menuButton");
     const currentPath = window.location.href;
     const isHome = currentPath.endsWith("/index.html") || currentPath.endsWith("/main.html");
-    console.log(currentPath)
   
     links.forEach(link => {
         const href = link.parentElement.getAttribute("href");
@@ -181,7 +180,6 @@ function currentPageMobile() {
     const links = document.querySelectorAll(".menuButtonMobile");
     const currentPath = window.location.href;
     const isHome = currentPath.endsWith("/index.html") || currentPath.endsWith("/main.html");
-    console.log(currentPath)
   
     links.forEach(link => {
         const href = link.parentElement.getAttribute("href");
@@ -190,8 +188,8 @@ function currentPageMobile() {
             link.classList.remove("hover:bg-[#f4f1ea]");
             link.querySelector("svg").classList.remove("text-white");
             link.querySelector("svg").classList.add("text-[var(--primary-green)]");
-            link.querySelector("svg").nextElementSibling.classList.remove("text-white");
-            link.querySelector("svg").nextElementSibling.classList.add("text-black");
+            //link.querySelector("svg").nextElementSibling.classList.remove("text-white");
+            //link.querySelector("svg").nextElementSibling.classList.add("text-black");
         }
         else if (currentPath.includes(href.slice(1))) {
             link.classList.add("bg-white", "shadow-2xl");
