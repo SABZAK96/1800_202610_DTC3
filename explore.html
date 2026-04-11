@@ -45,21 +45,49 @@
     class="border rounded-xl px-4 py-2 text-sm w-full md:w-64"
     oninput="applyFilters()"/>
 
-  <select id="tagFilter" class="border rounded-xl px-4 py-2 text-sm" onchange="applyFilters()">
-    <!-- i need to simplify the tag system cuz this is some garbage -->
-    <option value="">All Tags</option>
-    <option value="Watch Party">Watch Party</option>
-    <option value="E-Sports">E-Sports</option>
-    <option value="Outdoors">Outdoors</option>
-    <option value="Indoors">Indoors</option>
-    <option value="Tournaments">Tournaments</option>
-    <option value="Family">Family</option>
-    <option value="Nightlife">Nightlife</option>
-    <option value="Meet & Greet">Meet & Greet</option>
-    <option value="Music">Music</option>
-    <option value="Arts">Arts</option>
-  </select>
+  <!-- tag filter dropdown - values for Watch Party/Music/Arts use Firestore preference IDs so pre-selection works -->
+  <details class="relative">
+    <summary class="border rounded-xl px-4 py-2 text-sm cursor-pointer list-none">Filter by Tag</summary>
+    <div class="absolute z-50 mt-1 bg-white border rounded-xl shadow-lg p-3 flex flex-col gap-2 min-w-40">
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="watchparties" onchange="applyFilters()"> Watch Party</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="E-Sports" onchange="applyFilters()"> E-Sports</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="Outdoors" onchange="applyFilters()"> Outdoors</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="Indoors" onchange="applyFilters()"> Indoors</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="Tournaments" onchange="applyFilters()"> Tournaments</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="Family" onchange="applyFilters()"> Family</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="Nightlife" onchange="applyFilters()"> Nightlife</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="Meet &amp; Greet" onchange="applyFilters()"> Meet &amp; Greet</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="music" onchange="applyFilters()"> Music</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="tagFilter" value="arts" onchange="applyFilters()"> Arts</label>
+    </div>
+  </details>
+
+  <!-- budget filter dropdown - values match what is saved in Firestore ("50", "100", "200", "nolimit") -->
+  <details class="relative">
+    <summary class="border rounded-xl px-4 py-2 text-sm cursor-pointer list-none">Filter by Budget</summary>
+    <div class="absolute z-50 mt-1 bg-white border rounded-xl shadow-lg p-3 flex flex-col gap-2 min-w-40">
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="budgetFilter" value="50" onchange="applyFilters()"> Under $50</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="budgetFilter" value="100" onchange="applyFilters()"> Under $100</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="budgetFilter" value="200" onchange="applyFilters()"> Under $200</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="budgetFilter" value="nolimit" onchange="applyFilters()"> No Limit</label>
+    </div>
+  </details>
+
+  <!-- days filter dropdown - values match what is saved in Firestore ("monday", "tuesday", etc.) -->
+  <details class="relative">
+    <summary class="border rounded-xl px-4 py-2 text-sm cursor-pointer list-none">Filter by Day</summary>
+    <div class="absolute z-50 mt-1 bg-white border rounded-xl shadow-lg p-3 flex flex-col gap-2 min-w-40">
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="dayFilter" value="monday" onchange="applyFilters()"> Monday</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="dayFilter" value="tuesday" onchange="applyFilters()"> Tuesday</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="dayFilter" value="wednesday" onchange="applyFilters()"> Wednesday</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="dayFilter" value="thursday" onchange="applyFilters()"> Thursday</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="dayFilter" value="friday" onchange="applyFilters()"> Friday</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="dayFilter" value="saturday" onchange="applyFilters()"> Saturday</label>
+      <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="dayFilter" value="sunday" onchange="applyFilters()"> Sunday</label>
+    </div>
+  </details>
 </div>
+
 
 <div class="outercontainer flex flex-col justify-start items-center w-full p-4 lg:space-y-7">
     
