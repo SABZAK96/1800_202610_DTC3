@@ -157,7 +157,8 @@ async function loadMainEvents(user) {
   const snap = await getDocs(ref);
   // the purpose of these 4 line is to get user favorited events
   const ref_user = await getDoc(doc(db, "users", user.uid))
-  const user_data = ref_user.data()
+  // new users won't have a document yet, so fall back to an empty object
+  const user_data = ref_user.exists() ? ref_user.data() : {};
   const favoriteEvents = user_data.favorite_events || [];
   // end of getting user info
   let populate = 0;
@@ -254,7 +255,7 @@ async function loadMainEvents(user) {
     favouritesContainer.appendChild(card.firstElementChild);
   }
   // only add this button if the favorite cards are more than 4
-  if (user_data.favorite_events.length > 3){
+  if ((user_data.favorite_events || []).length > 3){
           // adding a button to favorite cards
       let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
       const viewBtn = document.createElement("div")
