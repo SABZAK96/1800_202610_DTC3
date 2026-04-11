@@ -70,6 +70,38 @@ function displayProfileImage(base64String) {
     }
 }
 
+//---------------------------------------------------
+// Reads the user's saved data from Firestore and
+// fills in all the form fields so the page shows
+// what they last saved instead of blank defaults.
+//---------------------------------------------------
+function loadSavedSettings(data) {
+    // fill in the text fields
+    if (data.username)  document.getElementById("username").value  = data.username;
+    if (data.firstname) document.getElementById("first-name").value = data.firstname;
+    if (data.lastname)  document.getElementById("last-name").value  = data.lastname;
+    if (data.email)     document.getElementById("email").value      = data.email;
+    if (data.country)   document.getElementById("country").value    = data.country;
+
+    // check the interest checkboxes that match saved preferences
+    (data.preferences || []).forEach(function(pref) {
+        const checkbox = document.getElementById(pref);
+        if (checkbox) checkbox.checked = true;
+    });
+
+    // check the saved budget radio button
+    if (data.budget) {
+        const budgetRadio = document.querySelector(`input[name="budget"][value="${data.budget}"]`);
+        if (budgetRadio) budgetRadio.checked = true;
+    }
+
+    // check the day checkboxes that match saved preferred days
+    (data.days || []).forEach(function(day) {
+        const checkbox = document.getElementById(day);
+        if (checkbox) checkbox.checked = true;
+    });
+}
+
 // if the user is not logged in, switch the window to login so they signup first
 onAuthReady(async (user) => {
     if (!user) {
@@ -78,11 +110,15 @@ onAuthReady(async (user) => {
         // before adding this line, if the user was not authenticated, the content of the page were shown completely
         // then they would get redirected to login. it was weird
         document.getElementById("unsigneduser").classList.toggle("hidden");
-        // load saved profile image if it exists
+        
         const userSnap = await getDoc(doc(db, "users", user.uid));
-        // check if profile image exists then displays it
-        if (userSnap.exists() && userSnap.data().profileImage) {
-            displayProfileImage(userSnap.data().profileImage);
+        if (userSnap.exists()) {
+            // check if profile image exists then displays it
+            if (userSnap.data().profileImage) {
+                displayProfileImage(userSnap.data().profileImage);
+            }
+            // fill in all the saved form fields so the user sees what they last saved
+            loadSavedSettings(userSnap.data());
         }
     }
 });

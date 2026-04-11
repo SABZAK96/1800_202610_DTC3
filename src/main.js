@@ -253,7 +253,7 @@ async function loadMainEvents(user) {
     card.innerHTML = favCard;
     favouritesContainer.appendChild(card.firstElementChild);
   }
-  // nly add this button if the favorite cards are more than 4
+  // only add this button if the favorite cards are more than 4
   if (user_data.favorite_events.length > 3){
           // adding a button to favorite cards
       let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
@@ -336,8 +336,18 @@ async function loadMainEvents(user) {
           })
     
       }
-          
+
       }
+
+
+// Takes the search input value and redirects to explore.html
+// constructs the new url by creating a param and setting it to "search"
+window.searchRedirect = function() {
+  const search = document.getElementById("searchInput").value;
+  if (search) {
+    window.location.href = "explore.html?search=" + search;
+  }
+};
 
 
 
