@@ -211,10 +211,6 @@ window.applyFilters = () => {
   const checkedBudgets = document.querySelectorAll('.budgetFilter:checked');
   const checkedDays    = document.querySelectorAll('.dayFilter:checked');
 
-  // some tag checkbox values use Firestore preference IDs instead of event tag strings
-  // this translates them back so they can be matched against event.tags
-  const tagTranslations = { watchparties: "Watch Party", music: "Music", arts: "Arts" };
-
   const filtered = allEvents.filter(event => {
     const matchesSearch = event.title?.toLowerCase().includes(search) || event.shortest_summary?.toLowerCase().includes(search);
 
@@ -222,11 +218,11 @@ window.applyFilters = () => {
     let matchesTag = true;
 
     // if at least one tag is checked, only show events that match one of them
+    // checkbox values now match the event tag strings directly so no translation needed
     if (checkedTags.length > 0) {
       matchesTag = false;
       checkedTags.forEach(function(box) {
-        const tagValue = tagTranslations[box.value] || box.value;
-        if (event.tags?.includes(tagValue)) {
+        if (event.tags?.includes(box.value)) {
           matchesTag = true;
         }
       });

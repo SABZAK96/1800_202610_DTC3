@@ -152,7 +152,7 @@ async function profilesettings() {
         let country = document.getElementById("country").value;
 
         let preferences = [];
-        document.querySelectorAll('input[name="interest"]:checked').forEach(box => preferences.push(box.id));
+        document.querySelectorAll('input[name="interest"]:checked').forEach(box => preferences.push(box.value));
 
         let budget = document.querySelector('input[name="budget"]:checked').value;
 

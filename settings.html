@@ -121,7 +121,7 @@
                   <div class="flex gap-3">
                     <div class="flex h-6 shrink-0 items-center">
                       <div class="group grid size-4 grid-cols-1">
-                        <input id="watchparties" type="checkbox" name="interest" checked aria-describedby="watchparties-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <input id="watchparties" type="checkbox" name="interest" value="Watch Party" aria-describedby="watchparties-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
                         <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
                           <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
                           <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
@@ -137,7 +137,7 @@
                   <div class="flex gap-3">
                     <div class="flex h-6 shrink-0 items-center">
                       <div class="group grid size-4 grid-cols-1">
-                        <input id="music" type="checkbox" name="interest" aria-describedby="music-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <input id="music" type="checkbox" name="interest" value="Music" aria-describedby="music-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
                         <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
                           <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
                           <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
@@ -146,30 +146,14 @@
                     </div>
                     <div class="text-sm/6">
                       <label for="music" class="font-medium text-gray-900">Music</label>
-                      <p id="music-description" class="text-gray-500">Catch a live concert featuring Canadian talent, and international acts.</p>
+                      <p id="music-description" class="text-gray-500">Live concerts featuring local and international acts</p>
                     </div>
                   </div>
 
                   <div class="flex gap-3">
                     <div class="flex h-6 shrink-0 items-center">
                       <div class="group grid size-4 grid-cols-1">
-                        <input id="soccer" type="checkbox" name="interest" aria-describedby="soccer-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
-                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
-                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
-                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text-sm/6">
-                      <label for="soccer" class="font-medium text-gray-900">Interactive</label>
-                      <p id="soccer-description" class="text-gray-500">Sports, installations and outdoor events</p>
-                    </div>
-                  </div>
-
-                  <div class="flex gap-3">
-                    <div class="flex h-6 shrink-0 items-center">
-                      <div class="group grid size-4 grid-cols-1">
-                        <input id="arts" type="checkbox" name="interest" aria-describedby="arts-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <input id="arts" type="checkbox" name="interest" value="Arts" aria-describedby="arts-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
                         <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
                           <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
                           <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
@@ -179,6 +163,118 @@
                     <div class="text-sm/6">
                       <label for="arts" class="font-medium text-gray-900">Arts</label>
                       <p id="arts-description" class="text-gray-500">Galleries, museums and independent exhibits</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <div class="flex h-6 shrink-0 items-center">
+                      <div class="group grid size-4 grid-cols-1">
+                        <input id="esports" type="checkbox" name="interest" value="E-Sports" aria-describedby="esports-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-sm/6">
+                      <label for="esports" class="font-medium text-gray-900">E-Sports</label>
+                      <p id="esports-description" class="text-gray-500">Competitive gaming events and tournaments</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <div class="flex h-6 shrink-0 items-center">
+                      <div class="group grid size-4 grid-cols-1">
+                        <input id="outdoors" type="checkbox" name="interest" value="Outdoors" aria-describedby="outdoors-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-sm/6">
+                      <label for="outdoors" class="font-medium text-gray-900">Outdoors</label>
+                      <p id="outdoors-description" class="text-gray-500">Open-air events, parks and outdoor experiences</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <div class="flex h-6 shrink-0 items-center">
+                      <div class="group grid size-4 grid-cols-1">
+                        <input id="indoors" type="checkbox" name="interest" value="Indoors" aria-describedby="indoors-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-sm/6">
+                      <label for="indoors" class="font-medium text-gray-900">Indoors</label>
+                      <p id="indoors-description" class="text-gray-500">Indoor venues, arenas and covered events</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <div class="flex h-6 shrink-0 items-center">
+                      <div class="group grid size-4 grid-cols-1">
+                        <input id="tournaments" type="checkbox" name="interest" value="Tournaments" aria-describedby="tournaments-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-sm/6">
+                      <label for="tournaments" class="font-medium text-gray-900">Tournaments</label>
+                      <p id="tournaments-description" class="text-gray-500">Competitive sports and skill-based competitions</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <div class="flex h-6 shrink-0 items-center">
+                      <div class="group grid size-4 grid-cols-1">
+                        <input id="family" type="checkbox" name="interest" value="Family" aria-describedby="family-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-sm/6">
+                      <label for="family" class="font-medium text-gray-900">Family</label>
+                      <p id="family-description" class="text-gray-500">Fun for all ages and kid-friendly activities</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <div class="flex h-6 shrink-0 items-center">
+                      <div class="group grid size-4 grid-cols-1">
+                        <input id="nightlife" type="checkbox" name="interest" value="Nightlife" aria-describedby="nightlife-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-sm/6">
+                      <label for="nightlife" class="font-medium text-gray-900">Nightlife</label>
+                      <p id="nightlife-description" class="text-gray-500">Evening events, parties and late-night entertainment</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <div class="flex h-6 shrink-0 items-center">
+                      <div class="group grid size-4 grid-cols-1">
+                        <input id="meetgreet" type="checkbox" name="interest" value="Meet & Greet" aria-describedby="meetgreet-description" class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto" />
+                        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25">
+                          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+                          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-sm/6">
+                      <label for="meetgreet" class="font-medium text-gray-900">Meet &amp; Greet</label>
+                      <p id="meetgreet-description" class="text-gray-500">Get up close with athletes, artists and special guests</p>
                     </div>
                   </div>
 
