@@ -83,22 +83,30 @@ function loadSavedSettings(data) {
     if (data.email)     document.getElementById("email").value      = data.email;
     if (data.country)   document.getElementById("country").value    = data.country;
 
-    // check the interest checkboxes that match saved preferences
-    (data.preferences || []).forEach(function(pref) {
-        const checkbox = document.getElementById(pref);
-        if (checkbox) checkbox.checked = true;
+    // go through every interest checkbox and check it only if it's in the saved preferences
+    // this is for rememebering the state of saved data and display it everytime
+    document.querySelectorAll('input[name="interest"]').forEach(function(box) {
+        if ((data.preferences || []).includes(box.value)) {
+            box.checked = true;
+        } else {
+            box.checked = false;
+        }
     });
 
-    // check the saved budget radio button
-    if (data.budget) {
-        const budgetRadio = document.querySelector(`input[name="budget"][value="${data.budget}"]`);
-        if (budgetRadio) budgetRadio.checked = true;
-    }
+    // go through every budget radio and check it only if it matches the saved budget
+    document.querySelectorAll('input[name="budget"]').forEach(function(radio) {
+        if (radio.value === data.budget) {
+            radio.checked = true;
+        }
+    });
 
-    // check the day checkboxes that match saved preferred days
-    (data.days || []).forEach(function(day) {
-        const checkbox = document.getElementById(day);
-        if (checkbox) checkbox.checked = true;
+    // go through every day checkbox and check it only if it's in the saved days
+    document.querySelectorAll('input[name="day"]').forEach(function(box) {
+        if ((data.days || []).includes(box.id)) {
+            box.checked = true;
+        } else {
+            box.checked = false;
+        }
     });
 }
 
@@ -126,8 +134,14 @@ onAuthReady(async (user) => {
 //-------------------------------------------------------------
 // Function to enable editing of user info form fields
 //------------------------------------------------------------- 
-document.querySelector('#editButton').addEventListener('click', ()=>{
-document.getElementById('personalInfoFields').disabled = false;
+document.querySelector('#editButton').addEventListener('click', () => {
+  document.getElementById('personalInfoFields').disabled = false;
+});
+
+// goes back to whichever page the user came from without saving anything
+// window.history.back is browser's built-in way to go to the previous page
+document.getElementById('cancelButton').addEventListener('click', () => {
+  window.history.back();
 });
 
 
@@ -154,7 +168,9 @@ async function profilesettings() {
         let preferences = [];
         document.querySelectorAll('input[name="interest"]:checked').forEach(box => preferences.push(box.value));
 
-        let budget = document.querySelector('input[name="budget"]:checked').value;
+        const checkedBudget = document.querySelector('input[name="budget"]:checked');
+        // handles the case where nothing is selected to avoid crash.
+        let budget = checkedBudget ? checkedBudget.value : "";
 
         let days = [];
         document.querySelectorAll('input[name="day"]:checked').forEach(box => days.push(box.id));
