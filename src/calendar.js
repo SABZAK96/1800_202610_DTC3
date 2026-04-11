@@ -64,7 +64,7 @@ async function sortEvents() {
           });
 
           // Show placeholder if calendar is empty
-          if (Object.keys(eventsDict).length === 0) {
+          if (Object.keys(eventsDict).length == 0) {
               console.log("No events");
               let calendarPlaceholder = document.getElementById("calendar-empty-state")
               calendarPlaceholder.classList.remove("hidden")
