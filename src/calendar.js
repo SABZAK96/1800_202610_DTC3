@@ -3,6 +3,7 @@ import { auth } from "./firebaseConfig.js";
 import { onAuthStateChanged, signOut } from "firebase/auth"
 import { db } from "./firebaseConfig.js";
 import { collection, getDoc, doc, getDocs, updateDoc, setDoc, onSnapshot } from "firebase/firestore";
+import { length } from "firebase/firestore/pipelines";
 
 const usernameDisplay = document.getElementById("username-display");
 const authBtn = document.getElementById("auth-btn");
@@ -62,6 +63,20 @@ async function sortEvents() {
             }
           });
 
+          // Show placeholder if calendar is empty
+          if (Object.keys(eventsDict).length === 0) {
+              console.log("No events");
+              let calendarPlaceholder = document.getElementById("calendar-empty-state")
+              calendarPlaceholder.classList.remove("hidden")
+              
+          }
+
+          if (Object.keys(eventsDict).length > 0) {
+              // Remove placeholder if calendar is not empty
+              document.getElementById("calendar-empty-state").classList.add("hidden")  
+          }
+         
+
           const sortedEntries = Object.entries(eventsDict).sort(
             (a, b) => new Date(a[1]) - new Date(b[1])
           );
@@ -75,13 +90,15 @@ async function sortEvents() {
             groupedByDay[currentDay].push(eventId);
           });
 
+    
+
           // Clear calendar container before repopulating
           const calendarContainer = document.getElementById("userCalendar");
           calendarContainer.innerHTML = "";
 
           // Loop over groupedByDay and populate HTML
           Object.values(groupedByDay).forEach((eventArray) => {
-
+        
             const currentEvent = eventMap[eventArray[0]];
             let weekday = currentEvent.weekday;
             let date = currentEvent.date;
@@ -140,7 +157,7 @@ async function sortEvents() {
                     
                     <!--Image-->
                     <div class="flex-2 md:hidden lg:flex rounded-3xl w-full relative">
-                        <img src="images/${eventId}.png" class="w-full rounded-3xl h-50 object-cover object-center">
+                        <img src="images/${eventId}.jpg" class="w-full rounded-3xl h-50 object-cover object-center">
                     </div> 
 
                     <!--Buttons-->

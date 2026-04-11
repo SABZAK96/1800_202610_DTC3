@@ -183,7 +183,7 @@ async function loadMainEvents(user) {
       let carouselCard = `
         <a href="eventpage.html?docID=${id}&from=main.html" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
           <div class="flex rounded-l-4xl shadow-xl w-50">
-            <img src="./images/${id}.png" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
+            <img src="./images/${id}.jpg" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
           </div>
           <div class="flex-1 flex flex-col justify-between py-5 px-10">
             <div>
@@ -220,7 +220,7 @@ async function loadMainEvents(user) {
                 <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
               </svg>
             </div>
-            <img src="./images/${id}.png" class="w-full rounded-t-4xl h-50 object-cover object-center">
+            <img src="./images/${id}.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
           </div>
           <a href="eventpage.html?docID=${id}&from=main.html" class="flex flex-col flex-1">
           <div class="flex flex-col flex-1 justify-between py-8 px-8">
@@ -293,7 +293,7 @@ async function loadMainEvents(user) {
                 <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
               </svg>
             </div>
-            <img src="./images/${id}.png" class="w-full rounded-t-4xl h-50 object-cover object-center">
+            <img src="./images/${id}.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
           </div>
           <a href="eventpage.html?docID=${id}&from=main.html" class="flex flex-col flex-1">
           <div class="flex flex-col flex-1 justify-between py-8 px-8">

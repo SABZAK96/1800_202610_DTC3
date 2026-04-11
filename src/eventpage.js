@@ -60,7 +60,7 @@ async function loadcards() {
     if( z == eventdoc.id && number ==0 ){
       number ++;
     const result_html = `<div class ="relative">
-    <div id="evntimgpage" class=" bg-[url('./images/${eventdoc.id}.png')] rounded-2xl mb-3 bg-center bg-cover " style="height: 350px;"></div>
+    <div id="evntimgpage" class=" bg-[url('./images/${eventdoc.id}.jpg')] rounded-2xl mb-3 bg-center bg-cover " style="height: 350px;"></div>
         <!-- fav button -->
         <div class="absolute top-4 right-4 bg-white rounded-2xl w-fit py-1 px-3"><button class="flex flex-row text-sm whitespace-nowrap justify-center items-center gap-1">
         <svg class=" favbtn w-6 h-6 fill-none stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
@@ -147,37 +147,27 @@ async function loadcards() {
     }
     else {
       if (eventdoc.id !== z && relatedCount < 3) {
-        let result = `<div class="w-full lg:w-1/3 p-2">
-          
-          <div class="relative flex flex-col rounded-2xl  h-full shadow-md border-0 bg-white ">
-                    <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">
-                      <svg class="favbtn fill-black w-6 h-6 stroke-black stroke-2" id="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-          <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
-        </svg>
-                    </button>
-            <a href="eventpage.html?docID=${eventdoc.id}" class="flex flex-col flex-1">
-            <div class="w-full relative">
-              <div class="relative">
-                <img class="h-48 w-full object-cover rounded-t-xl " src="./images/${eventdoc.id}.png" alt="">
-                <div class="flex  flex-wrap gap-2 pb-4 absolute bottom-0 left-1  ">
-        <span class=" bg-[var(--light-blue)] whitespace-nowrap w-fit  text-white py-1 px-2 rounded-full text-xs">
-           <span id="">${data.tags[0]}</span>
-        </span>
-        <span class="bg-[var(--light-pink)]  whitespace-nowrap w-fit text-white py-1 px-2 rounded-full text-xs">
-           <span id="">${data.tags[1]}</span>
-        </span>
-      </div>
-              </div>
-          </div>
-            <div class="p-4">
-              <h3 id="" class="font-semibold text-sm  text-[var(--medium-grey)] pt-2">${data.date}</h3>
-               
-            <p id="" class=" font-bold text-xl pt-3 pb-8">${data.title}</p>
-            <span class="bg-black rounded-xl text-white text-center mt-8 px-2 py-2 text-xs w-fit">View Details</span>
+        let result = `
+        <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
+          <div class="rounded-t-4xl w-full relative">
+            <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl z-10">
+              <svg class="favbtn" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 200 200">
+                <path class="cls-1" d="M179.24,31.69h0c-20-20-52.44-20-72.44,0l-6.8,6.8-6.8-6.8c-20-20-52.44-20-72.44,0h0C.75,51.69.75,84.13,20.76,104.13l6.8,6.8-.4.4,63.58,63.58c4.9,4.9,12.84,4.92,17.77.05l64.34-63.63-.4-.4,6.8-6.8c20-20,20-52.44,0-72.44Z"/>
+              </svg>
             </div>
-            </a>
+            <img src="./images/${eventdoc.id}.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
           </div>
-          </div>`;
+          <a href="eventpage.html?docID=${eventdoc.id}&from=main.html" class="flex flex-col flex-1">
+          <div class="flex flex-col flex-1 justify-between py-8 px-8">
+            <div>
+              <p class="text-sm text-gray-500">${data.date}</p>
+              <h2>${data.title}</h2>
+            </div>
+            <span class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</span>
+          </div>
+          </a>
+        </div>
+        `;
 
         const new_card = document.createElement("div");
         new_card.innerHTML = result;
