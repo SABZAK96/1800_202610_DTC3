@@ -336,8 +336,18 @@ async function loadMainEvents(user) {
           })
     
       }
-          
+
       }
+
+
+// Takes the search input value and redirects to explore.html
+// constructs the new url by creating a param and setting it to "search"
+window.searchRedirect = function() {
+  const search = document.getElementById("searchInput").value;
+  if (search) {
+    window.location.href = "explore.html?search=" + search;
+  }
+};
 
 
 
