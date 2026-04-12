@@ -56,7 +56,7 @@ async function loadUpcomingEvents() {
                 <a href="eventpage.html?docID=${id}&from=main.html" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
                 <!--Image-->
                     <div class="flex rounded-l-4xl shadow-xl w-50">
-                        <img src="/images/${id}.png" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
+                        <img src="/images/${id}.jpg" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
                     </div>
                     <!--Text-->
                     <div class="flex-1 flex flex-col justify-between py-5 px-10">

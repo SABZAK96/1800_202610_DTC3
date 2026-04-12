@@ -165,15 +165,11 @@ async function loadMainEvents(user) {
   const user_data = ref_user.exists() ? ref_user.data() : {};
   const favoriteEvents = user_data.favorite_events || [];
   // end of getting user info
-  let populate = 0;
   // initializing a new counter for favorite events
   let favcount = 0;
 
-  const carouselInner = document.querySelector(".carousel .flex.gap-4.w-max");
   const favouritesContainer = document.querySelector(".favourites-container");
 
-  // Clear static hardcoded cards
-  if (carouselInner) carouselInner.innerHTML = "";
   // clear favorite container after each call before populating cards
   if (favouritesContainer) {
     favouritesContainer.innerHTML = "";
@@ -182,35 +178,6 @@ async function loadMainEvents(user) {
   snap.forEach((eventdoc) => {
     let data = eventdoc.data();
     let id = eventdoc.id;
-
-    // First 4 events → carousel cards
-    if (populate < 4 ) {
-      let carouselCard = `
-        <a href="eventpage.html?docID=${id}&from=main.html" class="flex bg-white rounded-4xl shadow-2xl h-50 w-150 hover:opacity-90 transition-opacity">
-          <div class="flex rounded-l-4xl shadow-xl w-50">
-            <img src="./images/${id}.jpg" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
-          </div>
-          <div class="flex-1 flex flex-col justify-between py-5 px-10">
-            <div>
-              <h2>${data.title}</h2>
-            </div>
-            <div>
-              <div class="flex flex-1 items-center gap-2 mb-2">
-                ${calendarSVG}
-                <p class="text-black">${data.date}</p>
-              </div>
-              <div class="flex flex-1 items-center gap-2 mb-2">
-                ${locationSVG}
-                <p class="text-black">${data.location}</p>
-              </div>
-            </div>
-          </div>
-        </a>`;
-      const card = document.createElement("div");
-      card.innerHTML = carouselCard;
-      carouselInner.appendChild(card.firstElementChild);
-      populate++;
-    }
 
     // Next 3 events favourites grid cards
     // check if an eventid we get at each iteration of forEach(eventdoc) is in favorite or not
