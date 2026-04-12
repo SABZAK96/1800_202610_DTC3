@@ -2,10 +2,10 @@
 // only necessary changes(exactly as eventpage.js) are made for applying the favorite logic
 
 import { onAuthReady } from "./authentication.js";
- import { db } from "./firebaseConfig.js"; 
- import { collection, doc, getDocs, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
- import { auth } from "./firebaseConfig.js";
-  import { onAuthStateChanged, signOut } from "firebase/auth"
+import { db } from "./firebaseConfig.js";
+import { collection, doc, getDocs, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { auth } from "./firebaseConfig.js";
+import { onAuthStateChanged, signOut } from "firebase/auth"
 
 const usernameDisplay = document.getElementById("username-display");
 const authBtn = document.getElementById("auth-btn");
@@ -42,6 +42,7 @@ onAuthStateChanged(auth, async (user) => {
     }
 });
 
+// redirects to index if no user is signed in, otherwise loads the main events for the signed-in user
 function showDashboard() {
   const nameElement = document.getElementById("username-display");
 
@@ -49,7 +50,7 @@ function showDashboard() {
     if (!user) {
       location.href = "index.html";
       return;
-    } else{ 
+    } else {
       document.getElementById("unsigneduser").classList.toggle("hidden");
       // the content should be loaded after auth resolves
       loadMainEvents(user);
@@ -86,6 +87,7 @@ let favesshown = [];
 async function attachFavBtn(favBtn, user, eventId, each_card) {
   const favouritesContainer = document.querySelector(".favourites-container");
   if (user) {
+    // checks if the user has a favorite_events field in firestore. if not, creates it to avoid null errors downstream
     async function check_fav_field(){
       const ref = await getDoc(doc(db, "users", user.uid))
       const user_data = ref.data()
@@ -97,6 +99,7 @@ async function attachFavBtn(favBtn, user, eventId, each_card) {
         return user_data.favorite_events
       }
     }
+    // sets the heart icon to red if this event is already in the user's favorites, black otherwise
     async function remember_heart_color(x){
       await check_fav_field();
       const ref = await getDoc(doc(db, "users", user.uid));
@@ -113,6 +116,7 @@ async function attachFavBtn(favBtn, user, eventId, each_card) {
     favBtn.parentElement.addEventListener("click", function () {
       favClick(favBtn);
     });
+    // toggles this event's favorite status in firestore and updates the heart icon color accordingly
     async function favClick(x) {
       await check_fav_field();
       let favselected = false;
@@ -243,50 +247,49 @@ async function loadMainEvents(user) {
       // this replaced the original functions, I wanted them to be reusable for loadmorefavorites function so i moved it outside, and called it here
       attachFavBtn(favBtn, auth.currentUser, id, each_card);
       favcount++;
-      }
-  }
-  )
+    }
+  });
   // display a useful message if the container is empty. note this doesnt work if user unfavorite everything without refereshing the page
   // this should be checked again whenever the event is removed from favorite list
-   if (favoriteEvents.length === 0) {
+  if (favoriteEvents.length === 0) {
     let favCard = `<div class="col-span-full flex flex-col items-center justify-center gap-4 py-10 w-full"><p>No favorited events yet!</p><a href="explore.html" class="bg-black h-10 px-6 rounded-full text-white text-sm flex items-center justify-center">Go Explore</a></div>`;
     const card = document.createElement("div");
     card.innerHTML = favCard;
     favouritesContainer.appendChild(card.firstElementChild);
   }
   // only add this button if the favorite cards are more than 4
-  if ((user_data.favorite_events || []).length > 3){
-          // adding a button to favorite cards
-      let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
-      const viewBtn = document.createElement("div")
-      viewBtn.innerHTML = viewBtncontent
-      document.querySelector(".favourites-container").appendChild(viewBtn.firstElementChild)
-      // enf of button code
-      // attach a listener for removing button itself, loading data and adding the button again
-      document.getElementById("viewM").addEventListener("click", ()=> {
-        loadMoreFavorites(user);
-      })
-    
-      }
-    };
+  if ((user_data.favorite_events || []).length > 3) {
+    // adding a button to favorite cards
+    let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
+    const viewBtn = document.createElement("div")
+    viewBtn.innerHTML = viewBtncontent
+    document.querySelector(".favourites-container").appendChild(viewBtn.firstElementChild)
+    // enf of button code
+    // attach a listener for removing button itself, loading data and adding the button again
+    document.getElementById("viewM").addEventListener("click", () => {
+      loadMoreFavorites(user);
+    })
+  }
+}
 
-     async function loadMoreFavorites(user) {
-          const ref = collection(db, "Events_2026");
-          const snap = await getDocs(ref);
-          // the purpose of these 4 line is to get user favorited events
-          const ref_user = await getDoc(doc(db, "users", user.uid))
-          const user_data = ref_user.data()
-          const favoriteEvents = user_data.favorite_events || [];
-          // remove the old button, will add it again after loading more content. the button is inside a div, so the div should be removed
-          document.getElementById("viewM").parentElement.remove();
-          const favouritesContainer = document.querySelector(".favourites-container");
-          // we want to load 3 cards with each click
-          let counter = 0;
-          snap.forEach((eventdoc)=>{
-            let data = eventdoc.data();
-            let id = eventdoc.id; 
-            if(favoriteEvents.includes(id) && !favesshown.includes(id) && counter < 3){
-                    let favCard = `
+// loads the next 3 favorited events not yet shown, then re-adds the "view more" button if there are still more left
+async function loadMoreFavorites(user) {
+  const ref = collection(db, "Events_2026");
+  const snap = await getDocs(ref);
+  // the purpose of these 4 line is to get user favorited events
+  const ref_user = await getDoc(doc(db, "users", user.uid))
+  const user_data = ref_user.data()
+  const favoriteEvents = user_data.favorite_events || [];
+  // remove the old button, will add it again after loading more content. the button is inside a div, so the div should be removed
+  document.getElementById("viewM").parentElement.remove();
+  const favouritesContainer = document.querySelector(".favourites-container");
+  // we want to load 3 cards with each click
+  let counter = 0;
+  snap.forEach((eventdoc) => {
+    let data = eventdoc.data();
+    let id = eventdoc.id;
+    if (favoriteEvents.includes(id) && !favesshown.includes(id) && counter < 3) {
+      let favCard = `
         <div class="flex flex-col bg-white rounded-4xl shadow-2xl">
           <div class="rounded-t-4xl w-full relative">
             <div class="absolute right-3 top-3 flex justify-center items-center w-13 h-13 mb-2 rounded-full bg-white shadow-2xl z-10">
@@ -307,7 +310,6 @@ async function loadMainEvents(user) {
           </a>
         </div>`;
 
-
       const card = document.createElement("div");
       card.innerHTML = favCard;
       const each_card = favouritesContainer.appendChild(card.firstElementChild);
@@ -315,30 +317,24 @@ async function loadMainEvents(user) {
       const favBtn = each_card.querySelector(".favbtn");
       // this replaced the original functions, I wanted them to be reusable for loadmorefavorites function so i moved it outside, and called it here
       attachFavBtn(favBtn, user, id, each_card);
-      counter ++;
-
-
-            }
-          }
-            
-          )
-          // now we need to add the button back and attach event listener to it to load this function again and repeat the process, basically using the logic used in line 257
-          // if the length of favorite events in the db and the length of the array that stores the event id shown is equal, this button should be removed
-          if (favesshown.length < favoriteEvents.length){
-          // adding a button to favorite cards
-          let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
-          const viewBtn = document.createElement("div")
-          viewBtn.innerHTML = viewBtncontent
-          document.querySelector(".favourites-container").appendChild(viewBtn.firstElementChild)
-          // enf of button code
-          // attach a listener for removing button itself, loading data and adding the button again
-          document.getElementById("viewM").addEventListener("click", ()=> {
-            loadMoreFavorites(user);
-          })
-    
-      }
-
-      }
+      counter++;
+    }
+  });
+  // now we need to add the button back and attach event listener to it to load this function again and repeat the process, basically using the logic used in line 257
+  // if the length of favorite events in the db and the length of the array that stores the event id shown is equal, this button should be removed
+  if (favesshown.length < favoriteEvents.length) {
+    // adding a button to favorite cards
+    let viewBtncontent = `<div class="col-span-full flex justify-center mt-4"><button id="viewM" class="bg-black h-10 px-6 rounded-full text-sm text-white">View more</button></div>`
+    const viewBtn = document.createElement("div")
+    viewBtn.innerHTML = viewBtncontent
+    document.querySelector(".favourites-container").appendChild(viewBtn.firstElementChild)
+    // enf of button code
+    // attach a listener for removing button itself, loading data and adding the button again
+    document.getElementById("viewM").addEventListener("click", () => {
+      loadMoreFavorites(user);
+    })
+  }
+}
 
 
 // Takes the search input value and redirects to explore.html
