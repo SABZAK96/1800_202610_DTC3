@@ -157,7 +157,7 @@ async function loadcards() {
             </div>
             <img src="./images/${eventdoc.id}.jpg" class="w-full rounded-t-4xl h-50 object-cover object-center">
           </div>
-          <a href="eventpage.html?docID=${eventdoc.id}&from=main.html" class="flex flex-col flex-1">
+          <a href="eventpage.html?docID=${eventdoc.id}&from=${previousPage || 'main.html'}" class="flex flex-col flex-1">
           <div class="flex flex-col flex-1 justify-between py-8 px-8">
             <div>
               <p class="text-sm text-gray-500">${data.date}</p>

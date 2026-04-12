@@ -163,7 +163,7 @@ async function sortEvents() {
                     <!--Buttons-->
                     <div class="flex-1 flex flex-col gap-1 rounded-3xl w-full relative text-sm">
                         <button class="flex-1 rounded-t-3xl bg-[var(--light-grey)] hover:bg-[#d8d4da] min-h-15">Invite friends</button>
-                        <button onclick="window.location.href='eventpage.html?docID=${eventId}&from=eventlist.html';" class="flex-1 bg-[var(--light-grey)] hover:bg-[#d8d4da] min-h-15">See details</button>
+                        <button onclick="window.location.href='eventpage.html?docID=${eventId}&from=calendar.html';" class="flex-1 bg-[var(--light-grey)] hover:bg-[#d8d4da] min-h-15">See details</button>
                         <button id="${eventId}" class="removeButton flex-1 rounded-b-3xl bg-[var(--light-grey)] hover:bg-[#d8d4da] min-h-15">Remove</button>
                     </div> 
 
