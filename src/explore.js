@@ -332,3 +332,16 @@ allDropdowns.forEach(function(dropdown) {
     }
   });
 });
+
+// close all dropdowns when clicking anywhere outside of them
+// the following line listens for click anywhere on the page, e stands for click event
+document.addEventListener('click', function(e) {
+  allDropdowns.forEach(function(dropdown) {
+    //  Checks if the thing that was clicked (e.target) is not inside this dropdown.
+    // e.target points to the exact HTML element the user clicked on.
+    if (!dropdown.contains(e.target)) {
+      // Closes the dropdown by setting its open property to false.
+      dropdown.open = false;
+    }
+  });
+});
