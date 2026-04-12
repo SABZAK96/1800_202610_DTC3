@@ -11,14 +11,13 @@ Developed for the COMP 1800 course, this project applies User-Centred Design pra
 ## Features
 
 - **Event Discovery & Browsing**: Browse FIFA 2026 events fetched from Firestore, with a dedicated Explore page showing events in list and grid layouts.
-- **Search & Filter**: Search events by name and filter by category/tag on the Explore page.
+- **Search & Filter**: Search events by name and filter by category/tag, budget cap, and preferred day on the Explore page. Filters are pre-selected automatically based on the user's saved preferences from Settings.
 - **Event Detail Page**: View full event info including price, location, date/time, description, refund policy, and an interactive Leaflet.js map.
 - **Favourites**: Save events with a heart button; favourites persist per user in Firestore and are shown on the home dashboard.
-- **Calendar**: Add events to a personal calendar, view them sorted chronologically by day, and remove them — all synced to Firestore.
-- **Related Events**: Each event detail page suggests 3 related events to encourage further discovery.
+- **Calendar**: Add events to a personal calendar from the event detail page, view them sorted chronologically by day, and remove them. Uses real-time Firestore listeners so the calendar updates instantly without a page reload.
 - **User Authentication**: Email/password sign-up and login via Firebase Auth, with automatic redirects for unauthenticated users.
-- **Friends Page**: View incoming friend requests (accept/decline) and a friends list with a planned event-sync feature.
 - **Settings & Preferences**: Update profile info, select event interest categories, set a budget preference, and choose preferred days.
+- **Profile Image Upload**: Upload a profile photo from the Settings page; the image is Base64-encoded and saved directly to the user's Firestore document, then displayed across the app.
 - **Responsive Navigation**: Custom web-component navbar — sidebar on desktop, bottom tab bar on mobile — with active-page highlighting.
 - **Drag-to-scroll Carousels**: Horizontally scrollable carousels for upcoming events, categories, and favourites, with mouse-drag support on desktop.
 
@@ -96,9 +95,9 @@ Once the application is running:
 
 ## Contributors
 
-- **Sacha Clements** - BCIT CST Student who loves github so so so so so soooo much.
-- **Saba** - BCIT CST Student and I'm struggling with git right now! Fun fact: I hate git!
-- **Alex** - BCIT CST Student with a passion for art and design. Fun fact: I have a pet dog named Jupiter.
+- **Sacha Clements** - BCIT CST Student who loves github.
+- **Saba** - BCIT CST Student and I'm struggling with git right now! 
+- **Alex** - BCIT CST Student with a passion for art and design.
 
 ---
 
@@ -107,6 +106,7 @@ Once the application is running:
 - Events data and images are for demonstration purposes only.
 - part of map code is adopted from https://leafletjs.com/ 
 - authenrication, login/signup process, and firebaseConfig JS codes were adopted from demos
+- Profile image upload code (Base64 encoding with FileReader and Firestore save) was adapted from the BCIT COMP 1800 course tech-tip channel.
 - Code snippets were adapted from resources such as [Stack Overflow](https://stackoverflow.com/) and [MDN Web Docs](https://developer.mozilla.org/).
 - Icons sourced from [FontAwesome](https://fontawesome.com/), some from Heroicons and images were genrated by AI
 
@@ -118,17 +118,15 @@ Once the application is running:
 
 - **Static event data**: Events are pre-loaded into Firestore and not pulled from a live external API, because we don't have access to real FIFA events for 2026.
 - **Friends feature is UI-only**: The friends page displays a mockup but friend requests, syncing, and removal are not connected to the database.
-- **User preferences not applied**: The settings page collects interests, budget, and transportation preferences but they don't currently influence event recommendations or filtering.
-- **Limited filtering**: The explore page only filters by event tag; no filtering by price range, date, or location.
+- **"Invite friends" button is non-functional**: The button appears on each calendar event card but has no logic attached to it.
 - **No password reset or email verification**: Users cannot recover accounts or verify their email address.
 - **No real-time notifications**: No reminders or alerts for upcoming events, friend requests, or new event matches.
-- **Profile photo upload is non-functional**: The UI exists but uploading a profile image is not implemented.
 
 ### Future Work
 
 - **Functional friends system**: Complete friend requests, event syncing between friends, and viewing friends' calendars.
 - **Preference-based recommendations**: Use saved settings (interests, budget, transportation) to surface personalized event suggestions on the home page.
-- **Advanced filtering**: Add filters for price range, date range, and distance from the user's location.
+- **Advanced filtering**: Add filters for date range and distance from the user's location.
 - **Notification system**: Email or push notifications for upcoming events in the user's calendar.
 - **Multi-event map view**: Show all nearby events on a single map with clickable markers.
 - **RSVP / attendance tracking**: Let users officially register for events and see capacity.
