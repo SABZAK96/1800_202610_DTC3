@@ -106,7 +106,7 @@ function createListCard(data, id) {
           </a>
           <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">${heartSVG()}</button>
         </div>
-        <a href="eventpage.html?docID=${id}&from=main.html" class="flex flex-col flex-1">
+        <a href="eventpage.html?docID=${id}&from=explore.html" class="flex flex-col flex-1">
           <div class="flex flex-col flex-1 justify-between py-8 px-8">
             <div>
               <p class="text-sm text-gray-500">${data.date}</p>
@@ -115,13 +115,13 @@ function createListCard(data, id) {
             <span class="bg-black h-10 w-35 px-6 rounded-full text-sm text-white flex items-center justify-center w-fit mt-4">Learn more</span>
           </div>
           </a>
-        
+
       </div>
     </div>
     `;
   return div.firstElementChild;
 }
- 
+
 
 // Builds and returns an event card in grid layout.
 // Takes the event data and its Firestore document ID,
@@ -134,11 +134,11 @@ function createGridCard(data, id) {
         <div class="w-full relative">
           <a href="eventpage.html?docID=${id}&from=explore.html" class="block">
             <img class="h-48 w-full object-cover rounded-t-4xl" src="./images/${id}.jpg" alt="">
-         
+
           </a>
           <button class="rounded-full w-fit h-fit bg-white absolute top-3 right-3 p-2 z-10">${heartSVG()}</button>
         </div>
-        <a href="eventpage.html?docID=${id}&from=main.html" class="flex flex-col flex-1">
+        <a href="eventpage.html?docID=${id}&from=explore.html" class="flex flex-col flex-1">
           <div class="flex flex-col flex-1 justify-between py-8 px-8">
             <div>
               <p class="text-sm text-gray-500">${data.date}</p>
@@ -329,6 +329,19 @@ allDropdowns.forEach(function(dropdown) {
           other.open = false;
         }
       });
+    }
+  });
+});
+
+// close all dropdowns when clicking anywhere outside of them
+// the following line listens for click anywhere on the page, e stands for click event
+document.addEventListener('click', function(e) {
+  allDropdowns.forEach(function(dropdown) {
+    //  Checks if the thing that was clicked (e.target) is not inside this dropdown.
+    // e.target points to the exact HTML element the user clicked on.
+    if (!dropdown.contains(e.target)) {
+      // Closes the dropdown by setting its open property to false.
+      dropdown.open = false;
     }
   });
 });
