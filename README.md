@@ -19,6 +19,7 @@ Developed for the COMP 1800 course, this project applies User-Centred Design pra
 - **Settings & Preferences**: Update profile info, select event interest categories, set a budget preference, and choose preferred days.
 - **Profile Image Upload**: Upload a profile photo from the Settings page; the image is Base64-encoded and saved directly to the user's Firestore document, then displayed across the app.
 - **Responsive Navigation**: Custom web-component navbar — sidebar on desktop, bottom tab bar on mobile — with active-page highlighting.
+- **Upcoming Events**: The home page carousel displays events from the user's calendar, sorted chronologically, with real-time updates via Firestore listeners so additions and removals reflect instantly without a page reload.
 - **Drag-to-scroll Carousels**: Horizontally scrollable carousels for upcoming events, categories, and favourites, with mouse-drag support on desktop.
 
 ---
@@ -69,7 +70,8 @@ Once the application is running:
 │   ├── main.js
 │   ├── settings.js
 │   ├── site-footer.js
-│   └── site-navbar.js
+│   ├── site-navbar.js
+│   └── upcomingEvents.js
 ├── styles/
 │   └── style.css
 ├── public/
