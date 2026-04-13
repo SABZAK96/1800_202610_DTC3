@@ -13,7 +13,7 @@ export default defineConfig({
                 main: resolve(__dirname, "main.html"),
                 settings: resolve(__dirname, "settings.html"),
                 explore: resolve(__dirname, "explore.html"),
-                event: resolve(__dirname, "eventpage.html"),
+                eventpage: resolve(__dirname, "eventpage.html"),
                 calendar: resolve(__dirname, "calendar.html"),
                 friends: resolve(__dirname, "friends.html")
             }
