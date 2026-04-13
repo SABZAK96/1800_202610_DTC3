@@ -27,34 +27,28 @@
 <div class="mx-auto z-10 relative">
 
     <!--Header Search and login-->
-    <div class=" flex flex-wrap flex-row  gap-3 md:justify-between items-align mb-20">
+    <div class=" flex flex-wrap flex-row  gap-3 justify-between items-align mb-20">
         <!--Left side-->
         <div>
-        <form class="">
+        <form class="hidden lg:flex gap-3">
             <input type="text" placeholder="Search" class="h-10 w-40 bg-white px-4 rounded-full text-sm">
             <button class="bg-[var(--medium-grey)] h-10 md:px-4 px-2  rounded-full text-white text-sm">Search</button>
         </form>
         </div>
         <!--Right side-->
-        <div id="" class="signedinuser flex gap-5">
-            <!--Friend Requests-->
-            <div class="hidden lg:flex lg:justify-center lg:items-center">
-                <button class="bg-[var(--primary-green)] h-10 px-4 rounded-full text-white text-sm font-bold mr-3">3</button>
-                <p class="text-xs font-bold">Friend requests</p>
-            </div>
+        <div id="" class="signedinuser flex gap-5 bg-white rounded-full p-2">
             <!--Profile image-->
             <div class="flex justify-center  gap-2 items-center">
 
-                <a href="setting.html">
+                <a href="settings.html">
                     <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm mr-3 cursor-pointer"></img>
                 </a>
                 <p id="username-display" class=" text-sm font-bold pr-10 md:pr-0"></p>
-                <button id="auth-btn" class="bg-black h-10 px-4 rounded-full text-white text-sm">Log out</button>
+
             </div>
-            
+            <button id="auth-btn" class="bg-black h-10 px-4 rounded-full text-white text-sm">Log out</button>
         </div>
     </div>
-
     
 
  <!-- friends request -->
@@ -81,106 +75,151 @@
     <!-- dropdown section -->
     <div id="dropd" class="request-container flex flex-col items-start justify-start hidden">
      <!-- first friend req -->
-        <div class=" border-b-1 border-gray-400 w-full pt-5 pb-5">
+        <div class="border-b-1 border-gray-400 w-full pt-5 pb-5">
                         <!--Profile image-->
-            <div class="flex md:flex-row flex-col justify-center md:justify-start  md:gap-6 gap-2 items-center">
+            <div class="flex justify-between md:justify-between  md:gap-6 gap-2 items-center">
 
-                <div class=" flex md:flex-row flex-col  items-center justify-center">
-                <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
-                <p id="username-display" class=" text-sm font-bold md:pr-15 md:pr-0">Agnes</p>
+                <div class="flex md:flex-row flex-col  items-center justify-center">
+                    <img id="profile-img" src="images/profile-image-sample.jpg" class="hidden md:flex bg-[var(--primary-green)] h-15 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
+                    <p id="username-display" class=" text-md font-bold md:pr-15 md:pr-0">Marie Heller</p>
                 </div>
                  <!-- button sets -->
                 <div class="flex flex-row items-center gap-5">
-                    <button id="button" class="bg-black  h-7 px-2 rounded-full text-white text-sm">Accept</button>
-                 <button id="button" class="bg-white border-1 border-black  h-7 px-2 rounded-full text-black text-sm">Decline</button>
-                 </div>
-        </div>
+                    <button id="button" class="bg-black  h-10 px-3 rounded-full text-white text-sm">Accept</button>
+                    <button id="button" class="bg-white h-10 px-3 rounded-full text-black text-sm">Decline</button>
+                </div>
             </div>
+        </div>
     <!-- second friend req -->
-     <div class="border-t-1 border-b-1 border-gray-400 w-full pt-5 pb-5">
+        <div class="border-b-1 border-gray-400 w-full pt-5 pb-5">
                         <!--Profile image-->
-            <div class="flex md:flex-row flex-col justify-center md:justify-start  md:gap-6 gap-2 items-center">
+            <div class="flex justify-between md:justify-between  md:gap-6 gap-2 items-center">
 
-                <div class=" flex md:flex-row flex-col  items-center justify-center">
-                <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
-                <p id="username-display" class=" text-sm font-bold md:pr-15 md:pr-0">Agnes</p>
+                <div class="flex md:flex-row flex-col  items-center justify-center">
+                    <img id="profile-img" src="images/profile-image-sample-04.jpg" class="hidden md:flex bg-[var(--primary-green)] h-15 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
+                    <p id="username-display" class=" text-md font-bold md:pr-15 md:pr-0">Nickolas Lockman</p>
                 </div>
                  <!-- button sets -->
                 <div class="flex flex-row items-center gap-5">
-                    <button id="button" class="bg-black h-7 px-2 rounded-full text-white text-sm">Accept</button>
-                 <button id="button" class="bg-white border-1 border-black h-7 px-2 rounded-full text-black text-sm">Decline</button>
-                 </div>
-        </div>
+                    <button id="button" class="bg-black  h-10 px-3 rounded-full text-white text-sm">Accept</button>
+                    <button id="button" class="bg-white h-10 px-3 rounded-full text-black text-sm">Decline</button>
+                </div>
             </div>
+        </div>
+        </div>
             
     
-    
-
-        </div>
+    </div>
     
 </div>
 
 <!-- friends list  -->
  
-<section class=" flex flex-col items-center justify-center gap-4 mb-3">
+<section class=" flex flex-col items-center justify-center gap-4 mb-10">
 <!-- for adding friend -->
-    <div class="bg-white rounded-3xl flex flex-row justify-between mt-4  px-2 items-center w-full">
+    <div class="bg-white rounded-full flex flex-row justify-between mt-4  px-4 h-20 items-center w-full">
         
-        <p id="searchfriends" class="text-[var(--medium-grey)] text-lg font-semibold p-2">Add friend</p>
+        <p id="searchfriends" class="text-[var(--medium-grey)] text-lg font-semibold p-2 ">Add friend</p>
         <span class="text-[var(--medium-grey)] bg-[var(--light-grey)] flex items-center justify-center rounded-full p-1">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
         </span>
         
     </div>
-<!-- friends list -->
- <div class="bg-white rounded-3xl flex md:flex-row flex-col justify-between gap-3 items-center w-full md:py-0 py-1 ">
-    <div class="flex md:flex-row flex-col justify-between px-2 py-1 md:gap-6 gap-3  items-center w-full">
-
-    <div class=" flex md:flex-row flex-col  items-center justify-center">
-    <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
-    <p id="username-display" class=" text-sm font-bold md:pr-15 md:pr-0">Agnes</p>
-    </div>
-        <!-- button sets -->
-    <div class="flex flex-row items-center gap-5">
-        <button id="button" class="bg-black h-5 px-2 whitespace-nowrap rounded-full text-white text-xs">Sync Events</button>
-        <button id="button" class="bg-white border-1 border-black h-5 px-2 rounded-full text-black text-xs">Remove</button>
-    </div>
+    <!-- friend 1 -->
+    <div class="bg-white rounded-full flex justify-between h-20 gap-3 w-full md:py-0 py-1 px-5 md:px-3">
+        <div class="flex justify-between py-1 md:gap-6 gap-3 items-center w-full">
+            <div class=" flex items-center justify-between">
+                <img id="profile-img" src="images/profile-image-sample-07.jpg" class="hidden md:flex bg-[var(--primary-green)] h-15 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
+                <p id="username-display" class=" text-md font-bold md:pr-15 md:pr-0">Paris Marvin</p>
+            </div>
+                <!-- button sets -->
+            <div class="flex flex-row items-center gap-3">
+                <button id="button" class="bg-black h-10 px-3 whitespace-nowrap rounded-full text-white text-sm">Sync Events</button>
+                <button id="button" class="bg-white border-2 border-black h-10 px-3 rounded-full text-black text-sm">Remove</button>
+            </div>
         </div>
- </div>
-
- <!-- second friend for test -->
-   <div class="bg-white rounded-3xl flex md:flex-row flex-col justify-between gap-3 items-center w-full md:py-0 py-1">
-    <div class="flex md:flex-row flex-col justify-between px-2 py-1 md:gap-6 gap-3  items-center w-full">
-
-    <div class=" flex md:flex-row flex-col  items-center justify-center">
-    <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
-    <p id="username-display" class=" text-sm font-bold md:pr-15 md:pr-0">Agnes</p>
     </div>
-        <!-- button sets -->
-    <div class="flex flex-row items-center gap-5">
-        <button id="button" class="bg-black h-5 px-2 whitespace-nowrap rounded-full text-white text-xs">Sync Events</button>
-        <button id="button" class="bg-white border-1 border-black h-5 px-2 rounded-full text-black text-xs">Remove</button>
-    </div>
+
+    <!-- friend 2 -->
+    <div class="bg-white rounded-full flex justify-between h-20 gap-3 w-full md:py-0 py-1 px-5 md:px-3">
+        <div class="flex justify-between py-1 md:gap-6 gap-3 items-center w-full">
+            <div class=" flex items-center justify-between">
+                <img id="profile-img" src="images/profile-image-sample-10.jpg" class="hidden md:flex bg-[var(--primary-green)] h-15 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
+                <p id="username-display" class=" text-md font-bold md:pr-15 md:pr-0">Melvin Witting</p>
+            </div>
+                <!-- button sets -->
+            <div class="flex flex-row items-center gap-3">
+                <button id="button" class="bg-black h-10 px-3 whitespace-nowrap rounded-full text-white text-sm">Sync Events</button>
+                <button id="button" class="bg-white border-2 border-black h-10 px-3 rounded-full text-black text-sm">Remove</button>
+            </div>
         </div>
- </div>
-
- <!-- third friend -->
-     <div class="bg-white rounded-3xl flex md:flex-row flex-col justify-between gap-3 items-center w-full md:py-0 py-1">
-    <div class="flex md:flex-row flex-col justify-between px-2 py-1 md:gap-6 gap-3  items-center w-full">
-
-    <div class=" flex md:flex-row flex-col  items-center justify-center">
-    <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
-    <p id="username-display" class=" text-sm font-bold md:pr-15 md:pr-0">Agnes</p>
     </div>
-        <!-- button sets -->
-    <div class="flex flex-row items-center gap-5">
-        <button id="button" class="bg-black h-5 px-2 whitespace-nowrap rounded-full text-white text-xs">Sync Events</button>
-        <button id="button" class="bg-white border-1 border-black h-5 px-2 rounded-full text-black text-xs">Remove</button>
-    </div>
+
+    
+    <!-- friend 3 -->
+    <div class="bg-white rounded-full flex justify-between h-20 gap-3 w-full md:py-0 py-1 px-5 md:px-3">
+        <div class="flex justify-between py-1 md:gap-6 gap-3 items-center w-full">
+            <div class=" flex items-center justify-between">
+                <img id="profile-img" src="images/profile-image-sample-12.jpg" class="hidden md:flex bg-[var(--primary-green)] h-15 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
+                <p id="username-display" class=" text-md font-bold md:pr-15 md:pr-0">Susie West</p>
+            </div>
+                <!-- button sets -->
+            <div class="flex flex-row items-center gap-3">
+                <button id="button" class="bg-black h-10 px-3 whitespace-nowrap rounded-full text-white text-sm">Sync Events</button>
+                <button id="button" class="bg-white border-2 border-black h-10 px-3 rounded-full text-black text-sm">Remove</button>
+            </div>
         </div>
- </div>
+    </div>
+
+
+    <!-- friend 4 -->
+    <div class="bg-white rounded-full flex justify-between h-20 gap-3 w-full md:py-0 py-1 px-5 md:px-3">
+        <div class="flex justify-between py-1 md:gap-6 gap-3 items-center w-full">
+            <div class=" flex items-center justify-between">
+                <img id="profile-img" src="images/profile-image-sample-08.jpg" class="hidden md:flex bg-[var(--primary-green)] h-15 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
+                <p id="username-display" class=" text-md font-bold md:pr-15 md:pr-0">Alfonso Bernier</p>
+            </div>
+                <!-- button sets -->
+            <div class="flex flex-row items-center gap-3">
+                <button id="button" class="bg-black h-10 px-3 whitespace-nowrap rounded-full text-white text-sm">Sync Events</button>
+                <button id="button" class="bg-white border-2 border-black h-10 px-3 rounded-full text-black text-sm">Remove</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- friend 5 -->
+    <div class="bg-white rounded-full flex justify-between h-20 gap-3 w-full md:py-0 py-1 px-5 md:px-3">
+        <div class="flex justify-between py-1 md:gap-6 gap-3 items-center w-full">
+            <div class=" flex items-center justify-between">
+                <img id="profile-img" src="images/profile-image-sample-16.jpg" class="hidden md:flex bg-[var(--primary-green)] h-15 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
+                <p id="username-display" class=" text-md font-bold md:pr-15 md:pr-0">Fae Hartmann</p>
+            </div>
+                <!-- button sets -->
+            <div class="flex flex-row items-center gap-3">
+                <button id="button" class="bg-black h-10 px-3 whitespace-nowrap rounded-full text-white text-sm">Sync Events</button>
+                <button id="button" class="bg-white border-2 border-black h-10 px-3 rounded-full text-black text-sm">Remove</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- friend 6 -->
+    <div class="bg-white rounded-full flex justify-between h-20 gap-3 w-full md:py-0 py-1 px-5 md:px-3">
+        <div class="flex justify-between py-1 md:gap-6 gap-3 items-center w-full">
+            <div class=" flex items-center justify-between">
+                <img id="profile-img" src="images/profile-image-sample-17.jpg" class="hidden md:flex bg-[var(--primary-green)] h-15 border-2 border-white rounded-full text-white text-sm md:mr-3 cursor-pointer"></img>
+                <p id="username-display" class=" text-md font-bold md:pr-15 md:pr-0">Sebastian Ford</p>
+            </div>
+                <!-- button sets -->
+            <div class="flex flex-row items-center gap-3">
+                <button id="button" class="bg-black h-10 px-3 whitespace-nowrap rounded-full text-white text-sm">Sync Events</button>
+                <button id="button" class="bg-white border-2 border-black h-10 px-3 rounded-full text-black text-sm">Remove</button>
+            </div>
+        </div>
+    </div>
+
  </section>
 
   <footer class="flex flex-col sm:flex-row justify-between border-t-1 border-gray-400 pt-10 pb-50 md:pb-10">

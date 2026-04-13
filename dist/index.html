@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <!-- Other libraries go here -->
+
+    <script type="module" crossorigin src="/assets/index-9QmsuTt6.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/firebaseConfig-BbYGTN39.js">
+    <link rel="stylesheet" crossorigin href="/assets/firebaseConfig-OLjP3HPS.css">
+  </head>
+  
+<body>
+  
+<site-navbar></site-navbar>
+    
+<main class="max-w-7xl relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 mx-auto bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
+<!--<div class="absolute top-0 w-full h-50 -ml-10 bg-[#d8d4da]"></div>-->
+<div class="mx-auto">
+
+    <!--Header Search and login-->
+    <div class=" flex flex-wrap flex-row  gap-3 justify-between items-align mb-20">
+        <!--Left side-->
+        <div>
+        <form class="hidden lg:flex gap-3">
+            <input type="text" placeholder="Search" class="h-10 w-40 bg-white px-4 rounded-full text-sm">
+            <button class="bg-[var(--medium-grey)] h-10 md:px-4 px-2  rounded-full text-white text-sm">Search</button>
+        </form>
+        </div>
+        <!--Right side-->
+        <div id="" class="signedinuser flex gap-5 bg-white rounded-full p-2">
+            <!--Profile image-->
+            <div class="flex justify-center  gap-2 items-center">
+
+                <a href="settings.html">
+                    <img id="profile-img" src="/assets/profile-image-sample-BIy-Duy0.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm mr-3 cursor-pointer"></img>
+                </a>
+                <p id="username-display" class=" text-sm font-bold pr-10 md:pr-0"></p>
+
+            </div>
+            <button id="auth-btn" class="bg-black h-10 px-4 rounded-full text-white text-sm">Log out</button>
+        </div>
+    </div>
+
+  <!--Banner-->
+  <div class="flex flex-col md:flex-row p-10 w-full md:max-h-100 mb-20 text-white rounded-4xl bg-[#4e6d4e] md:justify-between">
+    <!--Left Side-->
+    <div class="flex flex-1 flex-col md:justify-between w-full md:w-[40%] mb-10 md:mb-0">
+        <div>
+            <h1 style="color:white">Welcome to the FIFA Fan Festival 2026!</h1>
+            <p class="text-white mb-7">Sign up for access to personalised recommendations, create your 2026 schedule and connect with friends</p>
+        </div>
+        <a href="login.html"><button id="Loginbtn" type="button" class="bg-[var(--primary-green)]  h-10 px-6 mr-4 mb-10 md:mb-0 rounded-full text-sm">Login</button></a>
+    </div>
+    <!--Right Side-->
+    <div class="w-full md:w-[60%] -mr-10 -mt-10 -mb-10 rounded-4xl">
+        <img src="/assets/home-bg-v1-B1cPJqji.png" alt="FIFA Fan Festival 2026" class="w-full h-full object-cover object-left rounded-4xl">
+    </div>
+</div>
+
+
+  <h2 style="margin-bottom: 50px;">Top categories</h2>
+  <!--Categories-->
+  <!--Category buttons-->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mb-30">
+
+        <!--Watch Party-->
+        <a href="/explore.html?tag=Watch Party">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">videocam</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Watch Party</p>
+        </div>
+        </a>
+
+        <!--Esports-->
+        <a href="/explore.html?tag=E-Sports">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">computer</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">E-Sports</p>
+        </div>
+        </a>
+
+        <!--Outdoors-->
+        <a href="/explore.html?tag=Outdoors">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">nature</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Outdoors</p>
+        </div>
+        </a>
+
+        <!--Indoors-->
+        <a href="/explore.html?tag=Indoors">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">cottage</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Indoors</p>
+        </div>
+        </a>
+
+        <!--Tournaments-->
+        <a href="/explore.html?tag=Tournaments">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">trophy</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Tournaments</p>
+        </div>
+        </a>
+
+        <!--Family-->
+        <a href="/explore.html?tag=Family">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">family_group</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Family</p>
+        </div>
+        </a>
+
+        <!--Nightlife-->
+        <a href="/explore.html?tag=Nightlife">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">wine_bar</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Nightlife</p>
+        </div>
+        </a>
+        
+        <!--Meet & Greet-->
+        <a href="/explore.html?tag=Meet & Greet">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">face</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Meet & Greet</p>
+        </div>
+        </a>
+
+        <!--Music-->
+        <a href="/explore.html?tag=Music">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">music_note</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Music</p>
+        </div>
+        </a>
+
+        <!--Arts-->
+        <a href="/explore.html?tag=Arts">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">image</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Arts</p>
+        </div>
+        </a>
+
+    </div>
+
+  <!--Featured / For you-->
+  <h1 style="margin-bottom: 50px;">Featured</h1>
+  <div class="featured-container flex mb-30">
+    <!--Wide Featured Event Card-->
+    
+  </div>
+
+  <!--All Events-->
+  <h1 style="margin-bottom: 50px;">What's On</h1>
+  <div class="thisweek-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-30">
+
+  </div>
+
+  <footer class="flex flex-col sm:flex-row justify-between border-t-1 border-gray-400 pt-10 pb-50 md:pb-10">
+    <div><p style="font-weight: bold;">Copyright FIFA 2026</p></div>
+    <div class="flex gap-5">
+      <p>contact@extratime.com</p>
+    </div>
+  </footer>
+
+<!--Inner div ends-->
+</div>
+<!--Main ends-->
+</main>
+
+
+
+<!---------------------------------------------->
+<!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+
+    <!-- Link to scripts of your own -->
+    
+   
+
+</body>
+
+</html>
