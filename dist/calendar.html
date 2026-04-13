@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
+    <!-- Other libraries go here -->
+
+    <script type="module" crossorigin src="/assets/calendar-CeiotpWY.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/firebaseConfig-BbYGTN39.js">
+    <link rel="stylesheet" crossorigin href="/assets/firebaseConfig-OLjP3HPS.css">
+  </head>
+  
+<body>
+  
+<site-navbar></site-navbar>
+    
+<main class="max-w-7xl mx-auto relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 mx-auto bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
+<div class="absolute top-0 w-full h-75 rounded-2xl -ml-10 bg-[#d8d4da] z-0"></div>
+<div class="mx-auto z-10 relative">
+
+    <!--Header Search and login-->
+    <div class=" flex flex-wrap flex-row  gap-3 justify-between items-align mb-20">
+        <!--Left side-->
+        <div>
+        <form class="hidden lg:flex gap-3">
+            <input type="text" placeholder="Search" class="h-10 w-40 bg-white px-4 rounded-full text-sm">
+            <button class="bg-[var(--medium-grey)] h-10 md:px-4 px-2  rounded-full text-white text-sm">Search</button>
+        </form>
+        </div>
+        <!--Right side-->
+        <div id="" class="signedinuser flex gap-5 bg-white rounded-full p-2">
+            <!--Profile image-->
+            <div class="flex justify-center  gap-2 items-center">
+
+                <a href="settings.html">
+                    <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm mr-3 cursor-pointer"></img>
+                </a>
+                <p id="username-display" class=" text-sm font-bold pr-10 md:pr-0"></p>
+
+            </div>
+            <button id="auth-btn" class="bg-black h-10 px-4 rounded-full text-white text-sm">Log out</button>
+        </div>
+    </div>
+
+
+    <!--Banner-->
+    <div id="calendar-empty-state" class="flex flex-col md:flex-row p-10 w-full md:max-h-100 mb-20 text-white rounded-4xl bg-[#4e6d4e] md:justify-between">
+        <!--Left Side-->
+        <div class="flex flex-1 flex-col md:justify-between w-full md:w-[40%] mb-10 md:mb-0">
+            <div>
+                <h1 style="color:white">There are no events in your calendar right now.</h1>
+                <p class="text-white mb-7">Explore events and then add them to your calendar to see them here!</p>
+            </div>
+            <a href="explore.html"><button  type="button" class="bg-[var(--primary-green)]  h-10 px-6 mr-4 mb-10 md:mb-0 rounded-full text-sm">Find Events</button></a>
+        </div>
+        <!--Right Side-->
+        <div class="w-full md:w-[60%] -mr-10 -mt-10 -mb-10 rounded-4xl">
+            <img src="./images/empty-calendar.png" alt="FIFA Fan Festival 2026" class="w-full h-full object-cover object-left rounded-4xl">
+        </div>
+    </div>
+
+
+    <div id="userCalendar">
+    </div>
+    
+  <footer class="flex flex-col sm:flex-row justify-between border-t-1 border-gray-400 pt-10 pb-50 md:pb-10">
+    <div><p style="font-weight: bold;">Copyright FIFA 2026</p></div>
+    <div class="flex gap-5">
+      <p>contact@extratime.com</p>
+    </div>
+  </footer>
+
+<!--Inner div ends-->
+</div>
+<!--Main ends-->
+</main>
+
+
+
+<!---------------------------------------------->
+<!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+
+    <!-- Link to scripts of your own -->
+    
+</body>
+
+</html>

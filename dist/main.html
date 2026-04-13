@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    
+
+    <!-- Other libraries go here -->
+
+    <script type="module" crossorigin src="/assets/main-BebvNrh4.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/firebaseConfig-BbYGTN39.js">
+    <link rel="modulepreload" crossorigin href="/assets/authentication-lA7oHY1c.js">
+    <link rel="stylesheet" crossorigin href="/assets/firebaseConfig-OLjP3HPS.css">
+  </head>
+  
+<body id="unsigneduser" class="hidden">
+  
+<site-navbar></site-navbar>
+    
+<main class="max-w-7xl mx-auto relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
+<!-- fix heights are the temporary changes -->
+<div class="absolute top-0 w-full h-80 md:h-80    rounded-t-2xl -ml-10 bg-[#d8d4da] z-0"></div>
+<div class="mx-auto z-10 relative">
+
+    <!--Header Search and login-->
+    <div class=" flex flex-wrap flex-row  gap-3 justify-between items-align mb-20">
+        <!--Left side-->
+        <div>
+        <form class="hidden lg:flex gap-3">
+            <input type="text" placeholder="Search" class="h-10 w-40 bg-white px-4 rounded-full text-sm">
+            <button class="bg-[var(--medium-grey)] h-10 md:px-4 px-2  rounded-full text-white text-sm">Search</button>
+        </form>
+        </div>
+        <!--Right side-->
+        <div id="" class="signedinuser flex gap-5 bg-white rounded-full p-2">
+            <!--Profile image-->
+            <div class="flex justify-center  gap-2 items-center">
+
+                <a href="settings.html">
+                    <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm mr-3 cursor-pointer"></img>
+                </a>
+                <p id="username-display" class=" text-sm font-bold pr-10 md:pr-0"></p>
+
+            </div>
+            <button id="auth-btn" class="bg-black h-10 px-4 rounded-full text-white text-sm">Log out</button>
+        </div>
+    </div>
+    
+
+    <!--Upcoming events-->
+    <h1 style="margin-bottom: 40px; ">Upcoming events</h1>
+    <div class="carousel overflow-x-auto no-scrollbar cursor-grab select-none flex gap-4 p-4 -ml-10 -mr-10 pl-10 pb-15">
+        <div id="upcomingEvents" class="flex gap-4 w-max p-0">
+
+            <div class="flex bg-white rounded-4xl shadow-2xl h-50 w-150">
+                <!--Image-->
+                <div class="flex rounded-l-4xl shadow-xl w-50">
+                    <img src="/images/plus-background.jpg" draggable="false" class="w-full rounded-l-4xl h-50 w-50 object-cover object-center">
+                </div>
+                <!--Text-->
+                <div class="flex-1 flex flex-col justify-between py-5 px-10">
+                    <div>
+                        <h2>Add events to your calendar to see upcoming events</h2>
+                    </div>  
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <h2 style="margin-bottom: 50px;">Event Categories</h2>
+    <!--Category buttons-->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mb-30">
+
+        <!--Watch Party-->
+        <a href="/explore.html?tag=Watch Party">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">videocam</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Watch Party</p>
+        </div>
+        </a>
+
+        <!--Esports-->
+        <a href="/explore.html?tag=E-Sports">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">computer</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">E-Sports</p>
+        </div>
+        </a>
+
+        <!--Outdoors-->
+        <a href="/explore.html?tag=Outdoors">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">nature</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Outdoors</p>
+        </div>
+        </a>
+
+        <!--Indoors-->
+        <a href="/explore.html?tag=Indoors">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">cottage</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Indoors</p>
+        </div>
+        </a>
+
+        <!--Tournaments-->
+        <a href="/explore.html?tag=Tournaments">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">trophy</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Tournaments</p>
+        </div>
+        </a>
+
+        <!--Family-->
+        <a href="/explore.html?tag=Family">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">family_group</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Family</p>
+        </div>
+        </a>
+
+        <!--Nightlife-->
+        <a href="/explore.html?tag=Nightlife">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">wine_bar</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Nightlife</p>
+        </div>
+        </a>
+        
+        <!--Meet & Greet-->
+        <a href="/explore.html?tag=Meet & Greet">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">face</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Meet & Greet</p>
+        </div>
+        </a>
+
+        <!--Music-->
+        <a href="/explore.html?tag=Music">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">music_note</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Music</p>
+        </div>
+        </a>
+
+        <!--Arts-->
+        <a href="/explore.html?tag=Arts">
+        <div class="flex flex-col justify-center items-center rounded-2xl bg-white/50 hover:bg-white shadow-xl border-2 border-white p-3 pt-5 pb-5">
+            <div class="flex justify-center items-center mb-2 md:shadow-2xl">
+                <span class="material-symbols-outlined">image</span>
+            </div>
+            <p class="text-xs" style="text-align: center;">Arts</p>
+        </div>
+        </a>
+
+    </div>
+
+
+
+  <!--Your Favourites-->
+  <h1 class="m:pt-0 pt-5" style="margin-bottom: 50px;">Your favourites</h1>
+  <div class="favourites-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-30">
+
+
+
+
+  <!--Event grid ends-->
+  </div>
+
+  <footer class="flex flex-col sm:flex-row justify-between border-t-1 border-gray-400 pt-10 pb-50 md:pb-10">
+    <div><p style="font-weight: bold;">Copyright FIFA 2026</p></div>
+    <div class="flex gap-5">
+      <p>contact@extratime.com</p>
+    </div>
+  </footer>
+
+<!--Inner div ends-->
+</div>
+<!--Main ends-->
+</main>
+
+<!-- Link to scripts of your own -->
+
+</body>
+
+</html>

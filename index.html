@@ -25,20 +25,30 @@
 <main class="max-w-7xl relative pt-7 px-10 ml-0 md:ml-50 md:mt-4 md:mr-4 md:mb-4 mx-auto bg-[var(--light-grey)] shadow-2xl rounded-0 md:rounded-[30px]">
 <!--<div class="absolute top-0 w-full h-50 -ml-10 bg-[#d8d4da]"></div>-->
 <div class="mx-auto">
-  <!--Header Search and login-->
-  <div class="flex flex-col md:flex-row justify-between mb-10">
-    <!--Left side-->
-    <div>
-      <form onsubmit="event.preventDefault(); searchRedirect()">
-        <input id ="searchInput" type="text" placeholder="Search" class="h-10 w-40 bg-white px-4 rounded-full text-sm">
-        <button class="bg-[var(--medium-grey)] h-10 px-4 rounded-full text-white text-sm">Search</button>
-      </form>
+
+    <!--Header Search and login-->
+    <div class=" flex flex-wrap flex-row  gap-3 justify-between items-align mb-20">
+        <!--Left side-->
+        <div>
+        <form class="hidden lg:flex gap-3">
+            <input type="text" placeholder="Search" class="h-10 w-40 bg-white px-4 rounded-full text-sm">
+            <button class="bg-[var(--medium-grey)] h-10 md:px-4 px-2  rounded-full text-white text-sm">Search</button>
+        </form>
+        </div>
+        <!--Right side-->
+        <div id="" class="signedinuser flex gap-5 bg-white rounded-full p-2">
+            <!--Profile image-->
+            <div class="flex justify-center  gap-2 items-center">
+
+                <a href="settings.html">
+                    <img id="profile-img" src="images/profile-image-sample.jpg" class="bg-[var(--primary-green)] h-10 border-2 border-white rounded-full text-white text-sm mr-3 cursor-pointer"></img>
+                </a>
+                <p id="username-display" class=" text-sm font-bold pr-10 md:pr-0"></p>
+
+            </div>
+            <button id="auth-btn" class="bg-black h-10 px-4 rounded-full text-white text-sm">Log out</button>
+        </div>
     </div>
-    <!--Right side-->
-    <div class="hidden md:inline">
-      <a href="login.html"><button class="bg-black h-10 px-4 rounded-full text-white text-sm">Login</button></a>
-    </div>
-  </div>
 
   <!--Banner-->
   <div class="flex flex-col md:flex-row p-10 w-full md:max-h-100 mb-20 text-white rounded-4xl bg-[#4e6d4e] md:justify-between">
