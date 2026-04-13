@@ -15,7 +15,8 @@ export default defineConfig({
                 explore: resolve(__dirname, "explore.html"),
                 eventpage: resolve(__dirname, "eventpage.html"),
                 calendar: resolve(__dirname, "calendar.html"),
-                friends: resolve(__dirname, "friends.html")
+                friends: resolve(__dirname, "friends.html"),
+                eventpage_js: resolve(__dirname, "src/eventpage.js")
             }
         }
     }
