@@ -202,7 +202,9 @@ function preSelectUserFilters(data) {
   });
 }
 
-// bad things happen when you touch this
+// Filters the event list based on the current search input and checked checkboxes.
+// Assigned to window so it can be called from inline onchange handlers in the HTML.
+// Re-runs every time any filter changes and re-renders only the matching events.
 window.applyFilters = () => {
   const search = document.getElementById("searchInput")?.value.toLowerCase() || "";
 
@@ -308,6 +310,17 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   applyQueryParams();
+  applyFilters();
+});
+
+// clears all filters and search input, then shows all events
+document.getElementById("resetFiltersBtn").addEventListener("click", () => {
+  // clear search box
+  document.getElementById("searchInput").value = "";
+  // grabs every checkbox across all three filter groups and uncheck them
+  document.querySelectorAll(".tagFilter, .budgetFilter, .dayFilter").forEach(cb => cb.checked = false);
+  //  Calls the existing filter function. Since all checkboxes are now unchecked and the search is empty, the filter    
+  // logic sees no active filters and returns all events, re-rendering the full list
   applyFilters();
 });
 
