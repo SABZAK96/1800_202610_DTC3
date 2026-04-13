@@ -9,12 +9,14 @@ const usernameDisplay = document.getElementById("username-display");
 const authBtn = document.getElementById("auth-btn");
 const signedInUserSection = document.querySelector(".signedinuser");
 
+
 onAuthStateChanged(auth, async (user) => {
     if (signedInUserSection) {
         signedInUserSection.classList.remove("hidden");
     }
     if (user) {
-         const nameElement = document.getElementById("username-display"); 
+        authBtn.textContent = "Log out"; // ensure button reads "Log out" for signed-in users
+         const nameElement = document.getElementById("username-display");
          const name = user.displayName || user.email;
         if (nameElement) {
               nameElement.textContent = `${name}!`;
@@ -33,7 +35,17 @@ onAuthStateChanged(auth, async (user) => {
             }
         };
     } else {
+        // no user signed in: switch button to "Log in" and hide name element and display the img placeholder
+        authBtn.textContent = "Log in";
         authBtn.onclick = () => { window.location.href = "login.html"; };
+        document.getElementById("profile-img").style.display = "none";
+        document.getElementById("username-display").style.display = "none";
+        // for non-logged in users that dont have any events in calendar we should show "Login"
+        document.getElementById("NoEventsmsg").innerText = "Login";
+        // show a dufferent message for a user that is not logged in empty calendar state
+        document.getElementById("NoEventtext").innerText = "Login to add events to your calendar!";
+        // the link for the button for non-logged in user with empty calendar state should be login
+        document.getElementById("calbtnlink").href = "login.html";
     }
 });
 
@@ -68,6 +80,10 @@ async function sortEvents() {
               console.log("No events");
               let calendarPlaceholder = document.getElementById("calendar-empty-state")
               calendarPlaceholder.classList.remove("hidden")
+              // for logged in users that dont have any events in calendar we should show "find events"
+              document.getElementById("NoEventsmsg").innerText = "Find Events";
+              // the link for the button for logged in user with empty calendar state should be explore
+              document.getElementById("calbtnlink").href = "explore.html";
               
           }
 
