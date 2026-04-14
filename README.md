@@ -48,7 +48,8 @@ Once the application is running:
 2.  Click the heart icon to save an event to your favourites.
 3.  View your saved events in the favourites section.
 4.  Use the Explore page to search and filter events.
-5.  Add friends and manage your profile in the Friends and Settings pages.
+5.  Manage your profile Settings pages to get personalized recommendation.
+6.  Have a static view of how friends page will look like in the future.
 
 ---
 
@@ -110,7 +111,8 @@ Once the application is running:
 - authenrication, login/signup process, and firebaseConfig JS codes were adopted from demos
 - Profile image upload code (Base64 encoding with FileReader and Firestore save) was adapted from the BCIT COMP 1800 course tech-tip channel.
 - Code snippets were adapted from resources such as [Stack Overflow](https://stackoverflow.com/) and [MDN Web Docs](https://developer.mozilla.org/).
-- Icons sourced from [FontAwesome](https://fontawesome.com/), some from Heroicons and images were genrated by AI
+- Icons sourced from [FontAwesome](https://fontawesome.com/), some from Heroicons and images were genrated by AI.
+- Due to initial deployment issues, we used an AI tool (Claude) to help diagnose and resolve the problem and successfully redeploying the application.
 
 ---
 
