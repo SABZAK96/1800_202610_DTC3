@@ -196,8 +196,11 @@ function currentPageMobile() {
             link.classList.remove("hover:bg-[#f4f1ea]");
             link.querySelector("svg").classList.remove("text-white");
             link.querySelector("svg").classList.add("text-[var(--primary-green)]");
-            link.querySelector("svg").nextElementSibling.classList.remove("text-white");
-            link.querySelector("svg").nextElementSibling.classList.add("text-black");
+            const textEl = link.querySelector("svg").nextElementSibling;
+            if (textEl) {
+                textEl.classList.remove("text-white");
+                textEl.classList.add("text-black");
+            }
         }
     });
 }
