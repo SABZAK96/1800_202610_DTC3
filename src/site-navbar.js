@@ -196,6 +196,12 @@ function currentPageMobile() {
             link.classList.remove("hover:bg-[#f4f1ea]");
             link.querySelector("svg").classList.remove("text-white");
             link.querySelector("svg").classList.add("text-[var(--primary-green)]");
+            // this was the line that was added by the Claude to solve the hosting issue. The meaning of this line
+            //  is to grab the sibiling element of svg which is the text in big screens, but in mobile this doesnt exist.
+            // this was fine in localhost, because dev server ignores this error that we get for missing element(null value)
+            // hosted version on the other hand, if a .classList on null value is called, will crash the entire script.
+            // so the gaurd condition checks if the text is available, if true it will remove the previous class list and
+            // add the new class list for it.
             const textEl = link.querySelector("svg").nextElementSibling;
             if (textEl) {
                 textEl.classList.remove("text-white");
