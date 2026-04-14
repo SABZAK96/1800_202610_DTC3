@@ -284,7 +284,8 @@ function applyQueryParams() {
   const search = params.get("search");
 
   if (tag) {
-    // find the checkbox whose value matches the tag and check it
+    // clear any pre-selected tag filters so only the clicked category shows
+    document.querySelectorAll('.tagFilter').forEach(cb => cb.checked = false);
     const matchingBox = document.querySelector(`.tagFilter[value="${tag}"]`);
     if (matchingBox) matchingBox.checked = true;
   }
