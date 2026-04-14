@@ -1,4 +1,4 @@
-import"./site-footer-C38TklsK.js";import{c as d,g as r,d as o}from"./firebaseConfig-C9Uf5pfZ.js";async function f(){const a=d(o,"Events_2026"),i=await r(a);let e=0;i.forEach(n=>{let s=n.id,t=n.data();if(e===0){let c=`
+import{c as d,K as r,a as o}from"./firebaseConfig-DoznUf42.js";async function f(){const a=d(o,"Events_2026"),i=await r(a);let e=0;i.forEach(n=>{let s=n.id,t=n.data();if(e===0){let c=`
         <a href="eventpage.html?docID=${s}" class="flex flex-1 lg:flex-row flex-col bg-white rounded-4xl shadow-2xl">
           <div class="flex-1 rounded-l-4xl shadow-xl w-full">
             <img src="./images/${s}.jpg" class="w-full rounded-l-4xl h-80 object-cover object-center">
